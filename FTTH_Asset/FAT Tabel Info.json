@@ -1,0 +1,310 @@
+{
+  "asset_info": {
+    "author": "Syaiful Wachid",
+    "category": "FTTH",
+    "asset_type": "POLE",
+    "revision": "1.0",
+    "description": "AutoCAD Serialized Object Definition"
+  },
+  "document_settings": {
+    "measurement": "Decimal",
+    "drawing_limits_min": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "drawing_limits_max": [
+      420.0,
+      297.0,
+      0.0
+    ]
+  },
+  "dependencies": {
+    "layers": [
+      "FAT_Info"
+    ],
+    "textstyles": [
+      "MANTP"
+    ],
+    "linetypes": [
+      "ByLayer"
+    ]
+  },
+  "layers": [
+    {
+      "name": "FAT_Info",
+      "color": 170,
+      "linetype": "Continuous",
+      "lineweight": "LineWeight000"
+    }
+  ],
+  "textstyles": [
+    {
+      "name": "MANTP",
+      "font_file_name": "ROMANS",
+      "big_font_file_name": "",
+      "width_factor": 1.0,
+      "obliquing_angle": 0.0,
+      "is_vertical": false,
+      "text_size": 1.399999999999999,
+      "font_typeface": null,
+      "font_bold": false,
+      "font_italic": false,
+      "font_pitch_family": 0,
+      "font_charset": 0,
+      "has_font_desc": false
+    }
+  ],
+  "blocks": [],
+  "entities": [
+    {
+      "id": "ent_001",
+      "type": "MTEXT",
+      "layer": "FAT_Info",
+      "color": 256,
+      "linetype": "ByLayer",
+      "lineweight": "ByLayer",
+      "contents": "Distance to FDT:",
+      "location": [
+        -8.041929610320949,
+        -0.224825750873606,
+        0.0
+      ],
+      "height": 1.7719875191508374,
+      "rotation": 0.0,
+      "style": "MANTP",
+      "attachment": "MiddleCenter",
+      "width": 0.0
+    },
+    {
+      "id": "ent_002",
+      "type": "MTEXT",
+      "layer": "FAT_Info",
+      "color": 256,
+      "linetype": "ByLayer",
+      "lineweight": "ByLayer",
+      "contents": "-15.36 dB",
+      "location": [
+        12.97157623772182,
+        -4.2794675155037112,
+        0.0
+      ],
+      "height": 1.6651332323186252,
+      "rotation": 0.0,
+      "style": "MANTP",
+      "attachment": "MiddleCenter",
+      "width": 0.0
+    },
+    {
+      "id": "ent_003",
+      "type": "MTEXT",
+      "layer": "FAT_Info",
+      "color": 256,
+      "linetype": "ByLayer",
+      "lineweight": "ByLayer",
+      "contents": "Power @1310 nm :",
+      "location": [
+        -6.656651879002311,
+        -4.3232645202579079,
+        0.0
+      ],
+      "height": 1.6651332323186252,
+      "rotation": 0.0,
+      "style": "MANTP",
+      "attachment": "MiddleCenter",
+      "width": 0.0
+    },
+    {
+      "id": "ent_004",
+      "type": "MTEXT",
+      "layer": "FAT_Info",
+      "color": 256,
+      "linetype": "ByLayer",
+      "lineweight": "ByLayer",
+      "contents": "125 m",
+      "location": [
+        13.740710708145343,
+        -0.175987810001061,
+        0.0
+      ],
+      "height": 1.7719875191508374,
+      "rotation": 0.0,
+      "style": "MANTP",
+      "attachment": "MiddleCenter",
+      "width": 0.0
+    },
+    {
+      "id": "ent_005",
+      "type": "MTEXT",
+      "layer": "FAT_Info",
+      "color": 256,
+      "linetype": "ByLayer",
+      "lineweight": "ByLayer",
+      "contents": "MLW12.127.A01",
+      "location": [
+        0.6874920063346508,
+        4.4154263500922752,
+        0.0
+      ],
+      "height": 2.4727909304201603,
+      "rotation": 0.0,
+      "style": "MANTP",
+      "attachment": "MiddleCenter",
+      "width": 0.0
+    },
+    {
+      "id": "ent_006",
+      "type": "POLYLINE",
+      "layer": "FAT_Info",
+      "color": 256,
+      "linetype": "ByLayer",
+      "lineweight": "ByLayer",
+      "closed": false,
+      "elevation": 0.0,
+      "vertices": [
+        {
+          "x": -20.036211929666024,
+          "y": 6.7169524052005727,
+          "bulge": 0.0
+        },
+        {
+          "x": 20.403396780711148,
+          "y": 6.7169524052005727,
+          "bulge": 0.0
+        }
+      ]
+    },
+    {
+      "id": "ent_007",
+      "type": "POLYLINE",
+      "layer": "FAT_Info",
+      "color": 256,
+      "linetype": "ByLayer",
+      "lineweight": "ByLayer",
+      "closed": false,
+      "elevation": 0.0,
+      "vertices": [
+        {
+          "x": -20.036211929666024,
+          "y": 6.1753990513097961,
+          "bulge": 0.0
+        },
+        {
+          "x": 20.403396780711148,
+          "y": 6.1753990513097961,
+          "bulge": 0.0
+        }
+      ]
+    },
+    {
+      "id": "ent_008",
+      "type": "LINE",
+      "layer": "FAT_Info",
+      "color": 256,
+      "linetype": "ByLayer",
+      "lineweight": "ByLayer",
+      "start_point": [
+        -20.036211929666024,
+        2.3694160173472483,
+        0.0
+      ],
+      "end_point": [
+        20.403396780686307,
+        2.3694160173472483,
+        0.0
+      ]
+    },
+    {
+      "id": "ent_009",
+      "type": "LINE",
+      "layer": "FAT_Info",
+      "color": 256,
+      "linetype": "ByLayer",
+      "lineweight": "ByLayer",
+      "start_point": [
+        -20.036211929666024,
+        1.8278626634564716,
+        0.0
+      ],
+      "end_point": [
+        20.403396780686307,
+        1.8278626634564716,
+        0.0
+      ]
+    },
+    {
+      "id": "ent_010",
+      "type": "LINE",
+      "layer": "FAT_Info",
+      "color": 256,
+      "linetype": "ByLayer",
+      "lineweight": "ByLayer",
+      "start_point": [
+        -20.036211929666024,
+        -2.2934555539104622,
+        0.0
+      ],
+      "end_point": [
+        20.403396780686307,
+        -2.2934555539104622,
+        0.0
+      ]
+    },
+    {
+      "id": "ent_011",
+      "type": "LINE",
+      "layer": "FAT_Info",
+      "color": 256,
+      "linetype": "ByLayer",
+      "lineweight": "ByLayer",
+      "start_point": [
+        -20.036211929666024,
+        6.7169524052005727,
+        0.0
+      ],
+      "end_point": [
+        -20.036211929666024,
+        -6.414773771277396,
+        0.0
+      ]
+    },
+    {
+      "id": "ent_012",
+      "type": "LINE",
+      "layer": "FAT_Info",
+      "color": 256,
+      "linetype": "ByLayer",
+      "lineweight": "ByLayer",
+      "start_point": [
+        -20.036211929666024,
+        -6.414773771277396,
+        0.0
+      ],
+      "end_point": [
+        20.403396780686307,
+        -6.414773771277396,
+        0.0
+      ]
+    },
+    {
+      "id": "ent_013",
+      "type": "LINE",
+      "layer": "FAT_Info",
+      "color": 256,
+      "linetype": "ByLayer",
+      "lineweight": "ByLayer",
+      "start_point": [
+        20.403396780711148,
+        6.7169524052005727,
+        0.0
+      ],
+      "end_point": [
+        20.403396780686307,
+        -6.414773771277396,
+        0.0
+      ]
+    }
+  ],
+  "metadata": {},
+  "runtime_logic": {}
+}

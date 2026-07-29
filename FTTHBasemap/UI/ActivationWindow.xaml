@@ -1,0 +1,193 @@
+<Window x:Class="FTTHBasemap.UI.ActivationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Aktivasi Lisensi Software" Height="580" Width="420"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        BorderThickness="0"
+        Loaded="Window_Loaded"
+        Closed="Window_Closed"
+        MouseDown="Window_MouseDown">
+
+    <Window.Resources>
+        <SolidColorBrush x:Key="BackgroundBrush" Color="#1E1E22" />
+        <SolidColorBrush x:Key="CardBackgroundBrush" Color="#2A2A30" />
+        <SolidColorBrush x:Key="AccentBrush" Color="#007ACC" />
+        <SolidColorBrush x:Key="AccentHoverBrush" Color="#1C97EA" />
+        <SolidColorBrush x:Key="BorderBrush" Color="#3E3E44" />
+        <SolidColorBrush x:Key="TextMutedBrush" Color="#9E9EAE" />
+        <SolidColorBrush x:Key="TextWhiteBrush" Color="#E0E0E6" />
+        <SolidColorBrush x:Key="SuccessBrush" Color="#2ECC71" />
+        <SolidColorBrush x:Key="WarningBrush" Color="#F39C12" />
+        <SolidColorBrush x:Key="DangerBrush" Color="#E74C3C" />
+
+        <!-- Accent Button Style -->
+        <Style x:Key="AccentButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="{StaticResource AccentBrush}" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="4" />
+                </Style>
+            </Style.Resources>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{StaticResource AccentHoverBrush}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- Secondary Button Style -->
+        <Style x:Key="SecondaryButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#333339" />
+            <Setter Property="Foreground" Value="#E0E0E6" />
+            <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="4" />
+                </Style>
+            </Style.Resources>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#44444C" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Border Background="{StaticResource BackgroundBrush}" 
+            BorderBrush="{StaticResource BorderBrush}" 
+            BorderThickness="1" 
+            CornerRadius="12">
+        <Grid Margin="16">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" /> <!-- Header -->
+                <RowDefinition Height="*" />    <!-- Content (QRIS + Info) -->
+                <RowDefinition Height="Auto" /> <!-- Manual Key Entry -->
+                <RowDefinition Height="Auto" /> <!-- Footer Actions -->
+            </Grid.RowDefinitions>
+
+            <!-- Header -->
+            <Grid Grid.Row="0" Margin="0,0,0,12">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="🔑" FontSize="16" VerticalAlignment="Center" Margin="0,0,8,0"/>
+                    <TextBlock Text="FTTH BASEMAP ACTIVATION" FontSize="13" FontWeight="Bold" Foreground="{StaticResource AccentBrush}" VerticalAlignment="Center"/>
+                </StackPanel>
+                <Button Content="✕" Width="20" Height="20" HorizontalAlignment="Right" VerticalAlignment="Center"
+                        Foreground="{StaticResource TextMutedBrush}" Background="Transparent" BorderThickness="0" Cursor="Hand" Click="BtnClose_Click"
+                        FontSize="11" FontWeight="Bold">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Foreground" Value="White" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </Grid>
+
+            <!-- Content (QRIS Card) -->
+            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                <StackPanel>
+                    <Border Background="{StaticResource CardBackgroundBrush}" BorderBrush="{StaticResource BorderBrush}" BorderThickness="1" CornerRadius="8" Padding="12" Margin="0,0,0,8">
+                        <StackPanel HorizontalAlignment="Center">
+                            <!-- QRIS Title -->
+                            <TextBlock Text="QRIS DINAMIS OTOMATIS" FontSize="11" FontWeight="Bold" Foreground="{StaticResource TextWhiteBrush}" HorizontalAlignment="Center" Margin="0,0,0,8"/>
+                            
+                            <!-- QR Code Container -->
+                            <Border BorderBrush="{StaticResource BorderBrush}" BorderThickness="1" Background="White" Width="180" Height="180" CornerRadius="6" Padding="6">
+                                <Grid>
+                                    <Image x:Name="ImgQrCode" Width="168" Height="168" RenderOptions.BitmapScalingMode="NearestNeighbor"/>
+                                    <TextBlock x:Name="TxtQrPlaceholder" Text="Memuat QRIS..." Foreground="#555555" FontSize="11" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Visibility="Collapsed"/>
+                                </Grid>
+                            </Border>
+
+                            <!-- Merchant Name -->
+                            <TextBlock Text="SWD SOFT DEVELOPER" FontSize="9" Foreground="{StaticResource TextMutedBrush}" HorizontalAlignment="Center" Margin="0,4,0,8" FontWeight="SemiBold"/>
+
+                            <!-- Amount -->
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,4">
+                                <TextBlock Text="Total Transfer: " FontSize="11" Foreground="{StaticResource TextMutedBrush}" VerticalAlignment="Bottom"/>
+                                <TextBlock x:Name="TxtAmount" Text="Rp 100.248" FontSize="16" FontWeight="Bold" Foreground="{StaticResource SuccessBrush}" VerticalAlignment="Bottom"/>
+                            </StackPanel>
+                            <TextBlock Text="*Harus transfer nominal pas (presisi 3 digit terakhir)" FontSize="9" FontStyle="Italic" Foreground="{StaticResource DangerBrush}" HorizontalAlignment="Center" Margin="0,0,0,8"/>
+
+                            <!-- Payment Code -->
+                            <Border Background="#1E1E22" CornerRadius="4" Padding="6,4" HorizontalAlignment="Center">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Payment ID: " FontSize="10" Foreground="{StaticResource TextMutedBrush}"/>
+                                    <TextBlock x:Name="TxtPaymentId" Text="FTTH-248-ABC123" FontSize="10" FontWeight="Bold" Foreground="{StaticResource AccentBrush}"/>
+                                    <Button Content="📋" Background="Transparent" BorderThickness="0" Foreground="{StaticResource AccentBrush}" Margin="6,0,0,0" Cursor="Hand" Click="BtnCopyPaymentId_Click" ToolTip="Salin Payment ID"/>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Instruction Card -->
+                    <Border Background="{StaticResource CardBackgroundBrush}" BorderBrush="{StaticResource BorderBrush}" BorderThickness="1" CornerRadius="8" Padding="10" Margin="0,0,0,8">
+                        <StackPanel>
+                            <TextBlock Text="Petunjuk Aktivasi Langganan:" FontSize="10" FontWeight="Bold" Foreground="{StaticResource AccentBrush}" Margin="0,0,0,6"/>
+                            <TextBlock Text="1. Scan QR Code di atas dengan m-Banking / e-Wallet (Gopay, OVO, Dana, dll)." FontSize="10" Foreground="{StaticResource TextWhiteBrush}" TextWrapping="Wrap" Margin="0,0,0,4"/>
+                            <TextBlock FontSize="10" Foreground="{StaticResource TextWhiteBrush}" TextWrapping="Wrap">
+                                <Run Text="2. Buka "/>
+                                <Hyperlink NavigateUri="https://t.me/bmg_ftth_bot" RequestNavigate="Hyperlink_RequestNavigate" Foreground="{StaticResource AccentBrush}" ToolTip="Klik untuk membuka bot di Telegram">
+                                    <Run Text="Bot Telegram @bmg_ftth_bot"/>
+                                </Hyperlink>
+                                <Run Text=" lalu ketik:"/>
+                            </TextBlock>
+                            <Border Background="#1E1E22" Padding="6,3" CornerRadius="4" Margin="12,4,0,4" HorizontalAlignment="Left">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock x:Name="TxtTelegramCmd" Text="/pay FTTH-248-ABC123" FontSize="9" FontFamily="Consolas" Foreground="{StaticResource SuccessBrush}"/>
+                                    <Button Content="📋" Background="Transparent" BorderThickness="0" Foreground="{StaticResource SuccessBrush}" Margin="8,0,0,0" Cursor="Hand" Click="BtnCopyCmd_Click" ToolTip="Salin Perintah"/>
+                                </StackPanel>
+                            </Border>
+                            <TextBlock Text="3. Bayar tagihan. Begitu pembayaran dikonfirmasi Admin, sistem akan otomatis melakukan aktivasi dan menutup form ini." FontSize="10" Foreground="{StaticResource TextWhiteBrush}" TextWrapping="Wrap"/>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </ScrollViewer>
+
+            <!-- Manual Key Entry -->
+            <Border Grid.Row="2" Background="{StaticResource CardBackgroundBrush}" BorderBrush="{StaticResource BorderBrush}" BorderThickness="1" CornerRadius="8" Padding="10" Margin="0,4,0,8">
+                <StackPanel>
+                    <TextBlock Text="Aktivasi Manual (Jika offline / punya Serial Key):" FontSize="9" FontWeight="Bold" Foreground="{StaticResource TextMutedBrush}" Margin="0,0,0,4"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBox x:Name="TxtActivationKey" Grid.Column="0" Height="24" Background="#1E1E22" Foreground="White" BorderBrush="{StaticResource BorderBrush}" BorderThickness="1" Padding="4,2" FontSize="10" VerticalContentAlignment="Center"/>
+                        <Button Grid.Column="1" Content="Aktifkan" Width="60" Height="24" Margin="6,0,0,0" Style="{StaticResource AccentButtonStyle}" FontSize="10" Click="BtnManualActivate_Click"/>
+                    </Grid>
+                </StackPanel>
+            </Border>
+
+            <!-- Footer Actions -->
+            <Grid Grid.Row="3" Margin="0,4,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                
+                <!-- Status Message -->
+                <StackPanel Grid.Column="0" VerticalAlignment="Center">
+                    <TextBlock x:Name="TxtStatus" Text="Status: Menunggu Pembayaran Polling..." FontSize="10" Foreground="{StaticResource WarningBrush}" FontWeight="SemiBold"/>
+                    <TextBlock x:Name="TxtDeviceId" Text="Device ID: Load..." FontSize="8" Foreground="{StaticResource TextMutedBrush}"/>
+                </StackPanel>
+
+                <!-- Action Button -->
+                <Button Grid.Column="1" Content="Batal / Tutup" Width="80" Height="26" Click="BtnClose_Click" Cursor="Hand" Style="{StaticResource SecondaryButtonStyle}" FontSize="10"/>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

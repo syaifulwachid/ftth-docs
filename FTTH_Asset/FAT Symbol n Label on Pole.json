@@ -1,0 +1,530 @@
+{
+  "asset_info": {
+    "author": "Syaiful Wachid",
+    "category": "FTTH",
+    "asset_type": "POLE",
+    "revision": "1.0",
+    "description": "AutoCAD Serialized Object Definition"
+  },
+  "document_settings": {
+    "measurement": "Decimal",
+    "drawing_limits_min": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "drawing_limits_max": [
+      420.0,
+      297.0,
+      0.0
+    ]
+  },
+  "dependencies": {
+    "layers": [
+      "FAT",
+      "FAT Symbol"
+    ],
+    "textstyles": [
+      "Simplex",
+      "MANTP"
+    ],
+    "linetypes": [
+      "ByLayer"
+    ]
+  },
+  "layers": [
+    {
+      "name": "FAT",
+      "color": 40,
+      "linetype": "Continuous",
+      "lineweight": "LineWeight000"
+    },
+    {
+      "name": "FAT Symbol",
+      "color": 7,
+      "linetype": "Continuous",
+      "lineweight": "LineWeight018"
+    }
+  ],
+  "textstyles": [
+    {
+      "name": "Simplex",
+      "font_file_name": "simplex.shx",
+      "big_font_file_name": "",
+      "width_factor": 1.0,
+      "obliquing_angle": 0.0,
+      "is_vertical": false,
+      "text_size": 0.0,
+      "font_typeface": null,
+      "font_bold": false,
+      "font_italic": false,
+      "font_pitch_family": 0,
+      "font_charset": 0,
+      "has_font_desc": false
+    },
+    {
+      "name": "MANTP",
+      "font_file_name": "ROMANS",
+      "big_font_file_name": "",
+      "width_factor": 1.0,
+      "obliquing_angle": 0.0,
+      "is_vertical": false,
+      "text_size": 1.399999999999999,
+      "font_typeface": null,
+      "font_bold": false,
+      "font_italic": false,
+      "font_pitch_family": 0,
+      "font_charset": 0,
+      "has_font_desc": false
+    }
+  ],
+  "blocks": [
+    {
+      "name": "FATSW",
+      "base_point": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "entities": [
+        {
+          "id": "sub_001",
+          "type": "POLYLINE",
+          "layer": "FAT Symbol",
+          "color": 40,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "closed": true,
+          "elevation": 0.0,
+          "vertices": [
+            {
+              "x": -2.4745469531772692,
+              "y": -2.2304744986148859,
+              "bulge": 0.0
+            },
+            {
+              "x": 2.3284455262873838,
+              "y": -2.3220555729117645,
+              "bulge": 0.0
+            },
+            {
+              "x": 2.2761527649914215,
+              "y": -5.0645625929331732,
+              "bulge": 0.0
+            },
+            {
+              "x": -2.5268397144440313,
+              "y": -4.9729815186506992,
+              "bulge": 0.0
+            }
+          ]
+        },
+        {
+          "id": "sub_002",
+          "type": "POLYLINE",
+          "layer": "FAT Symbol",
+          "color": 40,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "closed": true,
+          "elevation": 0.0,
+          "vertices": [
+            {
+              "x": -2.3250906054638638,
+              "y": -2.3857411531276682,
+              "bulge": 0.0
+            },
+            {
+              "x": 2.1731788717599971,
+              "y": -2.4715119206107112,
+              "bulge": 0.0
+            },
+            {
+              "x": 2.1266964173071208,
+              "y": -4.9092959384202954,
+              "bulge": 0.0
+            },
+            {
+              "x": -2.3715730599167424,
+              "y": -4.823525170937196,
+              "bulge": 0.0
+            }
+          ]
+        },
+        {
+          "id": "sub_003",
+          "type": "HATCH",
+          "layer": "FAT Symbol",
+          "color": 2,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "pattern_name": "SOLID",
+          "pattern_type": "PreDefined",
+          "pattern_scale": 1.0,
+          "pattern_angle": 0.0,
+          "associative": true,
+          "hatch_style": "Outer",
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "elevation": -3.4037600758767265E-13,
+          "loops": [
+            {
+              "loop_type": 1,
+              "is_polyline": false,
+              "edges": [
+                {
+                  "type": "LINE",
+                  "start": [
+                    -2.3250906054638638,
+                    -2.3857411531276682
+                  ],
+                  "end": [
+                    -2.3715730599167424,
+                    -4.823525170937196
+                  ]
+                },
+                {
+                  "type": "LINE",
+                  "start": [
+                    -2.3715730599167424,
+                    -4.823525170937196
+                  ],
+                  "end": [
+                    -1.220065129754095,
+                    -3.6261463909628695
+                  ]
+                },
+                {
+                  "type": "LINE",
+                  "start": [
+                    -1.220065129754095,
+                    -3.6261463909628695
+                  ],
+                  "end": [
+                    -2.3250906054638638,
+                    -2.3857411531276682
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "sub_004",
+          "type": "POLYLINE",
+          "layer": "FAT Symbol",
+          "color": 2,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "closed": true,
+          "elevation": 0.0,
+          "vertices": [
+            {
+              "x": -2.3250906054638638,
+              "y": -2.3857411531276682,
+              "bulge": 0.0
+            },
+            {
+              "x": -2.3715730599167424,
+              "y": -4.823525170937196,
+              "bulge": 0.0
+            },
+            {
+              "x": -1.220065129754095,
+              "y": -3.6261463909628695,
+              "bulge": 0.0
+            }
+          ]
+        },
+        {
+          "id": "sub_005",
+          "type": "TEXT",
+          "layer": "FAT Symbol",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "LineWeight030",
+          "text_string": "16",
+          "position": [
+            -0.99401128768786151,
+            -4.5004589028091875,
+            -3.4037600758767265E-13
+          ],
+          "alignment_point": [
+            0.0,
+            0.0,
+            -3.4037600758767265E-13
+          ],
+          "height": 1.7423410354186168,
+          "rotation": 6.2671085911411994,
+          "style": "Simplex",
+          "horizontal_mode": "TextLeft",
+          "vertical_mode": "TextBase",
+          "width_factor": 1.0,
+          "obliquing_angle": 0.0
+        },
+        {
+          "id": "sub_006",
+          "type": "TEXT",
+          "layer": "FAT Symbol",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "LineWeight030",
+          "text_string": "15",
+          "position": [
+            -0.90040868478187619,
+            -4.4815756057327008,
+            -3.4037600758767265E-13
+          ],
+          "alignment_point": [
+            0.0,
+            0.0,
+            -3.4037600758767265E-13
+          ],
+          "height": 1.7423410354186168,
+          "rotation": 0.0040820409180071637,
+          "style": "Simplex",
+          "horizontal_mode": "TextLeft",
+          "vertical_mode": "TextBase",
+          "width_factor": 1.0,
+          "obliquing_angle": 0.0
+        },
+        {
+          "id": "sub_007",
+          "type": "TEXT",
+          "layer": "FAT Symbol",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "LineWeight030",
+          "text_string": "14",
+          "position": [
+            -0.89774232769260109,
+            -4.48007493114136,
+            -3.4037600758767265E-13
+          ],
+          "alignment_point": [
+            0.0,
+            0.0,
+            -3.4037600758767265E-13
+          ],
+          "height": 1.7423410354186168,
+          "rotation": 0.0040820409180071637,
+          "style": "Simplex",
+          "horizontal_mode": "TextLeft",
+          "vertical_mode": "TextBase",
+          "width_factor": 1.0,
+          "obliquing_angle": 0.0
+        },
+        {
+          "id": "sub_008",
+          "type": "TEXT",
+          "layer": "FAT Symbol",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "LineWeight030",
+          "text_string": "13",
+          "position": [
+            -0.895075970603326,
+            -4.4785742565500755,
+            -3.4037600758767265E-13
+          ],
+          "alignment_point": [
+            0.0,
+            0.0,
+            -3.4037600758767265E-13
+          ],
+          "height": 1.7423410354186168,
+          "rotation": 0.0040820409180071637,
+          "style": "Simplex",
+          "horizontal_mode": "TextLeft",
+          "vertical_mode": "TextBase",
+          "width_factor": 1.0,
+          "obliquing_angle": 0.0
+        },
+        {
+          "id": "sub_009",
+          "type": "TEXT",
+          "layer": "FAT Symbol",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "LineWeight030",
+          "text_string": "12",
+          "position": [
+            -0.8924096135140509,
+            -4.513487420907552,
+            -3.4037600758767265E-13
+          ],
+          "alignment_point": [
+            0.0,
+            0.0,
+            -3.4037600758767265E-13
+          ],
+          "height": 1.7423410354186168,
+          "rotation": 0.0040820409180071637,
+          "style": "Simplex",
+          "horizontal_mode": "TextLeft",
+          "vertical_mode": "TextBase",
+          "width_factor": 1.0,
+          "obliquing_angle": 0.0
+        },
+        {
+          "id": "sub_010",
+          "type": "TEXT",
+          "layer": "FAT Symbol",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "LineWeight030",
+          "text_string": "11",
+          "position": [
+            -0.88974325642477581,
+            -4.4391590684185758,
+            -3.4037600758767265E-13
+          ],
+          "alignment_point": [
+            0.0,
+            0.0,
+            -3.4037600758767265E-13
+          ],
+          "height": 1.7423410354186168,
+          "rotation": 0.0040820409180071637,
+          "style": "Simplex",
+          "horizontal_mode": "TextLeft",
+          "vertical_mode": "TextBase",
+          "width_factor": 1.0,
+          "obliquing_angle": 0.0
+        },
+        {
+          "id": "sub_011",
+          "type": "TEXT",
+          "layer": "FAT Symbol",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "LineWeight030",
+          "text_string": "10",
+          "position": [
+            -0.88707689933550071,
+            -4.4740722327761091,
+            -3.4037600758767265E-13
+          ],
+          "alignment_point": [
+            0.0,
+            0.0,
+            -3.4037600758767265E-13
+          ],
+          "height": 1.7423410354186168,
+          "rotation": 0.0040820409180071637,
+          "style": "Simplex",
+          "horizontal_mode": "TextLeft",
+          "vertical_mode": "TextBase",
+          "width_factor": 1.0,
+          "obliquing_angle": 0.0
+        },
+        {
+          "id": "sub_012",
+          "type": "TEXT",
+          "layer": "FAT Symbol",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "LineWeight030",
+          "text_string": "9",
+          "position": [
+            -0.16182426438754405,
+            -4.4361577192359505,
+            -3.4037600758767265E-13
+          ],
+          "alignment_point": [
+            0.0,
+            0.0,
+            -3.4037600758767265E-13
+          ],
+          "height": 1.7423410354186168,
+          "rotation": 0.0040820409180071637,
+          "style": "Simplex",
+          "horizontal_mode": "TextLeft",
+          "vertical_mode": "TextBase",
+          "width_factor": 1.0,
+          "obliquing_angle": 0.0
+        },
+        {
+          "id": "sub_013",
+          "type": "TEXT",
+          "layer": "FAT Symbol",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "LineWeight030",
+          "text_string": "8",
+          "position": [
+            -0.15915790729826895,
+            -4.434656948735153,
+            -3.4037600758767265E-13
+          ],
+          "alignment_point": [
+            0.0,
+            0.0,
+            -3.4037600758767265E-13
+          ],
+          "height": 1.7423410354186168,
+          "rotation": 0.0040820409180071637,
+          "style": "Simplex",
+          "horizontal_mode": "TextLeft",
+          "vertical_mode": "TextBase",
+          "width_factor": 1.0,
+          "obliquing_angle": 0.0
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "ent_001",
+      "type": "BLOCKREFERENCE",
+      "layer": "FAT",
+      "color": 256,
+      "linetype": "ByLayer",
+      "lineweight": "ByLayer",
+      "block_name": "FATSW",
+      "position": [
+        -1.1368683772161603E-13,
+        1.1368683772161603E-13,
+        0.0
+      ],
+      "rotation": 0.017453292519943295,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "attributes": [],
+      "dynamic_properties": [
+        {
+          "name": "Visibility1",
+          "value": "16",
+          "type": "NoUnits"
+        }
+      ]
+    },
+    {
+      "id": "ent_002",
+      "type": "MTEXT",
+      "layer": "FAT Symbol",
+      "color": 256,
+      "linetype": "ByLayer",
+      "lineweight": "ByLayer",
+      "contents": "KNR5.369.A01",
+      "location": [
+        -0.11738392933511932,
+        3.0779145126025469,
+        0.0
+      ],
+      "height": 1.399999999999999,
+      "rotation": 0.0,
+      "style": "MANTP",
+      "attachment": "MiddleCenter",
+      "width": 5.7801921456502336
+    }
+  ],
+  "metadata": {},
+  "runtime_logic": {}
+}

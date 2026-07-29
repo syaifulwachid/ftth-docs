@@ -1,0 +1,644 @@
+{
+  "asset_info": {
+    "author": "Syaiful Wachid",
+    "category": "FTTH",
+    "asset_type": "POLE",
+    "revision": "1.0",
+    "description": "AutoCAD Serialized Object Definition"
+  },
+  "document_settings": {
+    "measurement": "Decimal",
+    "drawing_limits_min": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "drawing_limits_max": [
+      420.0,
+      297.0,
+      0.0
+    ]
+  },
+  "dependencies": {
+    "layers": [
+      "BaseMap"
+    ],
+    "textstyles": [
+      "Title Block v21 - Default$0$Styledgn001"
+    ],
+    "linetypes": [
+      "ByLayer"
+    ]
+  },
+  "layers": [
+    {
+      "name": "BaseMap",
+      "color": 254,
+      "linetype": "Continuous",
+      "lineweight": "LineWeight018"
+    },
+    {
+      "name": "LABEL CABLE",
+      "color": 200,
+      "linetype": "Continuous",
+      "lineweight": "ByLineWeightDefault"
+    }
+  ],
+  "textstyles": [
+    {
+      "name": "Title Block v21 - Default$0$Styledgn001",
+      "font_file_name": "dgn001.shx",
+      "big_font_file_name": "",
+      "width_factor": 1.0,
+      "obliquing_angle": 0.0,
+      "is_vertical": false,
+      "text_size": 0.0,
+      "font_typeface": null,
+      "font_bold": false,
+      "font_italic": false,
+      "font_pitch_family": 0,
+      "font_charset": 0,
+      "has_font_desc": false
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Label Cable",
+      "base_point": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "entities": [
+        {
+          "id": "sub_001",
+          "type": "LINE",
+          "layer": "LABEL CABLE",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "start_point": [
+            -3.3589609129248856,
+            -1.8646911676732998,
+            0.0
+          ],
+          "end_point": [
+            -3.3589609116152133,
+            1.984188823527802,
+            0.0
+          ]
+        },
+        {
+          "id": "sub_002",
+          "type": "LINE",
+          "layer": "LABEL CABLE",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "start_point": [
+            -3.1589609128550364,
+            -1.6646911676762102,
+            0.0
+          ],
+          "end_point": [
+            -3.1589609116908832,
+            1.784188823428849,
+            0.0
+          ]
+        },
+        {
+          "id": "sub_003",
+          "type": "LINE",
+          "layer": "LABEL CABLE",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "start_point": [
+            3.4000477895187942,
+            -1.8646911676732998,
+            0.0
+          ],
+          "end_point": [
+            -3.3589609129248856,
+            -1.8646911676732998,
+            0.0
+          ]
+        },
+        {
+          "id": "sub_004",
+          "type": "LINE",
+          "layer": "LABEL CABLE",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "start_point": [
+            3.2000477895362565,
+            -1.6646911676762102,
+            0.0
+          ],
+          "end_point": [
+            -3.1589609128550364,
+            -1.6646911676762102,
+            0.0
+          ]
+        },
+        {
+          "id": "sub_005",
+          "type": "LINE",
+          "layer": "LABEL CABLE",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "start_point": [
+            3.4000477895187942,
+            1.9841888201663096,
+            0.0
+          ],
+          "end_point": [
+            3.4000477895187942,
+            -1.8646911676732998,
+            0.0
+          ]
+        },
+        {
+          "id": "sub_006",
+          "type": "LINE",
+          "layer": "LABEL CABLE",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "start_point": [
+            3.2000477895362565,
+            1.7841888202710834,
+            0.0
+          ],
+          "end_point": [
+            3.2000477895362565,
+            -1.6646911676762102,
+            0.0
+          ]
+        },
+        {
+          "id": "sub_007",
+          "type": "LINE",
+          "layer": "LABEL CABLE",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "start_point": [
+            3.0000477895246149,
+            1.5841888203613053,
+            0.0
+          ],
+          "end_point": [
+            3.0000477895246149,
+            1.0841888203613053,
+            0.0
+          ]
+        },
+        {
+          "id": "sub_008",
+          "type": "LINE",
+          "layer": "LABEL CABLE",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "start_point": [
+            3.1000477895304357,
+            1.6841888203089184,
+            0.0
+          ],
+          "end_point": [
+            3.1000477895304357,
+            0.98418882031182875,
+            0.0
+          ]
+        },
+        {
+          "id": "sub_009",
+          "type": "LINE",
+          "layer": "LABEL CABLE",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "start_point": [
+            1.9000477895187942,
+            1.584188820914278,
+            0.0
+          ],
+          "end_point": [
+            1.9000477895187942,
+            1.084188820914278,
+            0.0
+          ]
+        },
+        {
+          "id": "sub_010",
+          "type": "LINE",
+          "layer": "LABEL CABLE",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "start_point": [
+            1.8000477895129734,
+            1.6841888209637546,
+            0.0
+          ],
+          "end_point": [
+            1.8000477895129734,
+            0.98418882096666493,
+            0.0
+          ]
+        },
+        {
+          "id": "sub_011",
+          "type": "LINE",
+          "layer": "LABEL CABLE",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "start_point": [
+            -3.3589609129248856,
+            1.984188823527802,
+            0.0
+          ],
+          "end_point": [
+            3.4000477895187942,
+            1.9841888201663096,
+            0.0
+          ]
+        },
+        {
+          "id": "sub_012",
+          "type": "LINE",
+          "layer": "LABEL CABLE",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "start_point": [
+            -3.1589609116908832,
+            1.784188823428849,
+            0.0
+          ],
+          "end_point": [
+            3.2000477895362565,
+            1.7841888202710834,
+            0.0
+          ]
+        },
+        {
+          "id": "sub_013",
+          "type": "LINE",
+          "layer": "LABEL CABLE",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "start_point": [
+            1.9000477895187942,
+            1.584188820914278,
+            0.0
+          ],
+          "end_point": [
+            3.0000477895246149,
+            1.5841888203613053,
+            0.0
+          ]
+        },
+        {
+          "id": "sub_014",
+          "type": "LINE",
+          "layer": "LABEL CABLE",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "start_point": [
+            1.8000477895129734,
+            1.6841888209637546,
+            0.0
+          ],
+          "end_point": [
+            3.1000477895304357,
+            1.6841888203089184,
+            0.0
+          ]
+        },
+        {
+          "id": "sub_015",
+          "type": "LINE",
+          "layer": "LABEL CABLE",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "start_point": [
+            1.9000477895187942,
+            1.084188820914278,
+            0.0
+          ],
+          "end_point": [
+            3.0000477895246149,
+            1.0841888203613053,
+            0.0
+          ]
+        },
+        {
+          "id": "sub_016",
+          "type": "LINE",
+          "layer": "LABEL CABLE",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "start_point": [
+            1.8000477895129734,
+            0.98418882096666493,
+            0.0
+          ],
+          "end_point": [
+            3.1000477895304357,
+            0.98418882031182875,
+            0.0
+          ]
+        },
+        {
+          "id": "sub_017",
+          "type": "MTEXT",
+          "layer": "LABEL CABLE",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "contents": "\\pxsm1.5;{\\W1.06772;LABEL CABLE}",
+          "location": [
+            -2.6371192779170087,
+            -0.39725118282876792,
+            0.0
+          ],
+          "height": 0.5,
+          "rotation": 0.0,
+          "style": "Title Block v21 - Default$0$Styledgn001",
+          "attachment": "BottomLeft",
+          "width": 0.0
+        },
+        {
+          "id": "sub_018",
+          "type": "MTEXT",
+          "layer": "LABEL CABLE",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "contents": "\\pxsm1.5;{\\W1.06772;MYREPUBLIC}",
+          "location": [
+            1.9707699570444674,
+            1.2556958781242429,
+            0.0
+          ],
+          "height": 0.1,
+          "rotation": 0.0,
+          "style": "Title Block v21 - Default$0$Styledgn001",
+          "attachment": "BottomLeft",
+          "width": 0.0
+        },
+        {
+          "id": "sub_019",
+          "type": "LINE",
+          "layer": "LABEL CABLE",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "start_point": [
+            3.0000477895246149,
+            -0.96498323685591458,
+            0.0
+          ],
+          "end_point": [
+            3.0000477895246149,
+            -1.4649832368704665,
+            0.0
+          ]
+        },
+        {
+          "id": "sub_020",
+          "type": "LINE",
+          "layer": "LABEL CABLE",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "start_point": [
+            1.9000477895187942,
+            -0.96498323631749372,
+            0.0
+          ],
+          "end_point": [
+            1.9000477895187942,
+            -1.4649832363174937,
+            0.0
+          ]
+        },
+        {
+          "id": "sub_021",
+          "type": "LINE",
+          "layer": "LABEL CABLE",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "start_point": [
+            1.9000477895187942,
+            -0.96498323631749372,
+            0.0
+          ],
+          "end_point": [
+            3.0000477895246149,
+            -0.96498323685591458,
+            0.0
+          ]
+        },
+        {
+          "id": "sub_022",
+          "type": "LINE",
+          "layer": "LABEL CABLE",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "start_point": [
+            1.9000477895187942,
+            -1.4649832363174937,
+            0.0
+          ],
+          "end_point": [
+            3.0000477895246149,
+            -1.4649832368559146,
+            0.0
+          ]
+        },
+        {
+          "id": "sub_023",
+          "type": "LINE",
+          "layer": "LABEL CABLE",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "start_point": [
+            -1.8852293432119041,
+            -0.96498323685591458,
+            0.0
+          ],
+          "end_point": [
+            -1.8852293432119041,
+            -1.4649832368704665,
+            0.0
+          ]
+        },
+        {
+          "id": "sub_024",
+          "type": "LINE",
+          "layer": "LABEL CABLE",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "start_point": [
+            -2.985229343188621,
+            -0.96498323631749372,
+            0.0
+          ],
+          "end_point": [
+            -2.985229343188621,
+            -1.4649832363174937,
+            0.0
+          ]
+        },
+        {
+          "id": "sub_025",
+          "type": "LINE",
+          "layer": "LABEL CABLE",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "start_point": [
+            -2.985229343188621,
+            -0.96498323631749372,
+            0.0
+          ],
+          "end_point": [
+            -1.8852293432119041,
+            -0.96498323685591458,
+            0.0
+          ]
+        },
+        {
+          "id": "sub_026",
+          "type": "LINE",
+          "layer": "LABEL CABLE",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "start_point": [
+            -2.985229343188621,
+            -1.4649832363174937,
+            0.0
+          ],
+          "end_point": [
+            -1.8852293432119041,
+            -1.4649832368559146,
+            0.0
+          ]
+        },
+        {
+          "id": "sub_027",
+          "type": "LINE",
+          "layer": "LABEL CABLE",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "start_point": [
+            -1.0577974899915716,
+            1.6235413156282448,
+            0.0
+          ],
+          "end_point": [
+            -1.0577974899915716,
+            0.77881703694947646,
+            0.0
+          ]
+        },
+        {
+          "id": "sub_028",
+          "type": "LINE",
+          "layer": "LABEL CABLE",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "start_point": [
+            -2.985229343188621,
+            1.6235413165886712,
+            0.0
+          ],
+          "end_point": [
+            -2.985229343188621,
+            0.77881703790990287,
+            0.0
+          ]
+        },
+        {
+          "id": "sub_029",
+          "type": "LINE",
+          "layer": "LABEL CABLE",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "start_point": [
+            -2.985229343188621,
+            1.6235413165886712,
+            0.0
+          ],
+          "end_point": [
+            -1.0577974899915716,
+            1.6235413156282448,
+            0.0
+          ]
+        },
+        {
+          "id": "sub_030",
+          "type": "LINE",
+          "layer": "LABEL CABLE",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "start_point": [
+            -2.985229343188621,
+            0.77881703790990287,
+            0.0
+          ],
+          "end_point": [
+            -1.0577974899915716,
+            0.77881703694947646,
+            0.0
+          ]
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "ent_001",
+      "type": "BLOCKREFERENCE",
+      "layer": "BaseMap",
+      "color": 0,
+      "linetype": "ByLayer",
+      "lineweight": "ByLayer",
+      "block_name": "Label Cable",
+      "position": [
+        0.0,
+        0.038338594829838257,
+        0.0
+      ],
+      "rotation": 0.0,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "attributes": [],
+      "dynamic_properties": []
+    }
+  ],
+  "metadata": {},
+  "runtime_logic": {}
+}

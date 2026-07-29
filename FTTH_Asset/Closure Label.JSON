@@ -1,0 +1,123 @@
+{
+  "asset_info": {
+    "author": "Syaiful Wachid",
+    "category": "FTTH",
+    "asset_type": "POLE",
+    "revision": "1.0",
+    "description": "AutoCAD Serialized Object Definition"
+  },
+  "document_settings": {
+    "measurement": "Decimal",
+    "drawing_limits_min": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "drawing_limits_max": [
+      420.0,
+      297.0,
+      0.0
+    ]
+  },
+  "dependencies": {
+    "layers": [
+      "Closure Info"
+    ],
+    "textstyles": [
+      "Title Block v21 - Default$0$Standard"
+    ],
+    "linetypes": [
+      "ByLayer"
+    ]
+  },
+  "layers": [
+    {
+      "name": "Closure Info",
+      "color": 7,
+      "linetype": "Continuous",
+      "lineweight": "ByLineWeightDefault"
+    }
+  ],
+  "textstyles": [
+    {
+      "name": "Title Block v21 - Default$0$Standard",
+      "font_file_name": "arial.ttf",
+      "big_font_file_name": "",
+      "width_factor": 1.0,
+      "obliquing_angle": 0.0,
+      "is_vertical": false,
+      "text_size": 0.0,
+      "font_typeface": "Arial",
+      "font_bold": false,
+      "font_italic": false,
+      "font_pitch_family": 39,
+      "font_charset": 0,
+      "has_font_desc": true
+    }
+  ],
+  "blocks": [],
+  "entities": [
+    {
+      "id": "ent_001",
+      "type": "POLYLINE",
+      "layer": "Closure Info",
+      "color": 1,
+      "linetype": "ByLayer",
+      "lineweight": "ByLayer",
+      "closed": true,
+      "elevation": 0.0,
+      "vertices": [
+        {
+          "x": -45.073343257835859,
+          "y": 13.049356735642505,
+          "bulge": 0.0
+        },
+        {
+          "x": 45.073343257835859,
+          "y": 13.049356735642505,
+          "bulge": 0.0
+        },
+        {
+          "x": 45.073343257835859,
+          "y": -13.049356735642505,
+          "bulge": 0.0
+        },
+        {
+          "x": -45.073343257835859,
+          "y": -13.049356735642505,
+          "bulge": 0.0
+        }
+      ]
+    },
+    {
+      "id": "ent_002",
+      "type": "MTEXT",
+      "layer": "Closure Info",
+      "color": 256,
+      "linetype": "ByLayer",
+      "lineweight": "ByBlock",
+      "contents": "\\pxt12;{\\C7;Closure ID : NEW-JC-144C-GDL-S02-HF1-03\\PCoordinate : \\fCalibri|b0|i0|c0|p34;\\H0.91667x;\\C256; -8.179115 112.688895\\fArial|b0|i0|c0|p34;\\H1.09091x;\\C7;\\PDistance to OLT :  12.726 M\\PSplice Configuration :\\P\\fArial|b0|i0|c0|p39;(T01-T12) :C01 - C144/144C ~ (T01-T12) :C01 - C144/144C}",
+      "location": [
+        -43.701711644102488,
+        9.61830371927499,
+        0.0
+      ],
+      "height": 2.3321712109026955,
+      "rotation": 0.0,
+      "style": "Title Block v21 - Default$0$Standard",
+      "attachment": "TopLeft",
+      "width": 97.558301069282862
+    },
+    {
+      "id": "ent_003",
+      "type": "WIPEOUT",
+      "layer": "Closure Info",
+      "color": 256,
+      "linetype": "ByLayer",
+      "lineweight": "ByLayer",
+      "bounds": "Min: (-45.0733432578359,-13.0493567356407,0), Max: (45.0733432578357,13.0493567356429,0)"
+    }
+  ],
+  "metadata": {},
+  "runtime_logic": {}
+}

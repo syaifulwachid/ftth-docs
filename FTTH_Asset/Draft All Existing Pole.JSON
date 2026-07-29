@@ -1,0 +1,540 @@
+{
+  "asset_info": {
+    "author": "Syaiful Wachid",
+    "category": "FTTH",
+    "asset_type": "POLE",
+    "revision": "1.0",
+    "description": "AutoCAD Serialized Object Definition"
+  },
+  "document_settings": {
+    "measurement": "Decimal",
+    "drawing_limits_min": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "drawing_limits_max": [
+      420.0,
+      297.0,
+      0.0
+    ]
+  },
+  "dependencies": {
+    "layers": [
+      "Slack Cable Info",
+      "ETIKET EMR-FH",
+      "NEW POLE 7M 2.5INCH",
+      "NP7 4' Symbol",
+      "NP3 3' HC Symbol"
+    ],
+    "textstyles": [
+      "Title Block 3",
+      "ISO-Text"
+    ],
+    "linetypes": [
+      "ByLayer",
+      "ByBlock"
+    ]
+  },
+  "layers": [
+    {
+      "name": "Slack Cable Info",
+      "color": 7,
+      "linetype": "Continuous",
+      "lineweight": "LineWeight000"
+    },
+    {
+      "name": "ETIKET EMR-FH",
+      "color": 7,
+      "linetype": "Continuous",
+      "lineweight": "LineWeight015"
+    },
+    {
+      "name": "NEW POLE 7M 2.5INCH",
+      "color": 212,
+      "linetype": "Continuous",
+      "lineweight": "ByLineWeightDefault"
+    },
+    {
+      "name": "NP7 4' Symbol",
+      "color": 3,
+      "linetype": "Continuous",
+      "lineweight": "LineWeight000"
+    },
+    {
+      "name": "NP3 3' HC Symbol",
+      "color": 4,
+      "linetype": "Continuous",
+      "lineweight": "LineWeight015"
+    }
+  ],
+  "textstyles": [
+    {
+      "name": "Title Block 3",
+      "font_file_name": "dgn003.shx",
+      "big_font_file_name": "",
+      "width_factor": 1.0,
+      "obliquing_angle": 0.0,
+      "is_vertical": false,
+      "text_size": 0.0,
+      "font_typeface": null,
+      "font_bold": false,
+      "font_italic": false,
+      "font_pitch_family": 0,
+      "font_charset": 0,
+      "has_font_desc": false
+    },
+    {
+      "name": "ISO-Text",
+      "font_file_name": "simplex.shx",
+      "big_font_file_name": "",
+      "width_factor": 0.6,
+      "obliquing_angle": 0.0,
+      "is_vertical": false,
+      "text_size": 0.0,
+      "font_typeface": null,
+      "font_bold": false,
+      "font_italic": false,
+      "font_pitch_family": 0,
+      "font_charset": 0,
+      "has_font_desc": false
+    }
+  ],
+  "blocks": [
+    {
+      "name": "EXT_POLE",
+      "base_point": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "entities": [
+        {
+          "id": "sub_001",
+          "type": "CIRCLE",
+          "layer": "ETIKET EMR-FH",
+          "color": 1,
+          "linetype": "ByBlock",
+          "lineweight": "ByBlock",
+          "center": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "radius": 2.2367448349500592
+        },
+        {
+          "id": "sub_002",
+          "type": "POLYLINE",
+          "layer": "ETIKET EMR-FH",
+          "color": 1,
+          "linetype": "ByBlock",
+          "lineweight": "ByBlock",
+          "closed": false,
+          "elevation": 0.0,
+          "vertices": [
+            {
+              "x": -1.5816174405772472,
+              "y": 1.5816174405772472,
+              "bulge": 0.0
+            },
+            {
+              "x": 1.5816174405772472,
+              "y": -1.5816174405772472,
+              "bulge": 0.0
+            }
+          ]
+        },
+        {
+          "id": "sub_003",
+          "type": "POLYLINE",
+          "layer": "ETIKET EMR-FH",
+          "color": 1,
+          "linetype": "ByBlock",
+          "lineweight": "ByBlock",
+          "closed": false,
+          "elevation": 0.0,
+          "vertices": [
+            {
+              "x": -1.5816174405772472,
+              "y": -1.5816174405767924,
+              "bulge": 0.0
+            },
+            {
+              "x": 1.5816174405772472,
+              "y": 1.5816174405772472,
+              "bulge": 0.0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "ent_001",
+      "type": "BLOCKREFERENCE",
+      "layer": "Slack Cable Info",
+      "color": 0,
+      "linetype": "ByLayer",
+      "lineweight": "ByLayer",
+      "block_name": "EXT_POLE",
+      "position": [
+        -12.310849359004351,
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "attributes": [],
+      "dynamic_properties": []
+    },
+    {
+      "id": "ent_002",
+      "type": "POLYLINE",
+      "layer": "ETIKET EMR-FH",
+      "color": 1,
+      "linetype": "ByBlock",
+      "lineweight": "ByBlock",
+      "closed": false,
+      "elevation": 0.0,
+      "vertices": [
+        {
+          "x": 14.243835266365505,
+          "y": -1.6008157468596664,
+          "bulge": 0.0
+        },
+        {
+          "x": 17.445466760085104,
+          "y": 1.6008157468596664,
+          "bulge": 0.0
+        }
+      ]
+    },
+    {
+      "id": "ent_003",
+      "type": "POLYLINE",
+      "layer": "ETIKET EMR-FH",
+      "color": 1,
+      "linetype": "ByBlock",
+      "lineweight": "ByBlock",
+      "closed": false,
+      "elevation": 0.0,
+      "vertices": [
+        {
+          "x": 14.243835266365753,
+          "y": 1.6008157468597801,
+          "bulge": 0.0
+        },
+        {
+          "x": 17.445466760085086,
+          "y": -1.6008157468595527,
+          "bulge": 0.0
+        }
+      ]
+    },
+    {
+      "id": "ent_004",
+      "type": "POLYLINE",
+      "layer": "ETIKET EMR-FH",
+      "color": 1,
+      "linetype": "ByBlock",
+      "lineweight": "ByBlock",
+      "closed": false,
+      "elevation": 0.0,
+      "vertices": [
+        {
+          "x": 7.739167018417664,
+          "y": -1.5677741500795719,
+          "bulge": 0.0
+        },
+        {
+          "x": 10.874715318577053,
+          "y": 1.5677741500795719,
+          "bulge": 0.0
+        }
+      ]
+    },
+    {
+      "id": "ent_005",
+      "type": "POLYLINE",
+      "layer": "ETIKET EMR-FH",
+      "color": 1,
+      "linetype": "ByBlock",
+      "lineweight": "ByBlock",
+      "closed": false,
+      "elevation": 0.0,
+      "vertices": [
+        {
+          "x": 7.7391670184177936,
+          "y": 1.5677741500797993,
+          "bulge": 0.0
+        },
+        {
+          "x": 10.874715318577067,
+          "y": -1.5677741500794582,
+          "bulge": 0.0
+        }
+      ]
+    },
+    {
+      "id": "ent_006",
+      "type": "POLYLINE",
+      "layer": "ETIKET EMR-FH",
+      "color": 1,
+      "linetype": "ByBlock",
+      "lineweight": "ByBlock",
+      "closed": false,
+      "elevation": 0.0,
+      "vertices": [
+        {
+          "x": 1.2014766340532681,
+          "y": -1.5677741500795719,
+          "bulge": 0.0
+        },
+        {
+          "x": 4.3370249342126588,
+          "y": 1.5677741500795719,
+          "bulge": 0.0
+        }
+      ]
+    },
+    {
+      "id": "ent_007",
+      "type": "POLYLINE",
+      "layer": "ETIKET EMR-FH",
+      "color": 1,
+      "linetype": "ByBlock",
+      "lineweight": "ByBlock",
+      "closed": false,
+      "elevation": 0.0,
+      "vertices": [
+        {
+          "x": 1.2014766340534049,
+          "y": 1.5677741500797993,
+          "bulge": 0.0
+        },
+        {
+          "x": 4.3370249342126659,
+          "y": -1.5677741500794582,
+          "bulge": 0.0
+        }
+      ]
+    },
+    {
+      "id": "ent_008",
+      "type": "TEXT",
+      "layer": "NEW POLE 7M 2.5INCH",
+      "color": 256,
+      "linetype": "ByBlock",
+      "lineweight": "ByBlock",
+      "text_string": "2.5",
+      "position": [
+        14.804397939670668,
+        -1.7669795150846994,
+        0.0
+      ],
+      "alignment_point": [
+        15.927397084635231,
+        -1.0962461213439383,
+        0.0
+      ],
+      "height": 1.3414667874814399,
+      "rotation": 0.0,
+      "style": "Title Block 3",
+      "horizontal_mode": "TextCenter",
+      "vertical_mode": "TextVerticalMid",
+      "width_factor": 0.79909077085457692,
+      "obliquing_angle": 0.0
+    },
+    {
+      "id": "ent_009",
+      "type": "CIRCLE",
+      "layer": "NEW POLE 7M 2.5INCH",
+      "color": 1,
+      "linetype": "ByBlock",
+      "lineweight": "ByBlock",
+      "center": [
+        15.844651013225302,
+        0.0,
+        0.0
+      ],
+      "radius": 2.2638953400693875
+    },
+    {
+      "id": "ent_010",
+      "type": "TEXT",
+      "layer": "NEW POLE 7M 2.5INCH",
+      "color": 256,
+      "linetype": "ByBlock",
+      "lineweight": "ByBlock",
+      "text_string": "eP7",
+      "position": [
+        14.326055003781185,
+        -0.12536578144852228,
+        0.0
+      ],
+      "alignment_point": [
+        15.844651013225302,
+        0.627624835819006,
+        0.0
+      ],
+      "height": 1.5059812345351566,
+      "rotation": 0.0,
+      "style": "Title Block 3",
+      "horizontal_mode": "TextCenter",
+      "vertical_mode": "TextVerticalMid",
+      "width_factor": 0.79909077085457692,
+      "obliquing_angle": 0.0
+    },
+    {
+      "id": "ent_011",
+      "type": "MTEXT",
+      "layer": "NP7 4' Symbol",
+      "color": 5,
+      "linetype": "ByBlock",
+      "lineweight": "ByLayer",
+      "contents": "\\pxsm0.6,qc;eP9\\P4'",
+      "location": [
+        7.4761774041671742,
+        1.5653059239994036,
+        -3.4037600758767265E-13
+      ],
+      "height": 1.6913128736818703,
+      "rotation": 6.2785946711674825,
+      "style": "ISO-Text",
+      "attachment": "TopLeft",
+      "width": 3.8704807242611423
+    },
+    {
+      "id": "ent_012",
+      "type": "CIRCLE",
+      "layer": "NP7 4' Symbol",
+      "color": 1,
+      "linetype": "ByBlock",
+      "lineweight": "ByLayer",
+      "center": [
+        9.30694116849736,
+        0.0,
+        0.0
+      ],
+      "radius": 2.2171674657805722
+    },
+    {
+      "id": "ent_013",
+      "type": "MTEXT",
+      "layer": "NP7 4' Symbol",
+      "color": 3,
+      "linetype": "ByBlock",
+      "lineweight": "ByLayer",
+      "contents": "\\pxsm0.6,qc;eP7\\P4'",
+      "location": [
+        0.93848701980277838,
+        1.5653059239994036,
+        -3.4037600758767265E-13
+      ],
+      "height": 1.6913128736818703,
+      "rotation": 6.2785946711674825,
+      "style": "ISO-Text",
+      "attachment": "TopLeft",
+      "width": 3.8704807242611423
+    },
+    {
+      "id": "ent_014",
+      "type": "CIRCLE",
+      "layer": "NP7 4' Symbol",
+      "color": 1,
+      "linetype": "ByBlock",
+      "lineweight": "ByLayer",
+      "center": [
+        2.7692507841329643,
+        0.0,
+        0.0
+      ],
+      "radius": 2.2171674657805722
+    },
+    {
+      "id": "ent_015",
+      "type": "MTEXT",
+      "layer": "NP3 3' HC Symbol",
+      "color": 4,
+      "linetype": "ByBlock",
+      "lineweight": "ByLayer",
+      "contents": "\\pxsm0.6;eP7\\P\\pqc;3'",
+      "location": [
+        -5.148345612864432,
+        1.5653059239994036,
+        -3.4037600758767265E-13
+      ],
+      "height": 1.6913128736818703,
+      "rotation": 6.2785946711674825,
+      "style": "ISO-Text",
+      "attachment": "TopLeft",
+      "width": 3.8704807242611423
+    },
+    {
+      "id": "ent_016",
+      "type": "CIRCLE",
+      "layer": "NP3 3' HC Symbol",
+      "color": 1,
+      "linetype": "ByBlock",
+      "lineweight": "ByLayer",
+      "center": [
+        -3.3175818485342461,
+        0.0,
+        0.0
+      ],
+      "radius": 2.2171674657805722
+    },
+    {
+      "id": "ent_017",
+      "type": "POLYLINE",
+      "layer": "ETIKET EMR-FH",
+      "color": 1,
+      "linetype": "ByBlock",
+      "lineweight": "ByBlock",
+      "closed": false,
+      "elevation": 0.0,
+      "vertices": [
+        {
+          "x": -4.8853559986140613,
+          "y": -1.5677741500794582,
+          "bulge": 0.0
+        },
+        {
+          "x": -1.7498076984546609,
+          "y": 1.5677741500796856,
+          "bulge": 0.0
+        }
+      ]
+    },
+    {
+      "id": "ent_018",
+      "type": "POLYLINE",
+      "layer": "ETIKET EMR-FH",
+      "color": 1,
+      "linetype": "ByBlock",
+      "lineweight": "ByBlock",
+      "closed": false,
+      "elevation": 0.0,
+      "vertices": [
+        {
+          "x": -4.8853559986139237,
+          "y": 1.5677741500796856,
+          "bulge": 0.0
+        },
+        {
+          "x": -1.7498076984545667,
+          "y": -1.5677741500796856,
+          "bulge": 0.0
+        }
+      ]
+    }
+  ],
+  "metadata": {},
+  "runtime_logic": {}
+}

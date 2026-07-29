@@ -1,0 +1,655 @@
+{
+  "asset_info": {
+    "author": "Syaiful Wachid",
+    "category": "FTTH",
+    "asset_type": "POLE",
+    "revision": "1.0",
+    "description": "AutoCAD Serialized Object Definition"
+  },
+  "document_settings": {
+    "measurement": "Decimal",
+    "drawing_limits_min": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "drawing_limits_max": [
+      420.0,
+      297.0,
+      0.0
+    ]
+  },
+  "dependencies": {
+    "layers": [
+      "FDT-Info"
+    ],
+    "textstyles": [
+      "ROMANS"
+    ],
+    "linetypes": [
+      "ByLayer"
+    ]
+  },
+  "layers": [
+    {
+      "name": "FDT-Info",
+      "color": 1,
+      "linetype": "Continuous",
+      "lineweight": "ByLineWeightDefault"
+    }
+  ],
+  "textstyles": [
+    {
+      "name": "ROMANS",
+      "font_file_name": "romans.shx",
+      "big_font_file_name": "",
+      "width_factor": 1.1999999999999991,
+      "obliquing_angle": 0.0,
+      "is_vertical": false,
+      "text_size": 0.0,
+      "font_typeface": null,
+      "font_bold": false,
+      "font_italic": false,
+      "font_pitch_family": 0,
+      "font_charset": 0,
+      "has_font_desc": false
+    }
+  ],
+  "blocks": [
+    {
+      "name": "FDT-Info",
+      "base_point": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "entities": [
+        {
+          "id": "sub_001",
+          "type": "WIPEOUT",
+          "layer": "FDT-Info",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "LineWeight000",
+          "bounds": "Min: (0,1.33226762955019E-15,0), Max: (38.2539676054475,16.5345601806325,0)"
+        },
+        {
+          "id": "sub_002",
+          "type": "LINE",
+          "layer": "FDT-Info",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "start_point": [
+            38.253967605447542,
+            16.534560180632525,
+            0.0
+          ],
+          "end_point": [
+            38.253967605418438,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": "sub_003",
+          "type": "LINE",
+          "layer": "FDT-Info",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "start_point": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "end_point": [
+            38.253967605418438,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": "sub_004",
+          "type": "LINE",
+          "layer": "FDT-Info",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "start_point": [
+            0.0,
+            16.534560180632525,
+            0.0
+          ],
+          "end_point": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": "sub_005",
+          "type": "LINE",
+          "layer": "FDT-Info",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "start_point": [
+            0.0,
+            3.8985731713673886,
+            0.0
+          ],
+          "end_point": [
+            38.253967605418438,
+            3.8985731713673886,
+            0.0
+          ]
+        },
+        {
+          "id": "sub_006",
+          "type": "LINE",
+          "layer": "FDT-Info",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "start_point": [
+            0.0,
+            7.7971463427347771,
+            0.0
+          ],
+          "end_point": [
+            38.253967605418438,
+            7.7971463427347771,
+            0.0
+          ]
+        },
+        {
+          "id": "sub_007",
+          "type": "TEXT",
+          "layer": "FDT-Info",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "text_string": "Power @1490 nm",
+          "position": [
+            3.7966107246356842,
+            0.93605223676422611,
+            0.0
+          ],
+          "alignment_point": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "height": 1.9492865856837041,
+          "rotation": 0.0,
+          "style": "ROMANS",
+          "horizontal_mode": "TextLeft",
+          "vertical_mode": "TextBase",
+          "width_factor": 0.69999999949381164,
+          "obliquing_angle": 0.0
+        },
+        {
+          "id": "sub_008",
+          "type": "TEXT",
+          "layer": "FDT-Info",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "text_string": ":",
+          "position": [
+            25.473016298594302,
+            0.93605223676422611,
+            0.0
+          ],
+          "alignment_point": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "height": 1.9492865856837041,
+          "rotation": 0.0,
+          "style": "ROMANS",
+          "horizontal_mode": "TextLeft",
+          "vertical_mode": "TextBase",
+          "width_factor": 0.69999999949381164,
+          "obliquing_angle": 0.0
+        },
+        {
+          "id": "sub_009",
+          "type": "TEXT",
+          "layer": "FDT-Info",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "text_string": ":",
+          "position": [
+            25.473016298594302,
+            4.8346254081316147,
+            0.0
+          ],
+          "alignment_point": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "height": 1.9492865856837041,
+          "rotation": 0.0,
+          "style": "ROMANS",
+          "horizontal_mode": "TextLeft",
+          "vertical_mode": "TextBase",
+          "width_factor": 0.69999999949381164,
+          "obliquing_angle": 0.0
+        },
+        {
+          "id": "sub_010",
+          "type": "LINE",
+          "layer": "FDT-Info",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "start_point": [
+            0.0,
+            8.3094303414432034,
+            0.0
+          ],
+          "end_point": [
+            38.253967605418438,
+            8.3094303414432034,
+            0.0
+          ]
+        },
+        {
+          "id": "sub_011",
+          "type": "POLYLINE",
+          "layer": "FDT-Info",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "closed": false,
+          "elevation": 0.0,
+          "vertices": [
+            {
+              "x": 0.0,
+              "y": 11.909711262329438,
+              "bulge": 0.0
+            },
+            {
+              "x": 38.253967605440266,
+              "y": 11.909711262329438,
+              "bulge": 0.0
+            }
+          ]
+        },
+        {
+          "id": "sub_012",
+          "type": "POLYLINE",
+          "layer": "FDT-Info",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "closed": false,
+          "elevation": 0.0,
+          "vertices": [
+            {
+              "x": 0.0,
+              "y": 12.421995261037864,
+              "bulge": 0.0
+            },
+            {
+              "x": 38.253967605440266,
+              "y": 12.421995261037864,
+              "bulge": 0.0
+            }
+          ]
+        },
+        {
+          "id": "sub_013",
+          "type": "POLYLINE",
+          "layer": "FDT-Info",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "closed": false,
+          "elevation": 0.0,
+          "vertices": [
+            {
+              "x": 7.2759576141834259E-12,
+              "y": 16.0222761819241,
+              "bulge": 0.0
+            },
+            {
+              "x": 38.253967605447542,
+              "y": 16.0222761819241,
+              "bulge": 0.0
+            }
+          ]
+        },
+        {
+          "id": "sub_014",
+          "type": "POLYLINE",
+          "layer": "FDT-Info",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "closed": false,
+          "elevation": 0.0,
+          "vertices": [
+            {
+              "x": 7.2759576141834259E-12,
+              "y": 16.534560180632525,
+              "bulge": 0.0
+            },
+            {
+              "x": 38.253967605447542,
+              "y": 16.534560180632525,
+              "bulge": 0.0
+            }
+          ]
+        },
+        {
+          "id": "sub_015",
+          "type": "ATTRIBUTEDEFINITION",
+          "layer": "FDT-Info",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "tag": "FAT_SEQUENCE",
+          "prompt": "FAT Sequence :",
+          "text_string": "XXX.XXX.XXXX",
+          "position": [
+            10.550122831915811,
+            13.052563770070531,
+            0.0
+          ],
+          "alignment_point": [
+            19.126983802721952,
+            14.222135721480754,
+            0.0
+          ],
+          "height": 2.339143902820445,
+          "rotation": 0.0,
+          "style": "ROMANS",
+          "horizontal_mode": "TextCenter",
+          "vertical_mode": "TextVerticalMid",
+          "width_factor": 0.69999999949381164,
+          "obliquing_angle": 0.0,
+          "invisible": false,
+          "constant": false,
+          "verifiable": false,
+          "preset": false
+        },
+        {
+          "id": "sub_016",
+          "type": "ATTRIBUTEDEFINITION",
+          "layer": "FDT-Info",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "tag": "DISTANCE_TO",
+          "prompt": "DISTANCE TO (OLT/FDT)",
+          "text_string": "Distance to FDT",
+          "position": [
+            3.7966107246356842,
+            4.8346254081316147,
+            0.0
+          ],
+          "alignment_point": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "height": 1.9492865856837041,
+          "rotation": 0.0,
+          "style": "ROMANS",
+          "horizontal_mode": "TextLeft",
+          "vertical_mode": "TextBase",
+          "width_factor": 0.69999999949381164,
+          "obliquing_angle": 0.0,
+          "invisible": false,
+          "constant": false,
+          "verifiable": false,
+          "preset": false
+        },
+        {
+          "id": "sub_017",
+          "type": "ATTRIBUTEDEFINITION",
+          "layer": "FDT-Info",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "tag": "LOSS_@1490NM",
+          "prompt": "LOSS @1490nm :",
+          "text_string": "",
+          "position": [
+            26.507133146624255,
+            0.93605223588337561,
+            0.0
+          ],
+          "alignment_point": [
+            26.507133146624255,
+            1.9106955287252276,
+            0.0
+          ],
+          "height": 1.9492865856837041,
+          "rotation": 0.0,
+          "style": "ROMANS",
+          "horizontal_mode": "TextLeft",
+          "vertical_mode": "TextVerticalMid",
+          "width_factor": 0.69999999949381164,
+          "obliquing_angle": 0.0,
+          "invisible": false,
+          "constant": false,
+          "verifiable": false,
+          "preset": false
+        },
+        {
+          "id": "sub_018",
+          "type": "ATTRIBUTEDEFINITION",
+          "layer": "FDT-Info",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "tag": "DISTANCE_TO_OLT",
+          "prompt": "DISTANCE TO OLT :",
+          "text_string": "XXX+Xm",
+          "position": [
+            26.507133146624255,
+            4.8346254072507637,
+            0.0
+          ],
+          "alignment_point": [
+            26.507133146624255,
+            5.8092687000926162,
+            0.0
+          ],
+          "height": 1.9492865856837041,
+          "rotation": 0.0,
+          "style": "ROMANS",
+          "horizontal_mode": "TextLeft",
+          "vertical_mode": "TextVerticalMid",
+          "width_factor": 0.69999999949381164,
+          "obliquing_angle": 0.0,
+          "invisible": false,
+          "constant": false,
+          "verifiable": false,
+          "preset": false
+        },
+        {
+          "id": "sub_019",
+          "type": "ATTRIBUTEDEFINITION",
+          "layer": "FDT-Info",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "tag": "FAT_SEQUENCE",
+          "prompt": "FAT Sequence :",
+          "text_string": "XXX.XXX.XXXX",
+          "position": [
+            10.550122831908535,
+            8.93999885047587,
+            0.0
+          ],
+          "alignment_point": [
+            19.126983802714676,
+            10.109570801886093,
+            0.0
+          ],
+          "height": 2.339143902820445,
+          "rotation": 0.0,
+          "style": "ROMANS",
+          "horizontal_mode": "TextCenter",
+          "vertical_mode": "TextVerticalMid",
+          "width_factor": 0.69999999949381164,
+          "obliquing_angle": 0.0,
+          "invisible": false,
+          "constant": false,
+          "verifiable": false,
+          "preset": false
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "ent_001",
+      "type": "BLOCKREFERENCE",
+      "layer": "FDT-Info",
+      "color": 256,
+      "linetype": "ByLayer",
+      "lineweight": "ByLayer",
+      "block_name": "FDT-Info",
+      "position": [
+        -25.544011034507491,
+        -11.097211276052462,
+        0.0
+      ],
+      "rotation": 0.0,
+      "scale": [
+        1.3354960352342309,
+        1.3354960352342309,
+        1.3354960352342309
+      ],
+      "attributes": [
+        {
+          "tag": "FAT_SEQUENCE",
+          "value": "KMB3.098",
+          "position": [
+            -8.1742505451762781,
+            6.3344358880231084,
+            0.0
+          ],
+          "height": 3.1239174080590293,
+          "rotation": 0.0,
+          "alignment_point": [
+            5.1159076974727213E-13,
+            7.8963945920526157,
+            0.0
+          ],
+          "horizontal_mode": "TextCenter",
+          "vertical_mode": "TextVerticalMid",
+          "style": "ROMANS",
+          "width_factor": 0.69999999949381164,
+          "obliquing_angle": 0.0,
+          "layer": "FDT-Info",
+          "color": 256
+        },
+        {
+          "tag": "DISTANCE_TO",
+          "value": "Distance to FDT",
+          "position": [
+            -20.473652464395343,
+            -4.640588211756608,
+            0.0
+          ],
+          "height": 2.6032645067158571,
+          "rotation": 0.0,
+          "alignment_point": [
+            -324.91306328551127,
+            526.9009318269558,
+            0.0
+          ],
+          "horizontal_mode": "TextLeft",
+          "vertical_mode": "TextBase",
+          "style": "ROMANS",
+          "width_factor": 0.69999999949381164,
+          "obliquing_angle": 0.0,
+          "layer": "FDT-Info",
+          "color": 256
+        },
+        {
+          "tag": "LOSS_@1490NM",
+          "value": "2.00 dB",
+          "position": [
+            9.8561601882398122,
+            -9.8471172270601528,
+            0.0
+          ],
+          "height": 2.6032645067158571,
+          "rotation": 0.0,
+          "alignment_point": [
+            9.8561601882398122,
+            -8.5454849737021732,
+            0.0
+          ],
+          "horizontal_mode": "TextLeft",
+          "vertical_mode": "TextVerticalMid",
+          "style": "ROMANS",
+          "width_factor": 0.69999999949381164,
+          "obliquing_angle": 0.0,
+          "layer": "FDT-Info",
+          "color": 256
+        },
+        {
+          "tag": "DISTANCE_TO_OLT",
+          "value": "0 m",
+          "position": [
+            9.8561601882398122,
+            -4.64058821339313,
+            0.0
+          ],
+          "height": 2.6032645067158571,
+          "rotation": 0.0,
+          "alignment_point": [
+            9.8561601882398122,
+            -3.3389559600351504,
+            0.0
+          ],
+          "horizontal_mode": "TextLeft",
+          "vertical_mode": "TextVerticalMid",
+          "style": "ROMANS",
+          "width_factor": 0.69999999949381164,
+          "obliquing_angle": 0.0,
+          "layer": "FDT-Info",
+          "color": 256
+        },
+        {
+          "tag": "FAT_SEQUENCE",
+          "value": "MLG.100.1001.KMB3.098",
+          "position": [
+            -20.253397847603082,
+            0.8421217431414334,
+            0.0
+          ],
+          "height": 3.1239174080590293,
+          "rotation": 0.0,
+          "alignment_point": [
+            5.1159076974727213E-13,
+            2.4040804471709407,
+            0.0
+          ],
+          "horizontal_mode": "TextCenter",
+          "vertical_mode": "TextVerticalMid",
+          "style": "ROMANS",
+          "width_factor": 0.69999999949381164,
+          "obliquing_angle": 0.0,
+          "layer": "FDT-Info",
+          "color": 256
+        }
+      ],
+      "dynamic_properties": []
+    }
+  ],
+  "metadata": {},
+  "runtime_logic": {}
+}

@@ -1,0 +1,151 @@
+<!DOCTYPE HTML>
+<html id="hs-topic-p">
+<head>
+<title>Show slope range colors</title>
+<meta charset="windows-1252" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="generator" content="HelpSmith 8.3 (Build 20.601)" />
+<style type="text/css" media="screen">
+html {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+body {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+#non-scrolling-area {
+  padding: 0 7.5pt 0 7.5pt;
+  background-color: #5e5f5f;
+}
+#container {
+  overflow: auto;
+}
+#content {
+  padding: 0 7.5pt 3.75pt 7.5pt;
+}
+</style>
+<link type="text/css" rel="stylesheet" href="styles.css" />
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="js/nsa.js"></script>
+<script type="text/javascript" src="js/hh-layout.js"></script>
+</head>
+<body>
+<div id="non-scrolling-area">
+  <p class="ps0"><span class="ts0">Navigation: CAD-Earth commands&nbsp;&gt; Mesh commands&nbsp;&gt; </span><a href="IDH_Topic410.htm" class="hs5">Mesh Viewer</a><span class="ts0">&nbsp;&gt; </span></p>
+  <p class="ps1"><span class="ts1">Show slope range colors</span></p>
+</div>
+<div id="container">
+  <div id="content-background">
+    <div id="content">
+      <p>&nbsp;</p>
+      <div>
+        <table class="align-c tbl0">
+          <tr class="row0">
+            <td class="cell0">
+              <p class="ps3"><img style="Width: 17.25pt; Height: 15.75pt;" alt="" src="Images/Image(52).png" /></p>
+            </td>
+            <td class="cell1">
+              <p class="ps2"><span class="ts16">Toolbar: </span><span class="ts6">&nbsp;</span><img style="Width: 12pt; Height: 12pt;" alt="" src="Images/Image(162).png" /><span class="ts6">&nbsp;</span></p>
+              <p class="ps2"><span class="ts2">&nbsp;</span></p>
+              <p class="ps14"><span class="ts17">Menu: </span><span class="ts18">CAD-Earth &gt; Mesh commands &gt; Mesh Viewer</span></p>
+              <p class="ps2"><span class="ts2">&nbsp;</span></p>
+            </td>
+          </tr>
+          <tr class="row0">
+            <td class="cell0">
+              <p class="ps3"><img style="Width: 18pt; Height: 12pt;" alt="" src="Images/Image(53).png" /></p>
+            </td>
+            <td class="cell4">
+              <p class="ps14"><span class="ts17">Command line: </span><span class="ts18">CE_MESHVIEWER</span></p>
+              <p class="ps2"><span class="ts16">Mesh Viewer toolbar: </span><img style="Width: 12pt; Height: 12pt;" alt="" src="Images/Image(220).png" /></p>
+              <p class="ps14"><span class="ts17">CAD-Earth version:</span><span class="ts20">&nbsp;</span><span class="ts18">Premium.</span></p>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <p class="ps2"><span class="ts2">&nbsp;</span></p>
+      <p><span class="ts4">Command description:</span></p>
+      <p><span class="ts3">&nbsp;</span></p>
+      <p class="ps2"><span class="ts6">The mesh will shown with the colors specified for each start-end slope defined in each range, inside a region defined by selecting points on surface or an existing polyline in the drawing, or applied to the whole mesh. You can insert a summary table and the corresponding plan view in the drawing with the total area analyzed, color, start-end slopes, area and percentage values for each range defined. </span></p>
+      <p class="ps2"><span class="ts2">&nbsp;</span></p>
+      <p class="ps2"><span class="ts2">&nbsp;</span></p>
+      <p class="ps2"><span class="ts2">&nbsp;</span></p>
+      <p class="ps3"><img style="Width: 450pt; Height: 390.75pt;" alt="" src="Images/Image(246).png" /></p>
+      <p class="ps37">&nbsp;</p>
+      <p class="ps38"><span class="ts14">&nbsp;</span></p>
+      <p class="ps37"><img style="Width: 430.5pt; Height: 306pt;" alt="" src="Images/Image(253).png" /></p>
+      <p class="ps37">&nbsp;</p>
+      <p class="ps2"><span class="ts2">&nbsp;</span></p>
+      <p><span class="ts4">Dialog box settings (Ranges tab):</span></p>
+      <p class="ps2"><span class="ts2">&nbsp;</span></p>
+      <p class="ps3"><img style="Width: 411pt; Height: 258.75pt;" alt="" src="Images/Image(247).png" /></p>
+      <p class="ps4"><span class="ts2">&nbsp;</span></p>
+      <p class="ps7"><span style="font-family: Wingdings; font-size: 10pt; color: Black">Ø</span><span style="display: inline-block; width: 14px"></span><span class="ts5">Slope ranges list. </span><span class="ts6">Will show the start-end slope percentage and color for each range. This values can be edited</span></p>
+      <p class="ps7"><span style="font-family: Wingdings; font-size: 10pt; color: Black">Ø</span><span style="display: inline-block; width: 14px"></span><span class="ts5">Transparency</span><span class="ts6">. This value applies to the colors used to display the slope ranges. A value of zero will display a completely solid color, and a value of 100% will be invisible.</span></p>
+      <p class="ps7"><span style="font-family: Wingdings; font-size: 10pt; color: Black">Ø</span><span style="display: inline-block; width: 14px"></span><span class="ts5">Make slope ranges equal.</span><span class="ts6">&nbsp;Each range will have the same end-start slope difference by dividing the end slope of the last range minus the start slope of the first range divided by the number of ranges.</span></p>
+      <p class="ps7"><span style="font-family: Wingdings; font-size: 10pt; color: Black">Ø</span><span style="display: inline-block; width: 14px"></span><span class="ts5">Make color ramp.</span><span class="ts6">&nbsp;The range colors will transform gradually from the first range color to the last range color applying linear interpolation.</span></p>
+      <p class="ps7"><span style="font-family: Wingdings; font-size: 10pt; color: Black">Ø</span><span style="display: inline-block; width: 14px"></span><span class="ts5">Insert range</span><span class="ts6">. Press this button to add a range after the one selected.</span></p>
+      <p class="ps7"><span style="font-family: Wingdings; font-size: 10pt; color: Black">Ø</span><span style="display: inline-block; width: 14px"></span><span class="ts5">Remove range</span><span class="ts6">. Press this button to delete a range selected.</span></p>
+      <p class="ps7"><span style="font-family: Wingdings; font-size: 10pt; color: Black">Ø</span><span style="display: inline-block; width: 14px"></span><span class="ts5">Insert table in drawing</span><span class="ts6">. Pressing this button will temporarily close the dialog box to select a point where the summary table and the image from the plan view of the analyzed area will be inserted.</span></p>
+      <p class="ps7"><span style="font-family: Wingdings; font-size: 10pt; color: Black">Ø</span><span style="display: inline-block; width: 14px"></span><span class="ts5">Apply</span><span class="ts6">. The Apply button will be enabled until you define a region to analyze by selecting points on the mesh or selecting an existing polyline or mesh in the current drawing.</span></p>
+      <p class="ps31"><span class="ts2">&nbsp;</span></p>
+      <p class="ps36"><span class="ts4">Tips:</span></p>
+      <p class="ps2"><span class="ts2">&nbsp;</span></p>
+      <p class="ps7"><span style="font-size: 14pt; line-height: 0; vertical-align: middle; color: Black">&bull;</span><span style="display: inline-block; width: 18px"></span><span class="ts6">Make sure the end slope is the same as the start slope of the next range, and that the end slope is greater than the start slope in each range.</span></p>
+      <p class="ps7"><span style="font-size: 14pt; line-height: 0; vertical-align: middle; color: Black">&bull;</span><span style="display: inline-block; width: 18px"></span><span class="ts6">The last range slope can't be edited and the slope will be greater than the end slope of the penultimate range to the highest slope found.</span></p>
+      <p class="ps7"><span style="font-size: 14pt; line-height: 0; vertical-align: middle; color: Black">&bull;</span><span style="display: inline-block; width: 18px"></span><span class="ts6">The colors from each range must not be repeated in another range.</span></p>
+      <p class="ps7"><span style="font-size: 14pt; line-height: 0; vertical-align: middle; color: Black">&bull;</span><span style="display: inline-block; width: 18px"></span><span class="ts6">The first range can't be deleted.</span></p>
+      <p class="ps7"><span style="font-size: 14pt; line-height: 0; vertical-align: middle; color: Black">&bull;</span><span style="display: inline-block; width: 18px"></span><span class="ts6">To select a range place the cursor inside any of its rows. The current range selected legend will be updated.</span></p>
+      <p class="ps39"><span class="ts2">&nbsp;</span></p>
+      <p class="ps2"><span class="ts2">&nbsp;</span></p>
+      <p class="ps2"><span class="ts2">&nbsp;</span></p>
+      <p><span class="ts4">Dialog box settings (Data tab):</span></p>
+      <p><span class="ts3">&nbsp;</span></p>
+      <p><span class="ts3">&nbsp;</span></p>
+      <p class="ps3"><img style="Width: 411pt; Height: 258.75pt;" alt="" src="Images/Image(250).png" /></p>
+      <p class="ps2"><span class="ts2">&nbsp;</span></p>
+      <p class="ps2"><span class="ts6">In this dialog box, the total area analyzed and the start-end slope, color, area and percentage area for each range will be shown. The values cannot be edited.</span></p>
+      <p class="ps2"><span class="ts2">&nbsp;</span></p>
+      <p><span class="ts4">Tips:</span></p>
+      <p class="ps2"><span class="ts2">&nbsp;</span></p>
+      <p class="ps7"><span style="font-size: 14pt; line-height: 0; vertical-align: middle; color: Black">&bull;</span><span style="display: inline-block; width: 18px"></span><span class="ts6">You can change the units used to display area results in the Settings tab. </span></p>
+      <p class="ps7"><span style="font-size: 14pt; line-height: 0; vertical-align: middle; color: Black">&bull;</span><span style="display: inline-block; width: 18px"></span><span class="ts6">Press the Apply button to update the calculations and the display slope areas.</span></p>
+      <p class="ps2"><span class="ts2">&nbsp;</span></p>
+      <p class="ps2"><span class="ts2">&nbsp;</span></p>
+      <p><span class="ts4">Dialog box settings (Settings tab):</span></p>
+      <p class="ps2"><span class="ts2">&nbsp;</span></p>
+      <p class="ps2"><span class="ts2">&nbsp;</span></p>
+      <p class="ps3"><img style="Width: 411pt; Height: 258.75pt;" alt="" src="Images/Image(254).png" /></p>
+      <p class="ps4"><span class="ts2">&nbsp;</span></p>
+      <p class="ps7"><span style="font-family: Wingdings; font-size: 10pt; color: Black">Ø</span><span style="display: inline-block; width: 14px"></span><span class="ts5">Area selection.</span></p>
+      <p class="ps9"><span style="font-size: 14pt; line-height: 0; vertical-align: middle; color: Black">&bull;</span><span style="display: inline-block; width: 18px"></span><span class="ts5">Process whole surface.</span><span class="ts6">&nbsp;The settings will be applied to the entire mesh (default).</span></p>
+      <p class="ps9"><span style="font-size: 14pt; line-height: 0; vertical-align: middle; color: Black">&bull;</span><span style="display: inline-block; width: 18px"></span><span class="ts5">Select points on surface</span><span class="ts6">. At least three points must be selected directly on the surface to define a closed region to analyze.</span></p>
+      <p class="ps9"><span style="font-size: 14pt; line-height: 0; vertical-align: middle; color: Black">&bull;</span><span style="display: inline-block; width: 18px"></span><span class="ts5">Select polyline in drawing</span><span class="ts6">. An existing LWPOLINE can be selected in the current drawing to define the area to be analyzed. </span></p>
+      <p class="ps7"><span style="font-family: Wingdings; font-size: 10pt; color: Black">Ø</span><span style="display: inline-block; width: 14px"></span><span class="ts5">Table settings</span><span class="ts6">. You can specify settings for the summary table inserted in the drawing, such as the text size, layer, color and position of the table relative to the plan view of the area analyzed. You can also define the color for the table lines and text style for the title and data displayed.</span></p>
+      <p class="ps7"><span style="font-family: Wingdings; font-size: 10pt; color: Black">Ø</span><span style="display: inline-block; width: 14px"></span><span class="ts5">Image settings</span><span class="ts6">. These settings apply to the image definition of the area analyzed created when you insert the summary table.</span></p>
+      <p class="ps9"><span style="font-size: 14pt; line-height: 0; vertical-align: middle; color: Black">&bull;</span><span style="display: inline-block; width: 18px"></span><span class="ts5">Maximum resolution</span><span class="ts6">. This resolution will be applied to the image of the area analyzed created when the summary table is inserted.</span></p>
+      <p class="ps9"><span style="font-size: 14pt; line-height: 0; vertical-align: middle; color: Black">&bull;</span><span style="display: inline-block; width: 18px"></span><span class="ts5">Path type</span><span class="ts6">. The path type only applies if the image is not embedded (not referenced to an external file). The path to the image file, created when the summary table is inserted in the drawing, can be of the following:</span></p>
+      <p class="ps30"><span style="font-size: 14pt; line-height: 0; vertical-align: middle; color: Black">&bull;</span><span style="display: inline-block; width: 18px"></span><span class="ts11">Full path.</span><span class="ts6">&nbsp;Image file must be located in the path selected.</span></p>
+      <p class="ps30"><span style="font-size: 14pt; line-height: 0; vertical-align: middle; color: Black">&bull;</span><span style="display: inline-block; width: 18px"></span><span class="ts11">Relative path.</span><span class="ts6">&nbsp;The image file must be located in a subfolder or in a parent folder relative to where the drawing file is saved. </span></p>
+      <p class="ps30"><span style="font-size: 14pt; line-height: 0; vertical-align: middle; color: Black">&bull;</span><span style="display: inline-block; width: 18px"></span><span class="ts11">No path.</span><span class="ts6">&nbsp;The image file must be located in the same path as the drawing or in any of the support file paths.</span></p>
+      <p class="ps7"><span style="font-family: Wingdings; font-size: 10pt; color: Black">Ø</span><span style="display: inline-block; width: 14px"></span><span class="ts5">Grid.</span></p>
+      <p class="ps9"><span style="font-size: 14pt; line-height: 0; vertical-align: middle; color: Black">&bull;</span><span style="display: inline-block; width: 18px"></span><span class="ts5">Grid resolution</span><span class="ts6">. The processing time and the accuracy when calculating slope data will be increased selecting higher resolutions. </span></p>
+      <p class="ps9"><span style="font-size: 14pt; line-height: 0; vertical-align: middle; color: Black">&bull;</span><span style="display: inline-block; width: 18px"></span><span class="ts5">Area units</span><span class="ts6">. The slope area for each range will be displayed in the selected area units, applying the corresponding conversion factor.</span></p>
+      <p class="ps9"><span style="font-size: 14pt; line-height: 0; vertical-align: middle; color: Black">&bull;</span><span style="display: inline-block; width: 18px"></span><span class="ts5">Distance units</span><span class="ts6">. Information about the distance units used when the mesh was created will be displayed here (not editable).</span></p>
+      <div class="block2">
+        <hr class="hline0" />
+      </div>
+      <p class="ps14"><span class="ts9">Copyright &copy; 20</span><span class="ts9">23</span><span class="ts9">&nbsp;</span><span class="ts9">Arqcom </span><span class="ts9">Software </span></p>
+      <p class="ps14"><span class="ts9">Google Earth</span><span class="ts9">&copy;</span><span class="ts9">&nbsp;is a registered trademark of Google inc. All other trademarks are the property of their respective owners.</span></p>
+      <p class="ps14"><a href="https://www.cad-earth.com" target="_blank" class="hs1">https://www.cad-earth.com&nbsp;</a></p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

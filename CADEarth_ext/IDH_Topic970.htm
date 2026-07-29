@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+<html id="hs-topic-p">
+<head>
+<title>Point from linked LAS file</title>
+<meta charset="windows-1252" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="generator" content="HelpSmith 8.3 (Build 20.601)" />
+<style type="text/css" media="screen">
+html {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+body {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+#non-scrolling-area {
+  padding: 0 7.5pt 0 7.5pt;
+  background-color: #5e5f5f;
+}
+#container {
+  overflow: auto;
+}
+#content {
+  padding: 0 7.5pt 3.75pt 7.5pt;
+}
+</style>
+<link type="text/css" rel="stylesheet" href="styles.css" />
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="js/nsa.js"></script>
+<script type="text/javascript" src="js/hh-layout.js"></script>
+</head>
+<body>
+<div id="non-scrolling-area">
+  <p class="ps0"><span class="ts0">Navigation: CAD-Earth commands&nbsp;&gt; Mesh commands&nbsp;&gt; </span><a href="IDH_Topic610.htm" class="hs5">Mesh Explorer</a><span class="ts0">&nbsp;&gt; Insert&nbsp;&gt; </span></p>
+  <p class="ps1"><span class="ts1">Point from linked LAS file</span></p>
+</div>
+<div id="container">
+  <div id="content-background">
+    <div id="content">
+      <p>&nbsp;</p>
+      <div>
+        <table class="align-c tbl0">
+          <tr class="row0">
+            <td class="cell0">
+              <p class="ps3"><img style="Width: 17.25pt; Height: 15.75pt;" alt="" src="Images/Image(52)(1).png" /></p>
+            </td>
+            <td class="cell1">
+              <p class="ps2"><span class="ts16">Toolbar: </span><span class="ts6">&nbsp;</span><img style="Width: 24.75pt; Height: 23.25pt;" alt="" src="Images/Image(17).png" /></p>
+              <p class="ps2"><span class="ts2">&nbsp;</span></p>
+              <p class="ps14"><span class="ts17">Menu: </span><span class="ts18">CAD-Earth &gt; Mesh &gt; Mesh Explorer.</span></p>
+              <p class="ps2"><span class="ts16">Mesh Explorer node: </span><img style="Width: 15pt; Height: 15.75pt;" alt="" src="Images/Image(19).png" /></p>
+              <p class="ps14"><span class="ts30">&nbsp;</span></p>
+              <p class="ps14"><span class="ts17">Context Menu:</span><span class="ts18">&nbsp; Insert &gt; Point from a linked LAS file</span></p>
+              <p class="ps2"><span class="ts2">&nbsp;</span></p>
+            </td>
+          </tr>
+          <tr class="row0">
+            <td class="cell0">
+              <p class="ps3"><img style="Width: 18pt; Height: 12pt;" alt="" src="Images/Image(53)(1).png" /></p>
+            </td>
+            <td class="cell4">
+              <p class="ps14"><span class="ts17">Command line: </span><span class="ts18">CE_MESHEXPLORER</span></p>
+              <p class="ps15"><span class="ts19">&nbsp;</span></p>
+              <p class="ps14"><span class="ts17">CAD-Earth version:</span><span class="ts20">&nbsp;</span><span class="ts18">Premium.</span></p>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <p class="ps2"><span class="ts2">&nbsp;</span></p>
+      <p><span class="ts4">Command description:</span></p>
+      <p><span class="ts3">&nbsp;</span></p>
+      <p class="ps2"><span class="ts6">Insert vertices in a terrain mesh imported from a LAS file, selecting a point, an area, or a closed polyline in the drawing. </span></p>
+      <p class="ps2"><span class="ts2">&nbsp;</span></p>
+      <p class="ps2"><span class="ts2">&nbsp;</span></p>
+      <p class="ps3"><img style="Width: 295.5pt; Height: 402.75pt;" alt="" src="Images/Image(62)(1).png" /></p>
+      <p>&nbsp;</p>
+      <p class="ps3">&nbsp;</p>
+      <p class="ps40"><span style="font-size: 14pt; line-height: 0; vertical-align: middle; color: Black">&bull;</span><span style="display: inline-block; width: 8px"></span><span class="ts11">Name. </span><span class="ts6">The file from which the point information will be read. If you select the info button, the file properties will be displayed, showing the file path, LIDAR and georeference parameters.</span></p>
+      <p class="ps2"><span class="ts2">&nbsp;</span></p>
+      <p class="ps3"><img style="Width: 444pt; Height: 487.5pt;" alt="" src="Images/Image(54).png" /></p>
+      <p class="ps4"><span class="ts2">&nbsp;</span></p>
+      <p class="ps19"><span style="font-family: Wingdings; font-size: 10pt; color: Black">Ø</span><span style="display: inline-block; width: 14px"></span><span class="ts5">Selection mode.</span></p>
+      <p class="ps40"><span style="font-size: 14pt; line-height: 0; vertical-align: middle; color: Black">&bull;</span><span style="display: inline-block; width: 8px"></span><span class="ts5">Select area over surface to insert points. </span><span class="ts6">Points inside a specified area will be inserted.</span></p>
+      <p class="ps40"><span style="font-size: 14pt; line-height: 0; vertical-align: middle; color: Black">&bull;</span><span style="display: inline-block; width: 8px"></span><span class="ts5">Select closed polyline. </span><span class="ts6">Points inside a closed polyline will be inserted.</span></p>
+      <p class="ps40"><span style="font-size: 14pt; line-height: 0; vertical-align: middle; color: Black">&bull;</span><span style="display: inline-block; width: 8px"></span><span class="ts5">Select coordinates over surface to insert points. </span><span class="ts6">A vertex will be inserted at every point specified.</span></p>
+      <p class="ps40"><span style="font-size: 14pt; line-height: 0; vertical-align: middle; color: Black">&bull;</span><span style="display: inline-block; width: 8px"></span><span class="ts5">Keep XY coordinates from nearest cloud point. </span><span class="ts6">The point selected will snap to the nearest point found in the LAS file.</span></p>
+      <p class="ps40"><span style="font-size: 14pt; line-height: 0; vertical-align: middle; color: Black">&bull;</span><span style="display: inline-block; width: 8px"></span><span class="ts5">Maximum search distance. </span><span class="ts6">The nearest point will be searched at a radius with this value from the point selected.</span></p>
+      <p class="ps2"><span class="ts6">&nbsp;</span></p>
+      <p class="ps19"><span style="font-family: Wingdings; font-size: 10pt; color: Black">Ø</span><span style="display: inline-block; width: 14px"></span><span class="ts5">Point insertion.</span></p>
+      <p class="ps40"><span style="font-size: 14pt; line-height: 0; vertical-align: middle; color: Black">&bull;</span><span style="display: inline-block; width: 8px"></span><span class="ts5">Insert points in mesh. </span><span class="ts6">Vertices will be inserted into the mesh.</span></p>
+      <p class="ps40"><span style="font-size: 14pt; line-height: 0; vertical-align: middle; color: Black">&bull;</span><span style="display: inline-block; width: 8px"></span><span class="ts5">Draw point entities. </span><span class="ts6">Regular point entities will be drawn. Vertices will not be inserted.</span></p>
+      <p class="ps40"><span style="font-size: 14pt; line-height: 0; vertical-align: middle; color: Black">&bull;</span><span style="display: inline-block; width: 8px"></span><span class="ts5">Minimum distance between points. </span><span class="ts6">Points or vertices inserted inside the defined area will be at least this distance apart.</span></p>
+      <p class="ps40"><span style="font-size: 14pt; line-height: 0; vertical-align: middle; color: Black">&bull;</span><span style="display: inline-block; width: 8px"></span><span class="ts5">Insert break lines. </span><span class="ts6">Triangulation will be reordered while specifying points, to avoid any triangle sides crossing the line segments.</span></p>
+      <p class="ps40"><span style="font-size: 14pt; line-height: 0; vertical-align: middle; color: Black">&bull;</span><span style="display: inline-block; width: 8px"></span><span class="ts5">Confirm elevation at each point. </span><span class="ts6">The calculated elevation will be displayed before inserting a point, to accept it or to type a specific elevation, or to select a reference point from where the elevation will be taken, optionally specifying an elevation offset.</span></p>
+      <p class="ps2"><span class="ts2">&nbsp;</span></p>
+      <p class="ps19"><span style="font-family: Wingdings; font-size: 10pt; color: Black">Ø</span><span style="display: inline-block; width: 14px"></span><span class="ts5">Point record filtering.</span><span class="ts6">&nbsp;The following dialog box will be shown. Only points having the filter attributes selected will be processed.</span></p>
+      <p class="ps2"><span class="ts2">&nbsp;</span></p>
+      <p class="ps2"><span class="ts2">&nbsp;</span></p>
+      <p class="ps3"><img style="Width: 264pt; Height: 234pt;" alt="" src="Images/Image(56).png" /></p>
+      <p class="ps4"><span class="ts2">&nbsp;</span></p>
+      <p class="ps19"><span style="font-family: Wingdings; font-size: 10pt; color: Black">Ø</span><span style="display: inline-block; width: 14px"></span><span class="ts5">Point attributes. </span><span class="ts6">If the LAS file has points with the selected attributes defined, only points with those attributes checked will be processed.</span></p>
+      <p class="ps19"><span style="font-family: Wingdings; font-size: 10pt; color: Black">Ø</span><span style="display: inline-block; width: 14px"></span><span class="ts5">Custom codes.</span><span class="ts6">&nbsp;If you select the 'Custom defined' point attribute, you can type in this box the attribute code numbers separated by commas.</span></p>
+      <p class="ps19"><span style="font-family: Wingdings; font-size: 10pt; color: Black">Ø</span><span style="display: inline-block; width: 14px"></span><span class="ts5">Point returns.</span><span class="ts6">&nbsp;Only points with returns of the type selected will be processed.</span></p>
+      <p class="ps19"><span style="font-family: Wingdings; font-size: 10pt; color: Black">Ø</span><span style="display: inline-block; width: 14px"></span><span class="ts5">Intensity and scan angle.</span><span class="ts6">&nbsp;Only points with intensity between the range specified will be processed.</span></p>
+      <p class="ps2"><span class="ts2">&nbsp;</span></p>
+      <p class="ps2"><span class="ts2">&nbsp;</span></p>
+      <p class="ps2"><span class="ts2">&nbsp;</span></p>
+      <p><span class="ts4">Tips:</span></p>
+      <p class="ps2"><span class="ts2">&nbsp;</span></p>
+      <p class="ps42"><span style="font-size: 14pt; line-height: 0; vertical-align: middle; color: Black">&bull;</span><span style="display: inline-block; width: 8px"></span><span class="ts6">If the index file is not present in the LAS file folder, a message will display to confirm if you wish to create it. This index file will speed up the point searching in the LAS file, avoiding having to read the entire file to search for points. The index file will have the same name as the LAS file but with a lax extension. The index file will take several minutes to be created, but it will be created only once.</span></p>
+      <p class="ps42"><span style="font-size: 14pt; line-height: 0; vertical-align: middle; color: Black">&bull;</span><span style="display: inline-block; width: 8px"></span><span class="ts6">The area to insert points or vertices can be defined in a clockwise or counter-clockwise direction.</span></p>
+      <p class="ps42"><span style="font-size: 14pt; line-height: 0; vertical-align: middle; color: Black">&bull;</span><span style="display: inline-block; width: 8px"></span><span class="ts6">Use this command to recover point information lost after you decimate or refine a </span><a href="IDH_Topic860.htm" class="hs0">mesh imported from a LAS file</a><span class="ts6">.</span></p>
+      <p class="ps2"><span class="ts2">&nbsp;</span></p>
+      <div>
+        <hr class="hline0" />
+      </div>
+      <p class="ps14"><span class="ts9">Copyright &copy; 20</span><span class="ts9">23</span><span class="ts9">&nbsp;</span><span class="ts9">Arqcom </span><span class="ts9">Software </span></p>
+      <p class="ps14"><span class="ts9">Google Earth</span><span class="ts9">&copy;</span><span class="ts9">&nbsp;is a registered trademark of Google inc. All other trademarks are the property of their respective owners.</span></p>
+      <p class="ps14"><a href="https://www.cad-earth.com" target="_blank" class="hs1">https://www.cad-earth.com&nbsp;</a></p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

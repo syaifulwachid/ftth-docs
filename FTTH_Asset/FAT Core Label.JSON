@@ -1,0 +1,524 @@
+{
+  "asset_info": {
+    "author": "Syaiful Wachid",
+    "category": "FTTH",
+    "asset_type": "POLE",
+    "revision": "1.0",
+    "description": "AutoCAD Serialized Object Definition"
+  },
+  "document_settings": {
+    "measurement": "Decimal",
+    "drawing_limits_min": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "drawing_limits_max": [
+      420.0,
+      297.0,
+      0.0
+    ]
+  },
+  "dependencies": {
+    "layers": [
+      "Schematic Info"
+    ],
+    "textstyles": [
+      "Mark",
+      "FS"
+    ],
+    "linetypes": [
+      "ByLayer"
+    ]
+  },
+  "layers": [
+    {
+      "name": "Schematic Info",
+      "color": 7,
+      "linetype": "Continuous",
+      "lineweight": "LineWeight018"
+    },
+    {
+      "name": "JK",
+      "color": 7,
+      "linetype": "Continuous",
+      "lineweight": "ByLineWeightDefault"
+    }
+  ],
+  "textstyles": [
+    {
+      "name": "Mark",
+      "font_file_name": "arial.ttf",
+      "big_font_file_name": "",
+      "width_factor": 0.8,
+      "obliquing_angle": 0.0,
+      "is_vertical": false,
+      "text_size": 2.5,
+      "font_typeface": "Arial",
+      "font_bold": false,
+      "font_italic": false,
+      "font_pitch_family": 34,
+      "font_charset": 0,
+      "has_font_desc": true
+    },
+    {
+      "name": "FS",
+      "font_file_name": "SimSun.ttf",
+      "big_font_file_name": "",
+      "width_factor": 0.7,
+      "obliquing_angle": 0.0,
+      "is_vertical": false,
+      "text_size": 0.0,
+      "font_typeface": "SimSun",
+      "font_bold": false,
+      "font_italic": false,
+      "font_pitch_family": 2,
+      "font_charset": 134,
+      "has_font_desc": true
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Core_Alocation_Schematic",
+      "base_point": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "entities": [
+        {
+          "id": "sub_001",
+          "type": "ATTRIBUTEDEFINITION",
+          "layer": "JK",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "tag": "FAT_NO",
+          "prompt": "Nomor FAT",
+          "text_string": "",
+          "position": [
+            6.9335528736371259,
+            10.727177718823491,
+            0.0
+          ],
+          "alignment_point": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "height": 2.5,
+          "rotation": 0.0,
+          "style": "Mark",
+          "horizontal_mode": "TextLeft",
+          "vertical_mode": "TextBase",
+          "width_factor": 0.8,
+          "obliquing_angle": 0.0,
+          "invisible": false,
+          "constant": false,
+          "verifiable": false,
+          "preset": false
+        },
+        {
+          "id": "sub_002",
+          "type": "ATTRIBUTEDEFINITION",
+          "layer": "JK",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "tag": "FDT_CODE",
+          "prompt": "Nomor FDT (Kota. No FDT)",
+          "text_string": "",
+          "position": [
+            5.6007695206189965,
+            7.8077695250117136,
+            0.0
+          ],
+          "alignment_point": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "height": 2.5,
+          "rotation": 0.0,
+          "style": "FS",
+          "horizontal_mode": "TextLeft",
+          "vertical_mode": "TextBase",
+          "width_factor": 0.7,
+          "obliquing_angle": 0.0,
+          "invisible": false,
+          "constant": false,
+          "verifiable": false,
+          "preset": false
+        },
+        {
+          "id": "sub_003",
+          "type": "ATTRIBUTEDEFINITION",
+          "layer": "JK",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "tag": "SERVICE_CORE",
+          "prompt": "Service Core Number",
+          "text_string": "1",
+          "position": [
+            15.956450875211658,
+            5.2051796833411421,
+            0.0
+          ],
+          "alignment_point": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "height": 2.5,
+          "rotation": 0.0,
+          "style": "FS",
+          "horizontal_mode": "TextLeft",
+          "vertical_mode": "TextBase",
+          "width_factor": 0.7,
+          "obliquing_angle": 0.0,
+          "invisible": false,
+          "constant": false,
+          "verifiable": false,
+          "preset": false
+        },
+        {
+          "id": "sub_004",
+          "type": "TEXT",
+          "layer": "JK",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "text_string": "Code",
+          "position": [
+            0.0,
+            7.8077695250117136,
+            0.0
+          ],
+          "alignment_point": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "height": 2.5,
+          "rotation": 0.0,
+          "style": "FS",
+          "horizontal_mode": "TextLeft",
+          "vertical_mode": "TextBase",
+          "width_factor": 0.7,
+          "obliquing_angle": 0.0
+        },
+        {
+          "id": "sub_005",
+          "type": "TEXT",
+          "layer": "JK",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "text_string": "FAT",
+          "position": [
+            0.0,
+            10.727177718823491,
+            0.0
+          ],
+          "alignment_point": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "height": 2.5,
+          "rotation": 0.0,
+          "style": "Mark",
+          "horizontal_mode": "TextLeft",
+          "vertical_mode": "TextBase",
+          "width_factor": 0.8,
+          "obliquing_angle": 0.0
+        },
+        {
+          "id": "sub_006",
+          "type": "TEXT",
+          "layer": "JK",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "text_string": "Service core",
+          "position": [
+            0.0,
+            5.2051796833411421,
+            0.0
+          ],
+          "alignment_point": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "height": 2.5,
+          "rotation": 0.0,
+          "style": "FS",
+          "horizontal_mode": "TextLeft",
+          "vertical_mode": "TextBase",
+          "width_factor": 0.7,
+          "obliquing_angle": 0.0
+        },
+        {
+          "id": "sub_007",
+          "type": "TEXT",
+          "layer": "JK",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "text_string": "Expansion core",
+          "position": [
+            0.0,
+            2.6025898416705711,
+            0.0
+          ],
+          "alignment_point": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "height": 2.5,
+          "rotation": 0.0,
+          "style": "FS",
+          "horizontal_mode": "TextLeft",
+          "vertical_mode": "TextBase",
+          "width_factor": 0.7,
+          "obliquing_angle": 0.0
+        },
+        {
+          "id": "sub_008",
+          "type": "ATTRIBUTEDEFINITION",
+          "layer": "JK",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "tag": "EXPANSION_CORE",
+          "prompt": "Expansion Core Number",
+          "text_string": "2",
+          "position": [
+            18.599321340944357,
+            2.6025898416705711,
+            0.0
+          ],
+          "alignment_point": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "height": 2.5,
+          "rotation": 0.0,
+          "style": "FS",
+          "horizontal_mode": "TextLeft",
+          "vertical_mode": "TextBase",
+          "width_factor": 0.7,
+          "obliquing_angle": 0.0,
+          "invisible": false,
+          "constant": false,
+          "verifiable": false,
+          "preset": false
+        },
+        {
+          "id": "sub_009",
+          "type": "ATTRIBUTEDEFINITION",
+          "layer": "JK",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "tag": "MONITORING_CORE",
+          "prompt": "Monitoring Core Number",
+          "text_string": "11&12",
+          "position": [
+            20.047311700506611,
+            0.0,
+            0.0
+          ],
+          "alignment_point": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "height": 2.5,
+          "rotation": 0.0,
+          "style": "FS",
+          "horizontal_mode": "TextLeft",
+          "vertical_mode": "TextBase",
+          "width_factor": 0.7,
+          "obliquing_angle": 0.0,
+          "invisible": false,
+          "constant": false,
+          "verifiable": false,
+          "preset": false
+        },
+        {
+          "id": "sub_010",
+          "type": "TEXT",
+          "layer": "JK",
+          "color": 256,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "text_string": "Monitoring core",
+          "position": [
+            0.0,
+            -0.004705721773924143,
+            0.0
+          ],
+          "alignment_point": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "height": 2.5,
+          "rotation": 0.0,
+          "style": "FS",
+          "horizontal_mode": "TextLeft",
+          "vertical_mode": "TextBase",
+          "width_factor": 0.7,
+          "obliquing_angle": 0.0
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "ent_001",
+      "type": "BLOCKREFERENCE",
+      "layer": "Schematic Info",
+      "color": 256,
+      "linetype": "ByLayer",
+      "lineweight": "ByLayer",
+      "block_name": "Core_Alocation_Schematic",
+      "position": [
+        -4.9714343235983733,
+        -3.4961144401792126,
+        0.0
+      ],
+      "rotation": 0.0,
+      "scale": [
+        0.58978014940313039,
+        0.58978014940313039,
+        0.58978014940313039
+      ],
+      "attributes": [
+        {
+          "tag": "FAT_NO",
+          "value": "A01",
+          "position": [
+            -0.88216247389016189,
+            2.8305620375024318,
+            0.0
+          ],
+          "height": 1.474450373507826,
+          "rotation": 0.0,
+          "alignment_point": [
+            31.9566407174334,
+            522.57247482923538,
+            0.0
+          ],
+          "horizontal_mode": "TextLeft",
+          "vertical_mode": "TextBase",
+          "style": "Mark",
+          "width_factor": 0.8,
+          "obliquing_angle": 0.0,
+          "layer": "JK",
+          "color": 256
+        },
+        {
+          "tag": "FDT_CODE",
+          "value": "KMB2.042",
+          "position": [
+            -1.6682116389550856,
+            1.1087530367873342,
+            0.0
+          ],
+          "height": 1.474450373507826,
+          "rotation": 0.0,
+          "alignment_point": [
+            31.9566407174334,
+            522.57247482923538,
+            0.0
+          ],
+          "horizontal_mode": "TextLeft",
+          "vertical_mode": "TextBase",
+          "style": "FS",
+          "width_factor": 0.7,
+          "obliquing_angle": 0.0,
+          "layer": "JK",
+          "color": 256
+        },
+        {
+          "tag": "SERVICE_CORE",
+          "value": "1",
+          "position": [
+            4.4393636575276787,
+            -0.42620278886806773,
+            0.0
+          ],
+          "height": 1.474450373507826,
+          "rotation": 0.0,
+          "alignment_point": [
+            31.9566407174334,
+            522.57247482923538,
+            0.0
+          ],
+          "horizontal_mode": "TextLeft",
+          "vertical_mode": "TextBase",
+          "style": "FS",
+          "width_factor": 0.7,
+          "obliquing_angle": 0.0,
+          "layer": "JK",
+          "color": 256
+        },
+        {
+          "tag": "EXPANSION_CORE",
+          "value": "2",
+          "position": [
+            5.9980761956607012,
+            -1.961158614523697,
+            0.0
+          ],
+          "height": 1.474450373507826,
+          "rotation": 0.0,
+          "alignment_point": [
+            31.9566407174334,
+            522.57247482923538,
+            0.0
+          ],
+          "horizontal_mode": "TextLeft",
+          "vertical_mode": "TextBase",
+          "style": "FS",
+          "width_factor": 0.7,
+          "obliquing_angle": 0.0,
+          "layer": "JK",
+          "color": 256
+        },
+        {
+          "tag": "MONITORING_CORE",
+          "value": "11&12",
+          "position": [
+            6.8520721662579263,
+            -3.4961144401792126,
+            0.0
+          ],
+          "height": 1.474450373507826,
+          "rotation": 0.0,
+          "alignment_point": [
+            31.9566407174334,
+            522.57247482923538,
+            0.0
+          ],
+          "horizontal_mode": "TextLeft",
+          "vertical_mode": "TextBase",
+          "style": "FS",
+          "width_factor": 0.7,
+          "obliquing_angle": 0.0,
+          "layer": "JK",
+          "color": 256
+        }
+      ],
+      "dynamic_properties": []
+    }
+  ],
+  "metadata": {},
+  "runtime_logic": {}
+}

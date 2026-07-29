@@ -1,0 +1,383 @@
+<!DOCTYPE HTML>
+<html id="hs-topic-p">
+<head>
+<title>Error and alert messages</title>
+<meta charset="windows-1252" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="generator" content="HelpSmith 8.3 (Build 20.601)" />
+<style type="text/css" media="screen">
+html {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+body {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+#non-scrolling-area {
+  padding: 0 7.5pt 0 7.5pt;
+  background-color: #5e5f5f;
+}
+#container {
+  overflow: auto;
+}
+#content {
+  padding: 0 7.5pt 3.75pt 7.5pt;
+}
+</style>
+<link type="text/css" rel="stylesheet" href="styles.css" />
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="js/nsa.js"></script>
+<script type="text/javascript" src="js/hh-layout.js"></script>
+</head>
+<body>
+<div id="non-scrolling-area">
+  <p class="ps0"><span class="ts0">Navigation: Troubleshooting&nbsp;&gt; </span></p>
+  <p class="ps1"><span class="ts1">Error and alert messages.</span></p>
+</div>
+<div id="container">
+  <div id="content-background">
+    <div id="content">
+      <p>&nbsp;</p>
+      <p class="ps2"><span class="ts2">&nbsp;</span></p>
+      <p class="ps2"><span class="ts6">Some common error and alert messages are shown when using some CAD-Earth commands. Below is a table listing these messages and their recommended solutions.</span></p>
+      <p class="ps2"><span class="ts6">If you encounter an error or alert message not listed here, please send us a description and if possible a screen capture of the message to </span><a href="mailto:support@cad-earth.com?subject=Error%20mesage" class="hs0">support@cad-earth.com</a><span class="ts6">&nbsp;or submit a </span><a href="http://www.cad-earth.com/hesk/index.php?a=add" target="_blank" class="hs0">support ticket</a><span class="ts6">.</span></p>
+      <p class="ps2"><span class="ts2">&nbsp;</span></p>
+      <p><span class="ts41">&nbsp;</span></p>
+      <div>
+        <table class="align-c tbl4">
+          <tr class="row0">
+            <td class="cell0">
+              <p class="ps3"><span class="ts4">Problem or Error/alert messages</span></p>
+            </td>
+            <td class="cell1">
+              <p class="ps3"><span class="ts4">Description/recommended solution</span></p>
+            </td>
+          </tr>
+          <tr class="row0">
+            <td class="cell2">
+              <p class="ps2"><span class="ts42">Fatal error: &lt;Error description&gt;. AutoCAD can't continue.</span></p>
+              <p class="ps2"><span class="ts42">AutoCAD freezes or commands too slow to execute.</span></p>
+            </td>
+            <td class="cell3">
+              <p class="ps2"><span class="ts6">The CAD-Earth main DLL file is not in sync with the Google Earth installed version. Double click the file GEINTEROP.EXE located in the CAD-Earth installation directory (usually in C:\Program Files\CAD-Earth (</span><span class="ts31">CAD version</span><span class="ts6">)' and try again. If this doesn't solve the problem please contact </span><a href="mailto:support@cad-earth.com?subject=Fata%20error" class="hs0">support@cad-earth.com</a><span class="ts6">&nbsp;or submit a </span><a href="http://www.cad-earth.com/hesk/index.php?a=add" target="_blank" class="hs0">support ticket</a><span class="ts6">&nbsp;for a solution to this problem.</span></p>
+            </td>
+          </tr>
+          <tr class="row0">
+            <td class="cell0">
+              <p class="ps2"><span class="ts42">Internet connection not found.</span></p>
+            </td>
+            <td class="cell1">
+              <p class="ps2"><span class="ts6">Check and solve access problems to your Internet connection.</span></p>
+            </td>
+          </tr>
+          <tr class="row0">
+            <td class="cell0">
+              <p class="ps2"><span class="ts42">The UTM zone selected (</span><span class="ts43">UTM zone value</span><span class="ts42">) does not correspond with the UTM zone of the place (</span><span class="ts43">UTM zone value</span><span class="ts42">).This may cause incorrect coordinate conversions. Continue?</span></p>
+            </td>
+            <td class="cell1">
+              <p class="ps2"><span class="ts6">Select the correct UTM zone from the list in the 'Datum Settings' tab of the corresponding CAD-Earth command dialog box. If the site is between two UTM zones you can disregard this alert message and check results.</span></p>
+            </td>
+          </tr>
+          <tr class="row0">
+            <td class="cell4">
+              <p class="ps2"><span class="ts42">The hemisphere selected (South) does not correspond with the hemisphere of the place (North). This may cause incorrect coordinate conversions. Continue?</span></p>
+            </td>
+            <td class="cell5">
+              <p class="ps2"><span class="ts6">Select the correct hemisphere in the 'Datum Settings' tab of the corresponding CAD-Earth command dialog box. If the equatorial line crosses the site you can try both the North and South hemisphere to see which one produces the most accurate results.</span></p>
+            </td>
+          </tr>
+          <tr class="row0">
+            <td class="cell2">
+              <p class="ps2"><span class="ts42">Google Earth default KML file not found.</span></p>
+            </td>
+            <td class="cell3">
+              <p class="ps2"><span class="ts6">Check if Google Earth is properly installed. Re-install Google Earth. If error continues contact </span><a href="mailto:support@cad-earth.com?subject=Google%20Earth%20default%20KML%20file%20not%20found." class="hs0">technical support</a><span class="ts6">.</span></p>
+            </td>
+          </tr>
+          <tr class="row0">
+            <td class="cell0">
+              <p class="ps2"><span class="ts42">CAD-Earth module is not authorized. Function not available.</span></p>
+            </td>
+            <td class="cell1">
+              <p class="ps2"><span class="ts6">You selected a CAD-Earth command from a module that is not authorized. An upgrade license must be </span><a href="http://cad-earth.com/buy-now/" target="_blank" class="hs0">bought</a><span class="ts6">&nbsp;to obtain the authorization key.</span></p>
+            </td>
+          </tr>
+          <tr class="row0">
+            <td class="cell0">
+              <p class="ps2"><span class="ts42">CAD-Earth license has been deactivated. Function not available.</span></p>
+            </td>
+            <td class="cell1">
+              <p class="ps2"><span class="ts6">Re-apply the authorization key in the CAD-Earth </span><a href="IDH_Topic540.htm" class="hs0">applying the license </a><span class="ts6">again. Contact </span><a href="mailto:support@cad-earth.com?subject=Deactivated%20license" class="hs0">technical support</a><span class="ts6">.</span></p>
+            </td>
+          </tr>
+          <tr class="row0">
+            <td class="cell2">
+              <p class="ps2"><span class="ts42">Error reading KML file:&lt;</span><span class="ts43">Error description</span><span class="ts42">&gt;</span></p>
+            </td>
+            <td class="cell3">
+              <p class="ps2"><span class="ts6">An error occurred reading data from a Google Earth KML file. Send the error description and KML file to </span><a href="mailto:support@cad-earth.com?subject=Error%20checking%20Google%20Earth%20Plug-in" class="hs0">support@cad-earth.com</a><span class="ts6">&nbsp;or submit a </span><a href="http://www.cad-earth.com/hesk/index.php?a=add" target="_blank" class="hs0">support ticket</a><span class="ts6">&nbsp;for a solution to this problem.</span></p>
+            </td>
+          </tr>
+          <tr class="row0">
+            <td class="cell2">
+              <p class="ps2"><span class="ts42">There are not any valid nodes selected.</span></p>
+              <p class="ps2"><span class="ts42">Please check at least one valid node.</span></p>
+            </td>
+            <td class="cell3">
+              <p class="ps2"><span class="ts6">This alert message appears when importing objects from Google Earth and no selection was made. Select at least one item in the explorer.</span></p>
+            </td>
+          </tr>
+          <tr class="row0">
+            <td class="cell2">
+              <p class="ps2"><span class="ts42">Server connection unavailable.</span></p>
+            </td>
+            <td class="cell3">
+              <p class="ps2"><span class="ts6">Check and solve access problems to your Internet connection.</span></p>
+            </td>
+          </tr>
+          <tr class="row0">
+            <td class="cell2">
+              <p class="ps2"><span class="ts42">Error initializing Google Earth interface.</span></p>
+            </td>
+            <td class="cell3">
+              <p class="ps2"><span class="ts6">Double click the file GEINTEROP.EXE located in the CAD-Earth installation directory (usually in C:\Program Files \CAD-Earth (</span><span class="ts31">CAD version</span><span class="ts6">)' and try again. If this doesn't solve the problem please contact </span><a href="mailto:support@cad-earth.com?subject=Error%20initializing%20Google%20Earth%20interface" class="hs0">support@cad-earth.com</a><span class="ts6">&nbsp;or submit a </span><a href="http://www.cad-earth.com/hesk/index.php?a=add" target="_blank" class="hs0">support ticket</a><span class="ts6">&nbsp;for a solution to this problem.</span></p>
+            </td>
+          </tr>
+          <tr class="row0">
+            <td class="cell2">
+              <p class="ps2"><span class="ts42">No valid objects found in KML file. Please open Google Earth and add valid polygons, routes and/or placemarks.</span></p>
+            </td>
+            <td class="cell3">
+              <p class="ps2"><span class="ts6">While trying to import objects from a Google Earth KML file no valid objects were found. Open Google Earth to see if valid objects are found in the 'My Places' folder and add them if necessary.</span></p>
+            </td>
+          </tr>
+          <tr class="row0">
+            <td class="cell2">
+              <p class="ps2"><span class="ts42">The KML file size about to be processed is more than &lt;</span><span class="ts43">size</span><span class="ts42">&gt;MB. It may take several minutes to read this information. Do you wish to continue?</span></p>
+            </td>
+            <td class="cell3">
+              <p class="ps2"><span class="ts6">The KML file has a lot of information. Generally files up to 50MB can be processed in less than a minute. If it takes too long to load the file divide it in several KML files. (See </span><a href="http://www.screencast.com/t/ILDvDu7fAUZ1" target="_blank" class="hs0">how to save information to a KML file</a><span class="ts6">&nbsp;video).</span></p>
+            </td>
+          </tr>
+          <tr class="row0">
+            <td class="cell2">
+              <p class="ps2"><span class="ts42">Selected color is already assigned to another range. Please select another color.</span></p>
+            </td>
+            <td class="cell3">
+              <p class="ps2"><span class="ts6">Select a color for the slope zone analysis range that is not already used.</span></p>
+            </td>
+          </tr>
+          <tr class="row0">
+            <td class="cell2">
+              <p class="ps2"><span class="ts42">Ending range value must be greater than the range start value.</span></p>
+            </td>
+            <td class="cell3">
+              <p class="ps2"><span class="ts6">Set an ending percentage value for the current range greater than the range start percentage value. Example: If the starting range percentage value es 20% the ending percentage value must be greater than 20%.</span></p>
+            </td>
+          </tr>
+          <tr class="row0">
+            <td class="cell2">
+              <p class="ps2"><span class="ts42">Select at least one type of annotation.</span></p>
+            </td>
+            <td class="cell3">
+              <p class="ps2"><span class="ts6">Select the annotate elevation and/or station option for profile annotation.</span></p>
+            </td>
+          </tr>
+          <tr class="row0">
+            <td class="cell2">
+              <p class="ps2"><span class="ts42">Distance between station annotations must be a multiple of vertical grid lines spacing</span></p>
+            </td>
+            <td class="cell3">
+              <p class="ps2"><span class="ts6">Set the profile/cross section vertical grid separation as a&nbsp; multiple of the distance between station annotations. For example, if the distance between station annotations at the bottom of the profile/cross section grid is set to 10 feet, vertical grid lines separation may be set to any value multiple of 10 (10, 20, 30, etc.).</span></p>
+            </td>
+          </tr>
+          <tr class="row0">
+            <td class="cell2">
+              <p class="ps2"><span class="ts42">Distance between elevation annotations must be a multiple of horizontal grid lines spacing</span></p>
+            </td>
+            <td class="cell3">
+              <p class="ps2"><span class="ts6">Set the profile/cross section horizontal grid separation as a multiple of the distance between elevation annotations. For example, if the distance between elevation annotations at the left of the profile/cross section grid is set to 10 feet, horizontal grid lines separation may be set to any value multiple of 10 (10, 20, 30, etc.).</span></p>
+            </td>
+          </tr>
+          <tr class="row0">
+            <td class="cell2">
+              <p class="ps2"><span class="ts42">Left/right padding distance must be a multiple of vertical grid lines spacing.</span></p>
+            </td>
+            <td class="cell3">
+              <p class="ps2"><span class="ts6">Set the margin distance at the left and right of the profile as a multiple of the distance between vertical grid lines. For example, if you set the vertical lines distance at every 5 feet, the left/right margin can be set to any value multiple of 5 (5, 10, 15, etc). You can also set the left/right padding value equal to zero.</span></p>
+            </td>
+          </tr>
+          <tr class="row0">
+            <td class="cell2">
+              <p class="ps2"><span class="ts42">Top/Bottom padding distance must be a multiple of horizontal grid lines spacing</span></p>
+            </td>
+            <td class="cell3">
+              <p class="ps2"><span class="ts6">Set the margin distance at the top and bottom of the profile as a multiple of the distance between horizontal grid lines. For example, if you set the horizontal lines distance at every 5 feet, the top/bottom margin can be set to any value multiple of 5 (5, 10, 15, etc). You can also set the top/bottom padding value equal to zero.</span></p>
+            </td>
+          </tr>
+          <tr class="row0">
+            <td class="cell2">
+              <p class="ps2"><span class="ts42">Placemark icon &lt;</span><span class="ts43">icon name</span><span class="ts42">&gt; is already added.</span></p>
+            </td>
+            <td class="cell3">
+              <p class="ps2"><span class="ts6">Select a custom icon name not already included in the Custom </span><a href="IDH_Topic60.htm#PlacemarkIconLib" class="hs2">Placemark Icon Library</a><span class="ts6">.</span></p>
+            </td>
+          </tr>
+          <tr class="row0">
+            <td class="cell2">
+              <p class="ps2"><span class="ts42">Relative path cannot be assigned.</span></p>
+            </td>
+            <td class="cell3">
+              <p class="ps2"><span class="ts6">Select a folder that can be relative to the current drawing path (in the same drive). </span></p>
+            </td>
+          </tr>
+          <tr class="row0">
+            <td class="cell2">
+              <p class="ps2"><span class="ts42">Drawing must be saved before inserting an image with no path.</span></p>
+            </td>
+            <td class="cell3">
+              <p class="ps2"><span class="ts6">Save the current drawing and try again. If you specify to insert a georeferenced image with no path, it must be located in the same directory as the drawing. </span></p>
+            </td>
+          </tr>
+          <tr class="row0">
+            <td class="cell2">
+              <p class="ps2"><span class="ts42">Offset distance left or right must be non zero.</span></p>
+            </td>
+            <td class="cell3">
+              <p class="ps2"><span class="ts6">Horizontal distance (offset) from the center of the cross section to the right and left end can't be both zero. Set an offset value different than zero for one or both ends.</span></p>
+            </td>
+          </tr>
+          <tr class="row0">
+            <td class="cell2">
+              <p class="ps2"><span class="ts42">Index contour interval must be a multiple of contour lines interval</span></p>
+            </td>
+            <td class="cell3">
+              <p class="ps2"><span class="ts6">Set index contour separation as a multiple of the contour lines interval value. For example, if you have specified to draw contour lines at every 5 feet, the index contour interval must be a multiple of 5 feet (10, 15, 20, etc).</span></p>
+            </td>
+          </tr>
+          <tr class="row0">
+            <td class="cell2">
+              <p class="ps2"><span class="ts42">CAD-Earth ARX file couldn't be loaded</span></p>
+            </td>
+            <td class="cell3">
+              <p class="ps2"><span class="ts6">Wrong or damaged CAD-Earth main ARX file. Re-install CAD-Earth. If problem persists contact </span><a href="mailto:support@cad-earth.com?subject=CAD-Earth%20ARX%20file%20couldn%27t%20be%20loaded." class="hs0">technical support</a><span class="ts6">&nbsp;or submit a </span><a href="http://www.cad-earth.com/hesk/index.php?a=add" target="_blank" class="hs0">support ticket</a><span class="ts27">.</span></p>
+            </td>
+          </tr>
+          <tr class="row0">
+            <td class="cell2">
+              <p class="ps2"><span class="ts42">This command doesn't work in 3D or isometric views. Please reset the view perpendicular to the XY plane</span></p>
+            </td>
+            <td class="cell3">
+              <p class="ps2"><span class="ts6">Some CAD-Earth commands don't work in isometric or perspective view. Use the PLAN AutoCAD command to set view perpendicular to the XY plane.</span></p>
+            </td>
+          </tr>
+          <tr class="row0">
+            <td class="cell2">
+              <p class="ps2"><span class="ts42">Terrain mesh couldn´t be created.</span></p>
+              <p class="ps2"><span class="ts42">Error: Unhandled exception &lt;</span><span class="ts43">value</span><span class="ts42">&gt;</span></p>
+            </td>
+            <td class="cell3">
+              <p class="ps2"><span class="ts6">Problem triangulating mesh points. Try&nbsp; the command again with different parameters (grid rotation, distance between rows and columns and point of origin). If error persists contact </span><a href="mailto:support@cad-earth.com?subject=Terrain%20mesh%20couldn%27t%20be%20created." class="hs0">technical support</a><span class="ts6">&nbsp;or submit a </span><a href="http://www.cad-earth.com/hesk/index.php?a=add" target="_blank" class="hs0">support ticket</a><span class="ts27">.</span></p>
+            </td>
+          </tr>
+          <tr class="row0">
+            <td class="cell2">
+              <p class="ps2"><span class="ts42">Contour lines couldn´t be created.</span></p>
+            </td>
+            <td class="cell3">
+              <p class="ps2"><span class="ts6">Reduce the contour and index lines interval. This problem often occurs when the terrain mesh is almost an horizontal plane.</span></p>
+            </td>
+          </tr>
+          <tr class="row0">
+            <td class="cell2">
+              <p class="ps2"><span class="ts42">Mesh group not found.</span></p>
+              <p class="ps2"><span class="ts42">Mesh can´t be made invisible.</span></p>
+            </td>
+            <td class="cell3">
+              <p class="ps2"><a href="IDH_Topic170.htm" class="hs0">Contour lines</a><span class="ts6">&nbsp;must be generated before toggling mesh visibility.</span></p>
+            </td>
+          </tr>
+          <tr class="row0">
+            <td class="cell2">
+              <p class="ps2"><span class="ts42">Dialog box couldn't be initialized.</span></p>
+            </td>
+            <td class="cell3">
+              <p class="ps2"><span class="ts6">Dialog box of the selected CAD-Earth command couldn't be shown. Contact </span><a href="mailto:support@cad-earth.com?subject=Dialog%20box%20couldn%27t%20be%20initialized." class="hs0">technical support</a><span class="ts6">&nbsp;or submit a </span><a href="http://www.cad-earth.com/hesk/index.php?a=add" target="_blank" class="hs0">support ticket</a><span class="ts27">.</span></p>
+            </td>
+          </tr>
+          <tr class="row0">
+            <td class="cell2">
+              <p class="ps2"><span class="ts42">World file missing</span></p>
+            </td>
+            <td class="cell3">
+              <p class="ps2"><span class="ts6">Copy the </span><a href="IDH_Topic160.htm" class="hs0">world file</a><span class="ts6">&nbsp;to the same folder as the </span><a href="IDH_Topic160.htm" class="hs0">georeferenced image</a><span class="ts6">&nbsp;file. </span></p>
+            </td>
+          </tr>
+          <tr class="row0">
+            <td class="cell2">
+              <p class="ps2"><span class="ts42">Error reading world text file (</span><span class="ts43">file path</span><span class="ts42">).</span></p>
+            </td>
+            <td class="cell3">
+              <p class="ps2"><span class="ts6">Wrong world file format. Open the file with a text editor to see its contents to make sure it's not damaged or altered.</span></p>
+              <p class="ps2"><span class="ts6">If problem persists contact </span><a href="mailto:support@cad-earth.com?subject=Error%20%20reading%20world%20text%20file." class="hs0">technical support</a><span class="ts6">&nbsp;or submit a </span><a href="http://www.cad-earth.com/hesk/index.php?a=add" target="_blank" class="hs0">support ticket</a><span class="ts27">.</span></p>
+            </td>
+          </tr>
+          <tr class="row0">
+            <td class="cell2">
+              <p class="ps2"><span class="ts42">&quot;Google Earth application not found&quot; or &quot;</span><span class="ts44">Problem connecting with Google Earth.</span><span class="ts44">&quot;</span></p>
+            </td>
+            <td class="cell3">
+              <p>&nbsp;</p>
+              <p class="ps7"><span style="font-size: 14pt; line-height: 0; vertical-align: middle; color: Black">&bull;</span><span style="display: inline-block; width: 18px"></span><span class="ts6">Right click on the file GEINTEROP.EXE and select 'Run as Administrator' from the context menu. This file is located in the folder where CAD-Earth is installed (usually C:\Program Files\CAD-Earth).</span></p>
+              <p class="ps7"><span style="font-size: 14pt; line-height: 0; vertical-align: middle; color: Black">&bull;</span><span style="display: inline-block; width: 18px"></span><span class="ts6">Close Google Earth and try the CAD-Earth command again.</span></p>
+              <p class="ps7"><span style="font-size: 14pt; line-height: 0; vertical-align: middle; color: Black">&bull;</span><span style="display: inline-block; width: 18px"></span><span class="ts6">Restart AutoCAD.</span></p>
+              <p class="ps2"><span class="ts6">If problem persists contact </span><a href="mailto:support@cad-earth.com?subject=CAD-Earth%20ARX%20file%20couldn%27t%20be%20loaded." class="hs0">technical support</a><span class="ts6">&nbsp;or submit a </span><a href="http://www.cad-earth.com/hesk/index.php?a=add" target="_blank" class="hs0">support ticket</a><span class="ts27">.</span></p>
+            </td>
+          </tr>
+          <tr class="row0">
+            <td class="cell2">
+              <p class="ps2"><span class="ts42">Imported image appears blank</span></p>
+            </td>
+            <td class="cell3">
+              <p class="ps2"><span class="ts6">From the Google Earth menu select Tools &gt; Options &gt; 3D View &gt; Graphics Mode &gt; DirectX and restart Google Earth.</span></p>
+              <p class="ps2"><span class="ts6">If you have several monitors connected to your computer deactivate them and leave only one monitor active.</span></p>
+            </td>
+          </tr>
+          <tr class="row0">
+            <td class="cell2">
+              <p class="ps2"><span class="ts42">Image appears with gaps between image tiles.</span></p>
+            </td>
+            <td class="cell3">
+              <p class="ps7"><span style="font-size: 14pt; line-height: 0; vertical-align: middle; color: Black">&bull;</span><span style="display: inline-block; width: 18px"></span><span class="ts6">Right-click on your Windows Desktop screen</span></p>
+              <p class="ps7"><span style="font-size: 14pt; line-height: 0; vertical-align: middle; color: Black">&bull;</span><span style="display: inline-block; width: 18px"></span><span class="ts6">Select 'Display settings' from the context menu.</span></p>
+              <p class="ps7"><span style="font-size: 14pt; line-height: 0; vertical-align: middle; color: Black">&bull;</span><span style="display: inline-block; width: 18px"></span><span class="ts6">Set the screen scale factor to 100%</span></p>
+              <p class="ps2"><span class="ts6">Check that the screen scale factor shown in the dialog box when importing or inserting an image is the same as the screen scale factor set in your computer.</span></p>
+            </td>
+          </tr>
+          <tr class="row0">
+            <td class="cell2">
+              <p class="ps2"><span class="ts42">Percentage progress bar is shown in the final image.</span></p>
+            </td>
+            <td class="cell3">
+              <p class="ps2"><span class="ts6">Uncheck the option 'Display percentage bar' when importing or inserting an image.</span></p>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <hr class="hline0" />
+      </div>
+      <p class="ps14"><span class="ts9">Copyright &copy; 20</span><span class="ts9">23</span><span class="ts9">&nbsp;</span><span class="ts9">Arqcom </span><span class="ts9">Software </span></p>
+      <p class="ps14"><span class="ts9">Google Earth</span><span class="ts9">&copy;</span><span class="ts9">&nbsp;is a registered trademark of Google inc. All other trademarks are the property of their respective owners.</span></p>
+      <p class="ps14"><a href="https://www.cad-earth.com" target="_blank" class="hs1">https://www.cad-earth.com&nbsp;</a></p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

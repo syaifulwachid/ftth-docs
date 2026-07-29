@@ -1,0 +1,129 @@
+{
+  "asset_info": {
+    "author": "Syaiful Wachid",
+    "category": "FTTH",
+    "asset_type": "POLE",
+    "revision": "1.0",
+    "description": "AutoCAD Serialized Object Definition"
+  },
+  "document_settings": {
+    "measurement": "Decimal",
+    "drawing_limits_min": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "drawing_limits_max": [
+      420.0,
+      297.0,
+      0.0
+    ]
+  },
+  "dependencies": {
+    "layers": [
+      "NP3 3' HC Symbol"
+    ],
+    "textstyles": [
+      "ISO-Text"
+    ],
+    "linetypes": [
+      "ByLayer"
+    ]
+  },
+  "layers": [
+    {
+      "name": "NP3 3' HC Symbol",
+      "color": 4,
+      "linetype": "Continuous",
+      "lineweight": "LineWeight015"
+    }
+  ],
+  "textstyles": [
+    {
+      "name": "ISO-Text",
+      "font_file_name": "simplex.shx",
+      "big_font_file_name": "",
+      "width_factor": 0.6,
+      "obliquing_angle": 0.0,
+      "is_vertical": false,
+      "text_size": 0.0,
+      "font_typeface": null,
+      "font_bold": false,
+      "font_italic": false,
+      "font_pitch_family": 0,
+      "font_charset": 0,
+      "has_font_desc": false
+    }
+  ],
+  "blocks": [
+    {
+      "name": "POLE73IN",
+      "base_point": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "entities": [
+        {
+          "id": "sub_001",
+          "type": "CIRCLE",
+          "layer": "NP3 3' HC Symbol",
+          "color": 4,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "center": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "radius": 2.2171674657805722
+        },
+        {
+          "id": "sub_002",
+          "type": "MTEXT",
+          "layer": "NP3 3' HC Symbol",
+          "color": 4,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "contents": "\\pxsm0.6,qc;NP7\\P3'",
+          "location": [
+            -1.8307637643301859,
+            1.5653059239994036,
+            -3.4037600758767265E-13
+          ],
+          "height": 1.6913128736818703,
+          "rotation": 6.2785946711674825,
+          "style": "ISO-Text",
+          "attachment": "TopLeft",
+          "width": 3.8704807242611423
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "ent_001",
+      "type": "BLOCKREFERENCE",
+      "layer": "NP3 3' HC Symbol",
+      "color": 256,
+      "linetype": "ByLayer",
+      "lineweight": "ByLayer",
+      "block_name": "POLE73IN",
+      "position": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "attributes": [],
+      "dynamic_properties": []
+    }
+  ],
+  "metadata": {},
+  "runtime_logic": {}
+}

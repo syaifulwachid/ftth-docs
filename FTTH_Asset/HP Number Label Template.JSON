@@ -1,0 +1,82 @@
+{
+  "asset_info": {
+    "author": "Syaiful Wachid",
+    "category": "FTTH",
+    "asset_type": "POLE",
+    "revision": "1.0",
+    "description": "AutoCAD Serialized Object Definition"
+  },
+  "document_settings": {
+    "measurement": "Decimal",
+    "drawing_limits_min": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "drawing_limits_max": [
+      420.0,
+      297.0,
+      0.0
+    ]
+  },
+  "dependencies": {
+    "layers": [
+      "HP Number"
+    ],
+    "textstyles": [
+      "MANTP"
+    ],
+    "linetypes": [
+      "ByLayer"
+    ]
+  },
+  "layers": [
+    {
+      "name": "HP Number",
+      "color": 6,
+      "linetype": "Continuous",
+      "lineweight": "ByLineWeightDefault"
+    }
+  ],
+  "textstyles": [
+    {
+      "name": "MANTP",
+      "font_file_name": "ROMANS",
+      "big_font_file_name": "",
+      "width_factor": 1.0,
+      "obliquing_angle": 0.0,
+      "is_vertical": false,
+      "text_size": 1.399999999999999,
+      "font_typeface": null,
+      "font_bold": false,
+      "font_italic": false,
+      "font_pitch_family": 0,
+      "font_charset": 0,
+      "has_font_desc": false
+    }
+  ],
+  "blocks": [],
+  "entities": [
+    {
+      "id": "ent_001",
+      "type": "MTEXT",
+      "layer": "HP Number",
+      "color": 256,
+      "linetype": "ByLayer",
+      "lineweight": "ByLayer",
+      "contents": "NN-001",
+      "location": [
+        -0.13116845705008018,
+        0.0082856669432658236,
+        0.0
+      ],
+      "height": 1.399999999999999,
+      "rotation": 6.2762617322126912,
+      "style": "MANTP",
+      "attachment": "MiddleCenter",
+      "width": 3.4046925831978156
+    }
+  ],
+  "metadata": {},
+  "runtime_logic": {}
+}

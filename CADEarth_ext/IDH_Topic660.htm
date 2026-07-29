@@ -1,0 +1,155 @@
+<!DOCTYPE HTML>
+<html id="hs-topic-p">
+<head>
+<title>Modify terrain mesh vertex elevation</title>
+<meta charset="windows-1252" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="generator" content="HelpSmith 8.3 (Build 20.601)" />
+<style type="text/css" media="screen">
+html {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+body {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+#non-scrolling-area {
+  padding: 0 7.5pt 0 7.5pt;
+  background-color: #5e5f5f;
+}
+#container {
+  overflow: auto;
+}
+#content {
+  padding: 0 7.5pt 3.75pt 7.5pt;
+}
+</style>
+<link type="text/css" rel="stylesheet" href="styles.css" />
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="js/nsa.js"></script>
+<script type="text/javascript" src="js/hh-layout.js"></script>
+</head>
+<body>
+<div id="non-scrolling-area">
+  <p class="ps0"><span class="ts0">Navigation: CAD-Earth commands&nbsp;&gt; Mesh commands&nbsp;&gt; </span><a href="IDH_Topic610.htm" class="hs5">Mesh Explorer</a><span class="ts0">&nbsp;&gt; Vertices&nbsp;&gt; </span></p>
+  <p class="ps1"><span class="ts1">Modify elevation</span></p>
+</div>
+<div id="container">
+  <div id="content-background">
+    <div id="content">
+      <p>&nbsp;</p>
+      <div>
+        <table class="align-c tbl0">
+          <tr class="row0">
+            <td class="cell0">
+              <p class="ps3"><img style="Width: 17.25pt; Height: 15.75pt;" alt="" src="Images/Image(52)(1).png" /></p>
+            </td>
+            <td class="cell1">
+              <p class="ps2"><span class="ts16">Toolbar: </span><span class="ts6">&nbsp;</span><img style="Width: 24.75pt; Height: 23.25pt;" alt="" src="Images/Image(17).png" /></p>
+              <p class="ps2"><span class="ts2">&nbsp;</span></p>
+              <p class="ps14"><span class="ts17">Menu: </span><span class="ts18">CAD-Earth &gt; Mesh &gt; Mesh Explorer.</span></p>
+              <p class="ps2"><span class="ts16">Mesh Explorer node: </span><img style="Width: 15pt; Height: 15.75pt;" alt="" src="Images/Image(19).png" /></p>
+              <p class="ps14"><span class="ts30">&nbsp;</span></p>
+              <p class="ps14"><span class="ts17">Context Menu:</span><span class="ts18">&nbsp;Vertices &gt; Modify elevation</span></p>
+              <p class="ps2"><span class="ts2">&nbsp;</span></p>
+            </td>
+          </tr>
+          <tr class="row0">
+            <td class="cell0">
+              <p class="ps3"><img style="Width: 18pt; Height: 12pt;" alt="" src="Images/Image(53)(1).png" /></p>
+            </td>
+            <td class="cell4">
+              <p class="ps14"><span class="ts17">Command line: </span><span class="ts18">CE_MESHEXPLORER</span></p>
+              <p class="ps15"><span class="ts19">&nbsp;</span></p>
+              <p class="ps14"><span class="ts17">CAD-Earth version:</span><span class="ts20">&nbsp;</span><span class="ts18">Premium.</span></p>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <p class="ps2"><span class="ts2">&nbsp;</span></p>
+      <p><span class="ts4">Command description:</span></p>
+      <p class="ps2"><span class="ts2">&nbsp;</span></p>
+      <p class="ps2"><span class="ts2">&nbsp;</span></p>
+      <p class="ps2"><span class="ts6">This command allows you to select a mesh vertex and change its elevation. The vertex elevation can be calculated by selecting a reference point to take its elevation, projecting the point on a temporary plane specifying three points, or specifying points to define a temporary mesh where the mesh vertices will be projected.</span></p>
+      <p class="ps2"><span class="ts6">&nbsp;An elevation offset can be specified, adding this value to the calculated elevation. </span></p>
+      <p class="ps2"><span class="ts6">When defining the temporary plane, a slope can be specified between the first point and the second and third point to define the slope of the plane in two directions. </span></p>
+      <p class="ps2"><span class="ts6">The current elevation mode (selecting a point on mesh or interpolating on a plane) and the current elevation offset are displayed before selecting an option.</span></p>
+      <p class="ps2"><span class="ts6">&nbsp;</span></p>
+      <p class="ps2"><span class="ts6">You can define an area to project the vertices and modify their elevation. The elevation of the vertices inside the area will be calculated as follows:</span></p>
+      <p class="ps2"><span class="ts2">&nbsp;</span></p>
+      <p class="ps42"><span style="font-size: 14pt; line-height: 0; vertical-align: middle; color: Black">&bull;</span><span style="display: inline-block; width: 8px"></span><span class="ts5">Fixed:</span><span class="ts6">&nbsp;Vertices will have a constant elevation.</span></p>
+      <p class="ps42"><span style="font-size: 14pt; line-height: 0; vertical-align: middle; color: Black">&bull;</span><span style="display: inline-block; width: 8px"></span><span class="ts5">Select point:</span><span class="ts6">&nbsp;Vertices will take the elevation of the point selected.</span></p>
+      <p class="ps42"><span style="font-size: 14pt; line-height: 0; vertical-align: middle; color: Black">&bull;</span><span style="display: inline-block; width: 8px"></span><span class="ts5">Interpolate:</span><span class="ts6">&nbsp;Vertices will be projected on a temporary plane defining three points.</span></p>
+      <p class="ps42"><span style="font-size: 14pt; line-height: 0; vertical-align: middle; color: Black">&bull;</span><span style="display: inline-block; width: 8px"></span><span class="ts5">Project:</span><span class="ts6">&nbsp;Vertices will be projected on a temporary mesh created from the points selected, optionally specifying points inside this mesh to refine its configuration</span></p>
+      <p class="ps2"><span class="ts2">&nbsp;</span></p>
+      <p><span class="ts4">Command line prompts:</span></p>
+      <p class="ps15"><span class="ts35">&nbsp;</span></p>
+      <p class="ps15"><span class="ts33">Select: [Point/Area/Exit]&lt;P&gt;:</span></p>
+      <p class="ps15"><span class="ts35">&nbsp;</span></p>
+      <p class="ps2"><span class="ts6">If the point option is selected:</span></p>
+      <p class="ps15"><span class="ts35">&nbsp;</span></p>
+      <p class="ps15"><span class="ts33">Select point or [Exit]:</span></p>
+      <p class="ps15"><span class="ts33">ELEVATION MODE: On mesh, OFFSET: 0.00</span></p>
+      <p class="ps15"><span class="ts33">Elevation or [Select point/Interpolate/Offset]&lt;261.715&gt;:</span></p>
+      <p class="ps15"><span class="ts33">Selected vertex elevation equal to: 261.715</span></p>
+      <p class="ps15"><span class="ts35">&nbsp;</span></p>
+      <p class="ps2"><span class="ts6">If the interpolate on a temporary plane option is selected:</span></p>
+      <p class="ps15"><span class="ts35">&nbsp;</span></p>
+      <p class="ps15"><span class="ts33">ELEVATION MODE: On mesh, OFFSET: 0.00</span></p>
+      <p class="ps15"><span class="ts33">Elevation or [Select point/Interpolate/Offset]&lt;261.715&gt;: Interpolate</span></p>
+      <p class="ps15"><span class="ts33">Specify first point:</span></p>
+      <p class="ps15"><span class="ts33">Elevation&lt;261.693&gt;:</span></p>
+      <p class="ps15"><span class="ts33">Specify second point:</span></p>
+      <p class="ps15"><span class="ts33">Elevation or [Slope]&lt;261.616&gt;:</span></p>
+      <p class="ps15"><span class="ts35">&nbsp;</span></p>
+      <p class="ps2"><span class="ts6">If the slope option is selected:</span><span class="ts36">&nbsp;</span></p>
+      <p class="ps15"><span class="ts35">&nbsp;</span></p>
+      <p class="ps15"><span class="ts33">Slope from first point&lt;0.00&gt;: 2</span></p>
+      <p class="ps15"><span class="ts35">&nbsp;</span></p>
+      <p class="ps15"><span class="ts33">Specify third point or ENTER:</span></p>
+      <p class="ps15"><span class="ts33">Elevation or [Slope]&lt;261.776&gt;: </span></p>
+      <p class="ps15"><span class="ts35">&nbsp;</span></p>
+      <p class="ps2"><span class="ts6">If the slope option is selected:</span></p>
+      <p class="ps15"><span class="ts35">&nbsp;</span></p>
+      <p class="ps15"><span class="ts33">Slope from first point&lt;0.00&gt;: </span></p>
+      <p class="ps15"><span class="ts35">&nbsp;</span></p>
+      <p class="ps15"><span class="ts33">Elevation&lt;261.757&gt;:</span></p>
+      <p class="ps15"><span class="ts33">Selected vertex elevation changed to: 261.757</span></p>
+      <p class="ps15"><span class="ts35">&nbsp;</span></p>
+      <p class="ps2"><span class="ts6">If the offset option is selected:</span></p>
+      <p class="ps15"><span class="ts35">&nbsp;</span></p>
+      <p class="ps15"><span class="ts33">ELEVATION MODE: Interpolated, OFFSET: 0.00</span></p>
+      <p class="ps15"><span class="ts33">Elevation or [Select point/Interpolate/Offset]&lt;261.476&gt;: O</span></p>
+      <p class="ps15"><span class="ts33">Elevation offset&lt;0&gt;: 2.5</span></p>
+      <p class="ps15"><span class="ts33">Elevation&lt;263.976&gt;:</span></p>
+      <p class="ps15"><span class="ts33">Selected vertex elevation changed to: 263.976</span></p>
+      <p class="ps15"><span class="ts35">&nbsp;</span></p>
+      <p class="ps2"><span class="ts6">If the area option is selected:</span></p>
+      <p class="ps15"><span class="ts35">&nbsp;</span></p>
+      <p class="ps15"><span class="ts33">Select: [Point/Area/Exit]&lt;P&gt;: Area</span></p>
+      <p class="ps15"><span class="ts33">Elevation mode: [Fixed/Select point/Interpolate/Project/Offset]:</span></p>
+      <p>&nbsp;</p>
+      <p><span class="ts4">Tips:</span></p>
+      <p class="ps2"><span class="ts2">&nbsp;</span></p>
+      <p class="ps42"><span style="font-size: 14pt; line-height: 0; vertical-align: middle; color: Black">&bull;</span><span style="display: inline-block; width: 8px"></span><span class="ts6">You can select the area option selecting ground points around vegetation or buildings to remove them from the mesh.</span></p>
+      <p class="ps42"><span style="font-size: 14pt; line-height: 0; vertical-align: middle; color: Black">&bull;</span><span style="display: inline-block; width: 8px"></span><span class="ts6">If you select the Project option, a mesh will be created, which you can use to calculate the mound, hole, or ditch volumes.</span></p>
+      <p class="ps2"><span class="ts2">&nbsp;</span></p>
+      <p class="ps2"><span class="ts2">&nbsp;</span></p>
+      <p class="ps2"><span class="ts2">&nbsp;</span></p>
+      <div>
+        <hr class="hline0" />
+      </div>
+      <p class="ps14"><span class="ts9">Copyright &copy; 20</span><span class="ts9">23</span><span class="ts9">&nbsp;</span><span class="ts9">Arqcom </span><span class="ts9">Software </span></p>
+      <p class="ps14"><span class="ts9">Google Earth</span><span class="ts9">&copy;</span><span class="ts9">&nbsp;is a registered trademark of Google inc. All other trademarks are the property of their respective owners.</span></p>
+      <p class="ps14"><a href="https://www.cad-earth.com" target="_blank" class="hs1">https://www.cad-earth.com&nbsp;</a></p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

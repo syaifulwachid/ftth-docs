@@ -1,0 +1,748 @@
+{
+  "asset_info": {
+    "author": "Syaiful Wachid",
+    "category": "FTTH",
+    "asset_type": "POLE",
+    "revision": "1.0",
+    "description": "AutoCAD Serialized Object Definition"
+  },
+  "document_settings": {
+    "measurement": "Decimal",
+    "drawing_limits_min": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "drawing_limits_max": [
+      420.0,
+      297.0,
+      0.0
+    ]
+  },
+  "dependencies": {
+    "layers": [
+      "Spare Coil Info"
+    ],
+    "textstyles": [
+      "INFO"
+    ],
+    "linetypes": [
+      "ByLayer"
+    ]
+  },
+  "layers": [
+    {
+      "name": "Spare Coil Info",
+      "color": 7,
+      "linetype": "Continuous",
+      "lineweight": "ByLineWeightDefault"
+    }
+  ],
+  "textstyles": [
+    {
+      "name": "INFO",
+      "font_file_name": "simplex.shx",
+      "big_font_file_name": "",
+      "width_factor": 0.6,
+      "obliquing_angle": 0.0,
+      "is_vertical": false,
+      "text_size": 0.0,
+      "font_typeface": null,
+      "font_bold": false,
+      "font_italic": false,
+      "font_pitch_family": 0,
+      "font_charset": 0,
+      "has_font_desc": false
+    }
+  ],
+  "blocks": [
+    {
+      "name": "21. Spare Coil Info",
+      "base_point": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "entities": [
+        {
+          "id": "sub_001",
+          "type": "WIPEOUT",
+          "layer": "Spare Coil Info",
+          "color": 7,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "bounds": "Min: (-83.7218572084595,-30.1183371415273,0), Max: (84.1162157236039,29.8816628584727,0)"
+        },
+        {
+          "id": "sub_002",
+          "type": "WIPEOUT",
+          "layer": "Spare Coil Info",
+          "color": 7,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "bounds": "Min: (-83.7218572084595,-30.1183371415273,0), Max: (84.1162157236039,29.8816628584727,0)"
+        },
+        {
+          "id": "sub_003",
+          "type": "WIPEOUT",
+          "layer": "Spare Coil Info",
+          "color": 7,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "bounds": "Min: (-83.7218572084595,-30.1183371415273,0), Max: (84.1162157236039,29.8816628584727,0)"
+        },
+        {
+          "id": "sub_004",
+          "type": "POLYLINE",
+          "layer": "Spare Coil Info",
+          "color": 7,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "closed": false,
+          "elevation": 0.0,
+          "vertices": [
+            {
+              "x": -83.721857208459454,
+              "y": 29.881662858268953,
+              "bulge": 0.0
+            },
+            {
+              "x": 84.116215722934527,
+              "y": 29.881662858268953,
+              "bulge": 0.0
+            }
+          ]
+        },
+        {
+          "id": "sub_005",
+          "type": "POLYLINE",
+          "layer": "Spare Coil Info",
+          "color": 7,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "closed": false,
+          "elevation": 0.0,
+          "vertices": [
+            {
+              "x": -83.721857208459454,
+              "y": 19.881662858268953,
+              "bulge": 0.0
+            },
+            {
+              "x": 84.116215722934527,
+              "y": 19.881662858268953,
+              "bulge": 0.0
+            }
+          ]
+        },
+        {
+          "id": "sub_006",
+          "type": "POLYLINE",
+          "layer": "Spare Coil Info",
+          "color": 7,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "closed": false,
+          "elevation": 0.0,
+          "vertices": [
+            {
+              "x": -83.721857208459454,
+              "y": 9.8816628582689532,
+              "bulge": 0.0
+            },
+            {
+              "x": 84.116215722934527,
+              "y": 9.8816628582689532,
+              "bulge": 0.0
+            }
+          ]
+        },
+        {
+          "id": "sub_007",
+          "type": "POLYLINE",
+          "layer": "Spare Coil Info",
+          "color": 7,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "closed": false,
+          "elevation": 0.0,
+          "vertices": [
+            {
+              "x": -83.721857208459454,
+              "y": -0.11833714173104681,
+              "bulge": 0.0
+            },
+            {
+              "x": 84.116215722934527,
+              "y": -0.11833714173104681,
+              "bulge": 0.0
+            }
+          ]
+        },
+        {
+          "id": "sub_008",
+          "type": "POLYLINE",
+          "layer": "Spare Coil Info",
+          "color": 7,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "closed": false,
+          "elevation": 0.0,
+          "vertices": [
+            {
+              "x": -83.721857208459454,
+              "y": -10.118337141731047,
+              "bulge": 0.0
+            },
+            {
+              "x": 84.116215722934527,
+              "y": -10.118337141731047,
+              "bulge": 0.0
+            }
+          ]
+        },
+        {
+          "id": "sub_009",
+          "type": "LINE",
+          "layer": "Spare Coil Info",
+          "color": 7,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "start_point": [
+            -83.721857208459454,
+            29.881662858268953,
+            0.0
+          ],
+          "end_point": [
+            -83.721857208459454,
+            -30.118337141731047,
+            0.0
+          ]
+        },
+        {
+          "id": "sub_010",
+          "type": "LINE",
+          "layer": "Spare Coil Info",
+          "color": 7,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "start_point": [
+            -83.721857208459454,
+            -30.118337141731047,
+            0.0
+          ],
+          "end_point": [
+            84.116215722934527,
+            -30.118337141731047,
+            0.0
+          ]
+        },
+        {
+          "id": "sub_011",
+          "type": "TEXT",
+          "layer": "Spare Coil Info",
+          "color": 7,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "text_string": "SLACK CABLE",
+          "position": [
+            -49.631783174051719,
+            1.601142566735632,
+            0.0
+          ],
+          "alignment_point": [
+            -49.631783174051719,
+            4.601142566735632,
+            0.0
+          ],
+          "height": 6.0,
+          "rotation": 0.0,
+          "style": "INFO",
+          "horizontal_mode": "TextLeft",
+          "vertical_mode": "TextVerticalMid",
+          "width_factor": 0.8,
+          "obliquing_angle": 0.0
+        },
+        {
+          "id": "sub_012",
+          "type": "TEXT",
+          "layer": "Spare Coil Info",
+          "color": 7,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "text_string": ":",
+          "position": [
+            11.512808106207473,
+            1.601142566735632,
+            0.0
+          ],
+          "alignment_point": [
+            11.512808106207473,
+            4.601142566735632,
+            0.0
+          ],
+          "height": 6.0,
+          "rotation": 0.0,
+          "style": "INFO",
+          "horizontal_mode": "TextLeft",
+          "vertical_mode": "TextVerticalMid",
+          "width_factor": 0.6,
+          "obliquing_angle": 0.0
+        },
+        {
+          "id": "sub_013",
+          "type": "TEXT",
+          "layer": "Spare Coil Info",
+          "color": 7,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "text_string": "M",
+          "position": [
+            43.46624813817553,
+            1.601142566735632,
+            0.0
+          ],
+          "alignment_point": [
+            43.46624813817553,
+            4.601142566735632,
+            0.0
+          ],
+          "height": 6.0,
+          "rotation": 0.0,
+          "style": "INFO",
+          "horizontal_mode": "TextLeft",
+          "vertical_mode": "TextVerticalMid",
+          "width_factor": 0.8,
+          "obliquing_angle": 0.0
+        },
+        {
+          "id": "sub_014",
+          "type": "POLYLINE",
+          "layer": "Spare Coil Info",
+          "color": 7,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "closed": false,
+          "elevation": 0.0,
+          "vertices": [
+            {
+              "x": -83.721857208459454,
+              "y": -20.118337141731047,
+              "bulge": 0.0
+            },
+            {
+              "x": 84.116215722934527,
+              "y": -20.118337141731047,
+              "bulge": 0.0
+            }
+          ]
+        },
+        {
+          "id": "sub_015",
+          "type": "POLYLINE",
+          "layer": "Spare Coil Info",
+          "color": 7,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "closed": false,
+          "elevation": 0.0,
+          "vertices": [
+            {
+              "x": 84.116215722934527,
+              "y": 29.881662858268953,
+              "bulge": 0.0
+            },
+            {
+              "x": 84.116215722934527,
+              "y": -30.118337141731047,
+              "bulge": 0.0
+            }
+          ]
+        },
+        {
+          "id": "sub_016",
+          "type": "TEXT",
+          "layer": "Spare Coil Info",
+          "color": 7,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "text_string": "COORDINATE :",
+          "position": [
+            -80.738250162153321,
+            -8.398857433264368,
+            0.0
+          ],
+          "alignment_point": [
+            -80.738250162153321,
+            -5.398857433264368,
+            0.0
+          ],
+          "height": 6.0,
+          "rotation": 0.0,
+          "style": "INFO",
+          "horizontal_mode": "TextLeft",
+          "vertical_mode": "TextVerticalMid",
+          "width_factor": 0.8,
+          "obliquing_angle": 0.0
+        },
+        {
+          "id": "sub_017",
+          "type": "ATTRIBUTEDEFINITION",
+          "layer": "Spare Coil Info",
+          "color": 7,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "tag": "ID",
+          "prompt": "NAME",
+          "text_string": "Slack Cable 144C",
+          "position": [
+            -31.345677885619605,
+            21.599412220149077,
+            0.0
+          ],
+          "alignment_point": [
+            0.19717925723753638,
+            21.599412220149077,
+            0.0
+          ],
+          "height": 6.0,
+          "rotation": 0.0,
+          "style": "INFO",
+          "horizontal_mode": "TextCenter",
+          "vertical_mode": "TextBase",
+          "width_factor": 0.8,
+          "obliquing_angle": 0.0,
+          "invisible": false,
+          "constant": false,
+          "verifiable": false,
+          "preset": false
+        },
+        {
+          "id": "sub_018",
+          "type": "ATTRIBUTEDEFINITION",
+          "layer": "Spare Coil Info",
+          "color": 7,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "tag": "PLACE",
+          "prompt": "NAME",
+          "text_string": "MR.XXX.XXX",
+          "position": [
+            -20.259963599905319,
+            11.599412220149077,
+            0.0
+          ],
+          "alignment_point": [
+            0.19717925723753638,
+            11.599412220149077,
+            0.0
+          ],
+          "height": 6.0,
+          "rotation": 0.0,
+          "style": "INFO",
+          "horizontal_mode": "TextCenter",
+          "vertical_mode": "TextBase",
+          "width_factor": 0.8,
+          "obliquing_angle": 0.0,
+          "invisible": false,
+          "constant": false,
+          "verifiable": false,
+          "preset": false
+        },
+        {
+          "id": "sub_019",
+          "type": "ATTRIBUTEDEFINITION",
+          "layer": "Spare Coil Info",
+          "color": 7,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "tag": "SLACK",
+          "prompt": "CABLE",
+          "text_string": "20",
+          "position": [
+            16.167445279956979,
+            1.5994122201490768,
+            0.0
+          ],
+          "alignment_point": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "height": 6.0,
+          "rotation": 0.0,
+          "style": "INFO",
+          "horizontal_mode": "TextLeft",
+          "vertical_mode": "TextBase",
+          "width_factor": 0.8,
+          "obliquing_angle": 0.0,
+          "invisible": false,
+          "constant": false,
+          "verifiable": false,
+          "preset": false
+        },
+        {
+          "id": "sub_020",
+          "type": "ATTRIBUTEDEFINITION",
+          "layer": "Spare Coil Info",
+          "color": 7,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "tag": "COORDINATE",
+          "prompt": "ID",
+          "text_string": "XXX.XXX",
+          "position": [
+            -28.66779402147867,
+            -8.4005877798509232,
+            0.0
+          ],
+          "alignment_point": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "height": 6.0,
+          "rotation": 0.0,
+          "style": "INFO",
+          "horizontal_mode": "TextLeft",
+          "vertical_mode": "TextBase",
+          "width_factor": 0.8,
+          "obliquing_angle": 0.0,
+          "invisible": false,
+          "constant": false,
+          "verifiable": false,
+          "preset": false
+        },
+        {
+          "id": "sub_021",
+          "type": "ATTRIBUTEDEFINITION",
+          "layer": "Spare Coil Info",
+          "color": 7,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "tag": "IDENTITY",
+          "prompt": "CABLE",
+          "text_string": "Cable From Closure XXX-XXX-144",
+          "position": [
+            -63.802820742762449,
+            -18.400587779850923,
+            0.0
+          ],
+          "alignment_point": [
+            0.19717925723753638,
+            -18.400587779850923,
+            0.0
+          ],
+          "height": 6.0,
+          "rotation": 0.0,
+          "style": "INFO",
+          "horizontal_mode": "TextCenter",
+          "vertical_mode": "TextBase",
+          "width_factor": 0.8,
+          "obliquing_angle": 0.0,
+          "invisible": false,
+          "constant": false,
+          "verifiable": false,
+          "preset": false
+        },
+        {
+          "id": "sub_022",
+          "type": "ATTRIBUTEDEFINITION",
+          "layer": "Spare Coil Info",
+          "color": 7,
+          "linetype": "ByLayer",
+          "lineweight": "ByLayer",
+          "tag": "IDENTITY2",
+          "prompt": "CABLE",
+          "text_string": "To FDT",
+          "position": [
+            -12.259963599905323,
+            -28.400587779850923,
+            0.0
+          ],
+          "alignment_point": [
+            0.19717925723753638,
+            -28.400587779850923,
+            0.0
+          ],
+          "height": 6.0,
+          "rotation": 0.0,
+          "style": "INFO",
+          "horizontal_mode": "TextCenter",
+          "vertical_mode": "TextBase",
+          "width_factor": 0.8,
+          "obliquing_angle": 0.0,
+          "invisible": false,
+          "constant": false,
+          "verifiable": false,
+          "preset": false
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "ent_001",
+      "type": "BLOCKREFERENCE",
+      "layer": "Spare Coil Info",
+      "color": 256,
+      "linetype": "ByLayer",
+      "lineweight": "ByLayer",
+      "block_name": "21. Spare Coil Info",
+      "position": [
+        -0.10556301925106482,
+        0.06335365162482276,
+        0.0
+      ],
+      "rotation": 0.0,
+      "scale": [
+        0.53536574145769922,
+        0.53536574145769922,
+        0.53536574145769922
+      ],
+      "attributes": [
+        {
+          "tag": "ID",
+          "value": "EXT.Slack Cable 144C-S02-HF1-03",
+          "position": [
+            -35.303546608124577,
+            11.62693898991489,
+            0.0
+          ],
+          "height": 3.2121944487461955,
+          "rotation": 0.0,
+          "alignment_point": [
+            2.8421709430404007E-13,
+            11.62693898991489,
+            0.0
+          ],
+          "horizontal_mode": "TextCenter",
+          "vertical_mode": "TextBase",
+          "style": "INFO",
+          "width_factor": 0.80000000000000016,
+          "obliquing_angle": 0.0,
+          "layer": "Spare Coil Info",
+          "color": 7
+        },
+        {
+          "tag": "PLACE",
+          "value": "MR.KSDY.P010",
+          "position": [
+            -13.338255044317236,
+            6.2732815753384443,
+            0.0
+          ],
+          "height": 3.2121944487461955,
+          "rotation": 0.0,
+          "alignment_point": [
+            2.8421709430404007E-13,
+            6.2732815753384443,
+            0.0
+          ],
+          "horizontal_mode": "TextCenter",
+          "vertical_mode": "TextBase",
+          "style": "INFO",
+          "width_factor": 0.80000000000000016,
+          "obliquing_angle": 0.0,
+          "layer": "Spare Coil Info",
+          "color": 7
+        },
+        {
+          "tag": "SLACK",
+          "value": "20",
+          "position": [
+            8.5499333105302071,
+            0.91962416076017917,
+            0.0
+          ],
+          "height": 3.2121944487461955,
+          "rotation": 0.0,
+          "alignment_point": [
+            -198.06392745788588,
+            487.05472661539767,
+            0.0
+          ],
+          "horizontal_mode": "TextLeft",
+          "vertical_mode": "TextBase",
+          "style": "INFO",
+          "width_factor": 0.80000000000000016,
+          "obliquing_angle": 0.0,
+          "layer": "Spare Coil Info",
+          "color": 7
+        },
+        {
+          "tag": "COORDINATE",
+          "value": "-8.179115 112.688895",
+          "position": [
+            -15.453317821516691,
+            -4.434033253816267,
+            0.0
+          ],
+          "height": 3.2121944487461955,
+          "rotation": 0.0,
+          "alignment_point": [
+            -198.06392745788588,
+            487.05472661539767,
+            0.0
+          ],
+          "horizontal_mode": "TextLeft",
+          "vertical_mode": "TextBase",
+          "style": "INFO",
+          "width_factor": 0.80000000000000016,
+          "obliquing_angle": 0.0,
+          "layer": "Spare Coil Info",
+          "color": 7
+        },
+        {
+          "tag": "IDENTITY",
+          "value": "Cable From OLT GONDANGLEGI",
+          "position": [
+            -29.7969275531311,
+            -9.7876906683927132,
+            0.0
+          ],
+          "height": 3.2121944487461955,
+          "rotation": 0.0,
+          "alignment_point": [
+            2.8421709430404007E-13,
+            -9.7876906683927132,
+            0.0
+          ],
+          "horizontal_mode": "TextCenter",
+          "vertical_mode": "TextBase",
+          "style": "INFO",
+          "width_factor": 0.80000000000000016,
+          "obliquing_angle": 0.0,
+          "layer": "Spare Coil Info",
+          "color": 7
+        },
+        {
+          "tag": "IDENTITY2",
+          "value": "To JC-144C-GDL-S02-HF1-03 ",
+          "position": [
+            -32.672606392961029,
+            -15.141348082969159,
+            0.0
+          ],
+          "height": 3.2121944487461955,
+          "rotation": 0.0,
+          "alignment_point": [
+            2.8421709430404007E-13,
+            -15.141348082969159,
+            0.0
+          ],
+          "horizontal_mode": "TextCenter",
+          "vertical_mode": "TextBase",
+          "style": "INFO",
+          "width_factor": 0.80000000000000016,
+          "obliquing_angle": 0.0,
+          "layer": "Spare Coil Info",
+          "color": 7
+        }
+      ],
+      "dynamic_properties": []
+    }
+  ],
+  "metadata": {},
+  "runtime_logic": {}
+}
