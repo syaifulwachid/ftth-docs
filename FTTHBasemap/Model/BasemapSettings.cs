@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace FTTHBasemap.Model
 {
@@ -96,7 +97,58 @@ namespace FTTHBasemap.Model
             {
                 Directory.CreateDirectory(dir);
             }
-            return Path.Combine(dir, "settings.xml");
+            return Path.Combine(dir, "settings.json");
+        }
+
+        private static byte[] XorBytes(byte[] input, byte[] key)
+        {
+            byte[] result = new byte[input.Length];
+            for (int i = 0; i < input.Length; i++)
+            {
+                result[i] = (byte)(input[i] ^ key[i % key.Length]);
+            }
+            return result;
+        }
+
+        private static string EncryptKey(string plainText)
+        {
+            if (string.IsNullOrEmpty(plainText)) return "";
+            try
+            {
+                byte[] plainBytes = System.Text.Encoding.UTF8.GetBytes(plainText);
+                byte[] keyBytes = System.Text.Encoding.UTF8.GetBytes(FTTHBasemap.Licensing.LicensingService.Instance.GetDeviceId());
+                byte[] xoredBytes = XorBytes(plainBytes, keyBytes);
+                return Convert.ToBase64String(xoredBytes);
+            }
+            catch
+            {
+                return plainText;
+            }
+        }
+
+        private static string DecryptKey(string cipherText)
+        {
+            if (string.IsNullOrEmpty(cipherText)) return "";
+            try
+            {
+                byte[] cipherBytes;
+                try
+                {
+                    cipherBytes = Convert.FromBase64String(cipherText);
+                }
+                catch
+                {
+                    return cipherText; // Return as-is if not valid base64 (old settings format)
+                }
+
+                byte[] keyBytes = System.Text.Encoding.UTF8.GetBytes(FTTHBasemap.Licensing.LicensingService.Instance.GetDeviceId());
+                byte[] plainBytes = XorBytes(cipherBytes, keyBytes);
+                return System.Text.Encoding.UTF8.GetString(plainBytes);
+            }
+            catch
+            {
+                return cipherText;
+            }
         }
 
         public void Save()
@@ -104,15 +156,29 @@ namespace FTTHBasemap.Model
             try
             {
                 string path = GetConfigFilePath();
-                XmlSerializer serializer = new XmlSerializer(typeof(BasemapSettings));
-                using (StreamWriter writer = new StreamWriter(path))
-                {
-                    serializer.Serialize(writer, this);
-                }
+                
+                // Temporarily encrypt the key for disk storage
+                string originalKey = this.LicenseKey;
+                this.LicenseKey = EncryptKey(originalKey);
+
+                string json = JsonConvert.SerializeObject(this, Formatting.Indented);
+                File.WriteAllText(path, json);
+
+                // Restore key in memory
+                this.LicenseKey = originalKey;
             }
-            catch
+            catch (Exception ex)
             {
-                // Silently ignore configuration save errors
+                try
+                {
+                    System.Windows.MessageBox.Show($"[DEBUG] Error saving settings: {ex.Message}\n{ex.StackTrace}", "FTTH DEBUG");
+                    var doc = Autodesk.AutoCAD.ApplicationServices.Application.DocumentManager.MdiActiveDocument;
+                    if (doc != null)
+                    {
+                        doc.Editor.WriteMessage($"\n[FTTH] Error saving settings: {ex.Message}");
+                    }
+                }
+                catch { }
             }
         }
 
@@ -162,10 +228,13 @@ namespace FTTHBasemap.Model
                 string path = GetConfigFilePath();
                 if (File.Exists(path))
                 {
-                    XmlSerializer serializer = new XmlSerializer(typeof(BasemapSettings));
-                    using (StreamReader reader = new StreamReader(path))
+                    string json = File.ReadAllText(path);
+                    var settings = JsonConvert.DeserializeObject<BasemapSettings>(json);
+                    if (settings != null)
                     {
-                        var settings = (BasemapSettings)serializer.Deserialize(reader);
+                        // Decrypt the key after loading
+                        settings.LicenseKey = DecryptKey(settings.LicenseKey);
+
                         if (settings.OltCodes == null || settings.OltCodes.Count == 0)
                         {
                             settings.InitializeDefaultOltCodes();
@@ -174,9 +243,18 @@ namespace FTTHBasemap.Model
                     }
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                // Silently fall back to default settings
+                try
+                {
+                    System.Windows.MessageBox.Show($"[DEBUG] Error loading settings: {ex.Message}\n{ex.StackTrace}", "FTTH DEBUG");
+                    var doc = Autodesk.AutoCAD.ApplicationServices.Application.DocumentManager.MdiActiveDocument;
+                    if (doc != null)
+                    {
+                        doc.Editor.WriteMessage($"\n[FTTH] Error loading settings: {ex.Message}");
+                    }
+                }
+                catch { }
             }
             return new BasemapSettings();
         }

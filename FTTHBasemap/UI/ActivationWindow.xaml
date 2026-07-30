@@ -1,7 +1,7 @@
 <Window x:Class="FTTHBasemap.UI.ActivationWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Aktivasi Lisensi Software" Height="580" Width="420"
+        Title="Aktivasi Lisensi Software" Height="600" Width="420"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
         WindowStyle="None"
@@ -58,6 +58,90 @@
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Background" Value="#44444C" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <!-- ComboBox Styles for Dark Theme Visibility -->
+        <Style TargetType="ComboBox">
+            <Setter Property="Background" Value="#1E1E22" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Padding" Value="6,3" />
+            <Setter Property="HorizontalContentAlignment" Value="Left" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBox">
+                        <Grid x:Name="MainGrid" SnapsToDevicePixels="true">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition MinWidth="24" Width="0" SharedSizeGroup="ComboBoxButton" />
+                            </Grid.ColumnDefinitions>
+                            
+                            <Popup x:Name="PART_Popup" AllowsTransparency="true" Grid.ColumnSpan="2" Placement="Bottom" Margin="1" IsOpen="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}}" PopupAnimation="Fade">
+                                <Border x:Name="DropDownBorder" Background="#1E1E22" BorderBrush="{StaticResource BorderBrush}" BorderThickness="1" CornerRadius="4" MaxHeight="{TemplateBinding MaxDropDownHeight}" MinWidth="{Binding ActualWidth, ElementName=MainGrid}" Margin="0,2,0,0">
+                                    <ScrollViewer x:Name="DropDownScrollViewer" CanContentScroll="true" VerticalScrollBarVisibility="Auto">
+                                        <Grid x:Name="Grid" RenderOptions.ClearTypeHint="Enabled">
+                                            <Canvas x:Name="Canvas" HorizontalAlignment="Left" Height="0" VerticalAlignment="Top" Width="0">
+                                                <Rectangle x:Name="OpaqueRect" Fill="{Binding Background, ElementName=DropDownBorder}" Height="{Binding ActualHeight, ElementName=DropDownBorder}" Width="{Binding ActualWidth, ElementName=DropDownBorder}" />
+                                            </Canvas>
+                                            <ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                                        </Grid>
+                                    </ScrollViewer>
+                                </Border>
+                            </Popup>
+                            
+                            <ToggleButton Grid.ColumnSpan="2" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}">
+                                <ToggleButton.Template>
+                                    <ControlTemplate TargetType="ToggleButton">
+                                        <Border x:Name="templateRoot" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="4" SnapsToDevicePixels="true">
+                                            <Grid HorizontalAlignment="Right" Width="24">
+                                                <Path x:Name="Arrow" Data="M 0 0 L 4 4 L 8 0 Z" Fill="#E0E0E6" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                            </Grid>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="true">
+                                                <Setter TargetName="templateRoot" Property="Background" Value="#35353C" />
+                                                <Setter TargetName="templateRoot" Property="BorderBrush" Value="#007ACC" />
+                                                <Setter TargetName="Arrow" Property="Fill" Value="White" />
+                                            </Trigger>
+                                            <Trigger Property="IsPressed" Value="true">
+                                                <Setter TargetName="templateRoot" Property="Background" Value="#1E1E22" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </ToggleButton.Template>
+                            </ToggleButton>
+                            
+                            <ContentPresenter IsHitTestVisible="false" Content="{TemplateBinding SelectionBoxItem}" ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}" ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}" ContentStringFormat="{TemplateBinding SelectionBoxItemStringFormat}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="HasItems" Value="false">
+                                <Setter TargetName="PART_Popup" Property="IsOpen" Value="false" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="#555555" />
+                                <Setter Property="Background" Value="#1E1E22" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="ComboBoxItem">
+            <Setter Property="Background" Value="#1E1E22" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Padding" Value="6,4,6,4" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#007ACC" />
+                    <Setter Property="Foreground" Value="White" />
+                </Trigger>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="Background" Value="#007ACC" />
+                    <Setter Property="Foreground" Value="White" />
                 </Trigger>
             </Style.Triggers>
         </Style>
@@ -133,25 +217,57 @@
                         </StackPanel>
                     </Border>
 
+                    <!-- Request Activation Card -->
+                    <Border Background="{StaticResource CardBackgroundBrush}" BorderBrush="{StaticResource BorderBrush}" BorderThickness="1" CornerRadius="8" Padding="10" Margin="0,0,0,8">
+                        <StackPanel>
+                            <TextBlock Text="Form Request Aktivasi Langganan:" FontSize="10" FontWeight="Bold" Foreground="{StaticResource AccentBrush}" Margin="0,0,0,6"/>
+                            
+                            <!-- Package Selector -->
+                            <Grid Margin="0,0,0,6">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="110" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="Pilih Paket:" FontSize="10" Foreground="{StaticResource TextWhiteBrush}" VerticalAlignment="Center"/>
+                                <ComboBox x:Name="CboPackage" Grid.Column="1" Height="24" Background="#1E1E22" Foreground="White" BorderBrush="{StaticResource BorderBrush}" FontSize="10" VerticalContentAlignment="Center" SelectionChanged="CboPackage_SelectionChanged">
+                                    <ComboBox.Resources>
+                                        <SolidColorBrush x:Key="{x:Static SystemColors.WindowBrushKey}" Color="#1E1E22" />
+                                        <SolidColorBrush x:Key="{x:Static SystemColors.WindowTextBrushKey}" Color="White" />
+                                    </ComboBox.Resources>
+                                    <ComboBoxItem Content="1 Bulan (TRIAL) (Rp 30.000)" IsSelected="True" Tag="1_trial"/>
+                                    <ComboBoxItem Content="1 Bulan (Rp 100.000)" Tag="1"/>
+                                    <ComboBoxItem Content="3 Bulan (Rp 270.000)" Tag="3"/>
+                                    <ComboBoxItem Content="6 Bulan (Rp 500.000)" Tag="6"/>
+                                    <ComboBoxItem Content="12 Bulan (Rp 900.000)" Tag="12"/>
+                                </ComboBox>
+                            </Grid>
+                            
+                            <!-- Telegram/WA Contact Input -->
+                            <Grid Margin="0,0,0,8">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="110" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="No. WA / Telegram:" FontSize="10" Foreground="{StaticResource TextWhiteBrush}" VerticalAlignment="Top" Margin="0,4,0,0"/>
+                                <StackPanel Grid.Column="1">
+                                    <TextBox x:Name="TxtTelegramContact" Height="24" Background="#1E1E22" Foreground="White" BorderBrush="{StaticResource BorderBrush}" BorderThickness="1" Padding="4,2" FontSize="10" VerticalContentAlignment="Center" ToolTip="Contoh: 08123xxxx atau @username"/>
+                                    <TextBlock Text="*Penting! Masukkan No WhatsApp atau Username Telegram Anda agar Admin dapat menghubungi jika ada kendala." FontSize="8" Foreground="{StaticResource TextMutedBrush}" Margin="0,2,0,0" TextWrapping="Wrap"/>
+                                </StackPanel>
+                            </Grid>
+                            
+                            <!-- Request Button -->
+                            <Button x:Name="BtnRequestActivation" Content="Kirim Request Aktivasi ke Admin" Height="28" Style="{StaticResource AccentButtonStyle}" FontSize="10" Click="BtnRequestActivation_Click"/>
+                        </StackPanel>
+                    </Border>
+
                     <!-- Instruction Card -->
                     <Border Background="{StaticResource CardBackgroundBrush}" BorderBrush="{StaticResource BorderBrush}" BorderThickness="1" CornerRadius="8" Padding="10" Margin="0,0,0,8">
                         <StackPanel>
-                            <TextBlock Text="Petunjuk Aktivasi Langganan:" FontSize="10" FontWeight="Bold" Foreground="{StaticResource AccentBrush}" Margin="0,0,0,6"/>
-                            <TextBlock Text="1. Scan QR Code di atas dengan m-Banking / e-Wallet (Gopay, OVO, Dana, dll)." FontSize="10" Foreground="{StaticResource TextWhiteBrush}" TextWrapping="Wrap" Margin="0,0,0,4"/>
-                            <TextBlock FontSize="10" Foreground="{StaticResource TextWhiteBrush}" TextWrapping="Wrap">
-                                <Run Text="2. Buka "/>
-                                <Hyperlink NavigateUri="https://t.me/bmg_ftth_bot" RequestNavigate="Hyperlink_RequestNavigate" Foreground="{StaticResource AccentBrush}" ToolTip="Klik untuk membuka bot di Telegram">
-                                    <Run Text="Bot Telegram @bmg_ftth_bot"/>
-                                </Hyperlink>
-                                <Run Text=" lalu ketik:"/>
-                            </TextBlock>
-                            <Border Background="#1E1E22" Padding="6,3" CornerRadius="4" Margin="12,4,0,4" HorizontalAlignment="Left">
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock x:Name="TxtTelegramCmd" Text="/pay FTTH-248-ABC123" FontSize="9" FontFamily="Consolas" Foreground="{StaticResource SuccessBrush}"/>
-                                    <Button Content="📋" Background="Transparent" BorderThickness="0" Foreground="{StaticResource SuccessBrush}" Margin="8,0,0,0" Cursor="Hand" Click="BtnCopyCmd_Click" ToolTip="Salin Perintah"/>
-                                </StackPanel>
-                            </Border>
-                            <TextBlock Text="3. Bayar tagihan. Begitu pembayaran dikonfirmasi Admin, sistem akan otomatis melakukan aktivasi dan menutup form ini." FontSize="10" Foreground="{StaticResource TextWhiteBrush}" TextWrapping="Wrap"/>
+                            <TextBlock Text="Petunjuk Aktivasi:" FontSize="10" FontWeight="Bold" Foreground="{StaticResource AccentBrush}" Margin="0,0,0,6"/>
+                            <TextBlock Text="1. Pilih paket durasi langganan &amp; isi kontak WhatsApp/Telegram Anda di atas." FontSize="10" Foreground="{StaticResource TextWhiteBrush}" TextWrapping="Wrap" Margin="0,0,0,4"/>
+                            <TextBlock Text="2. Klik 'Kirim Request Aktivasi ke Admin'." FontSize="10" Foreground="{StaticResource TextWhiteBrush}" TextWrapping="Wrap" Margin="0,0,0,4"/>
+                            <TextBlock Text="3. Lakukan pembayaran dengan scan QRIS di atas (pastikan nominal pas)." FontSize="10" Foreground="{StaticResource TextWhiteBrush}" TextWrapping="Wrap" Margin="0,0,0,4"/>
+                            <TextBlock Text="4. Admin memverifikasi dana masuk, program Anda akan langsung AKTIF otomatis!" FontSize="10" Foreground="{StaticResource TextWhiteBrush}" TextWrapping="Wrap"/>
                         </StackPanel>
                     </Border>
                 </StackPanel>

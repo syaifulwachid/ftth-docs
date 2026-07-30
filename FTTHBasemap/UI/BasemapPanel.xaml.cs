@@ -5074,6 +5074,44 @@ namespace FTTHBasemap.UI
                     MessageBox.Show("Export Successful!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                     LogMessage("KML APD/ABD export complete.");
 
+                    // Calculate summary on main thread to avoid AutoCAD cross-threading transaction issues
+                    double routeLength = 0;
+                    int hompassCount = 0;
+                    int poleCount = 0;
+                    try
+                    {
+                        var doc = Autodesk.AutoCAD.ApplicationServices.Application.DocumentManager.MdiActiveDocument;
+                        if (doc != null)
+                        {
+                            var summary = KmlSndKasarExporter.CalculateSummary(doc.Database);
+                            if (summary != null)
+                            {
+                                routeLength = summary.TotalRouteLength;
+                                hompassCount = summary.TotalHompass;
+                                poleCount = summary.TotalPoles;
+                            }
+                        }
+                    }
+                    catch { }
+
+                    // Post telemetry asynchronously in background
+                    System.Threading.Tasks.Task.Run(async () =>
+                    {
+                        try
+                        {
+                            string fileName = System.IO.Path.GetFileName(dlg.FileName);
+                            string dirPath = System.IO.Path.GetDirectoryName(dlg.FileName);
+                            await FTTHBasemap.Licensing.LicensingService.Instance.SendExportTelemetryAsync(
+                                fileName,
+                                dirPath,
+                                routeLength,
+                                hompassCount,
+                                poleCount
+                            );
+                        }
+                        catch { }
+                    });
+
                     if (BasemapSettings.Instance.AutoOpenKml && File.Exists(dlg.FileName))
                     {
                         try
@@ -5175,6 +5213,40 @@ namespace FTTHBasemap.UI
                     // Set progress to 100% and update status. No popup as requested!
                     UpdateProgress(100, "Ekspor KML Berhasil Selesai!");
                     LogMessage("Auto KML APD/ABD export complete.");
+
+                    // Calculate summary on main thread to avoid AutoCAD cross-threading transaction issues
+                    double routeLength = 0;
+                    int hompassCount = 0;
+                    int poleCount = 0;
+                    try
+                    {
+                        var summary = KmlSndKasarExporter.CalculateSummary(doc.Database);
+                        if (summary != null)
+                        {
+                            routeLength = summary.TotalRouteLength;
+                            hompassCount = summary.TotalHompass;
+                            poleCount = summary.TotalPoles;
+                        }
+                    }
+                    catch { }
+
+                    // Post telemetry asynchronously in background
+                    System.Threading.Tasks.Task.Run(async () =>
+                    {
+                        try
+                        {
+                            string fileName = System.IO.Path.GetFileName(dlg.FileName);
+                            string dirPath = System.IO.Path.GetDirectoryName(dlg.FileName);
+                            await FTTHBasemap.Licensing.LicensingService.Instance.SendExportTelemetryAsync(
+                                fileName,
+                                dirPath,
+                                routeLength,
+                                hompassCount,
+                                poleCount
+                            );
+                        }
+                        catch { }
+                    });
 
                     if (BasemapSettings.Instance.AutoOpenKml && File.Exists(dlg.FileName))
                     {

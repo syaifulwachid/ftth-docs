@@ -26,7 +26,7 @@ namespace FTTHBasemap.Licensing
         }
 
         // Base API Web App URL (deployed Google Apps Script URL)
-        public string ApiUrl { get; set; } = "https://script.google.com/macros/s/AKfycbxgtBcdELeHFXWibuieFIov1OUQcXowq0XPgYoSrMA4wORqgdzG6K4UbDqhUAIl_B0u9w/exec";
+        public string ApiUrl { get; set; } = "https://script.google.com/macros/s/AKfycbyxXaC0uMvDCv39LICS_AhljMpIEw0EKp3Ljl42nhh376ZRnYDxcVCgI_dm-1NSsQxlZw/exec";
 
         // RSA Public Key (XML format) corresponding to the generated private key
         private const string PublicKeyXml = "<RSAKeyValue><Modulus>zd437M9WHjSCW2+36reqQolbh8S0h/0IDm52amg5HW5wGCEmhjiq0TPydBbCl50Qe62s4DokEIN9hyvSs4y4Aoz4acUxx2xyKnoFUDdX91NEJua1q7JBa600E4Ohwuq6zLsLK9/GbrCY6cAkOj56jgfNCCdSVpODhhk0H7OvFyCDAm1NSqJtyqCarDDX0M7SozkyR+bogYGuSEXKmNMnwHnEXMgMn6QMFtdSM6M9WAMVSkOZOubJxBMKxH2pEXwtrQOtvdgMXZYwE8LqTtEppD9wqOjDpTzY//+/Hbwi9rwowEpkwhCbA45FUVptm62MVygEgK7URgMNSE7wZuj/LQ==</Modulus><Exponent>AQAB</Exponent></RSAKeyValue>";
@@ -42,47 +42,54 @@ namespace FTTHBasemap.Licensing
                 return _cachedDeviceId;
 
             string hdid = "";
+            // Try to get Registry MachineGuid first (extremely stable and fast)
             try
             {
-                using (var searcher = new ManagementObjectSearcher("SELECT UUID FROM Win32_ComputerSystemProduct"))
+                using (var key = Microsoft.Win32.Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Cryptography"))
                 {
-                    foreach (var obj in searcher.Get())
+                    if (key != null)
                     {
-                        hdid += obj["UUID"]?.ToString();
-                        break;
+                        hdid = key.GetValue("MachineGuid")?.ToString();
                     }
                 }
             }
             catch { }
 
-            try
-            {
-                using (var searcher = new ManagementObjectSearcher("SELECT ProcessorId FROM Win32_Processor"))
-                {
-                    foreach (var obj in searcher.Get())
-                    {
-                        hdid += obj["ProcessorId"]?.ToString();
-                        break;
-                    }
-                }
-            }
-            catch { }
-
+            // If Registry failed, fallback to WMI UUID
             if (string.IsNullOrEmpty(hdid) || hdid.Replace(" ", "").Length < 5)
             {
                 try
                 {
-                    using (var key = Microsoft.Win32.Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Cryptography"))
+                    using (var searcher = new ManagementObjectSearcher("SELECT UUID FROM Win32_ComputerSystemProduct"))
                     {
-                        if (key != null)
+                        foreach (var obj in searcher.Get())
                         {
-                            hdid = key.GetValue("MachineGuid")?.ToString();
+                            hdid = obj["UUID"]?.ToString();
+                            break;
                         }
                     }
                 }
                 catch { }
             }
 
+            // If still failed, fallback to WMI ProcessorId
+            if (string.IsNullOrEmpty(hdid) || hdid.Replace(" ", "").Length < 5)
+            {
+                try
+                {
+                    using (var searcher = new ManagementObjectSearcher("SELECT ProcessorId FROM Win32_Processor"))
+                    {
+                        foreach (var obj in searcher.Get())
+                        {
+                            hdid = obj["ProcessorId"]?.ToString();
+                            break;
+                        }
+                    }
+                }
+                catch { }
+            }
+
+            // Ultimate fallback
             if (string.IsNullOrEmpty(hdid))
             {
                 hdid = Environment.MachineName + "_" + Environment.UserName;
@@ -202,16 +209,23 @@ namespace FTTHBasemap.Licensing
             if (deviceId != GetDeviceId())
                 return false;
 
-            // Verify local expiration date
-            if (DateTime.UtcNow > expiresAt)
+            // Verify local expiration date (converted to UTC)
+            if (DateTime.UtcNow > expiresAt.ToUniversalTime())
                 return false;
 
-            // Offline grace check (7 days)
+            // Offline grace check (7 days) and clock tampering check
             if (!string.IsNullOrEmpty(settings.OfflineGraceTimestamp))
             {
                 if (DateTime.TryParse(settings.OfflineGraceTimestamp, out DateTime lastOnlineCheck))
                 {
-                    if ((DateTime.UtcNow - lastOnlineCheck).TotalDays > 7)
+                    var lastOnlineUtc = lastOnlineCheck.ToUniversalTime();
+                    // Clock tampering check: System time cannot be in the past compared to the last online check
+                    if (DateTime.UtcNow < lastOnlineUtc)
+                    {
+                        return false;
+                    }
+
+                    if ((DateTime.UtcNow - lastOnlineUtc).TotalDays > 7)
                     {
                         // Exceeded offline grace period
                         return false;
@@ -233,7 +247,7 @@ namespace FTTHBasemap.Licensing
             if (!VerifyActivationKey(settings.LicenseKey, out deviceId, out txSalt, out expiresAt))
                 return 0;
 
-            return (expiresAt - DateTime.UtcNow).TotalDays;
+            return (expiresAt.ToUniversalTime() - DateTime.UtcNow).TotalDays;
         }
 
         // Web API Methods
@@ -253,13 +267,17 @@ namespace FTTHBasemap.Licensing
                         if (result != null)
                         {
                             var settings = BasemapSettings.Instance;
-                            if (result.Status == "Revoked")
+                            if (result.Status != "Active")
                             {
                                 settings.LicenseKey = "";
                                 settings.Save();
                             }
-                            else if (result.Status == "Active")
+                            else
                             {
+                                if (!string.IsNullOrEmpty(result.ActivationKey))
+                                {
+                                    settings.LicenseKey = result.ActivationKey;
+                                }
                                 settings.OfflineGraceTimestamp = DateTime.UtcNow.ToString("o");
                                 settings.Save();
                             }
@@ -324,6 +342,58 @@ namespace FTTHBasemap.Licensing
             return 100000; // default fallback if offline
         }
 
+        public async Task<Dictionary<string, double>> GetPricesOnlineAsync()
+        {
+            string url = $"{ApiUrl}?action=getPrice&deviceId={GetDeviceId()}";
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    client.Timeout = TimeSpan.FromSeconds(5);
+                    var response = await client.GetAsync(url);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string content = await response.Content.ReadAsStringAsync();
+                        var result = JsonConvert.DeserializeObject<Dictionary<string, double>>(content);
+                        if (result != null && result.Count > 0)
+                        {
+                            return result;
+                        }
+                    }
+                }
+            }
+            catch { }
+
+            return new Dictionary<string, double>
+            {
+                { "BasePrice_1M", 100000 },
+                { "BasePrice_3M", 270000 },
+                { "BasePrice_6M", 500000 },
+                { "BasePrice_12M", 900000 }
+            };
+        }
+
+        public async Task<bool> RequestActivationOnlineAsync(string paymentId, string telegram, int durationMonths, double amount)
+        {
+            string url = $"{ApiUrl}?action=requestActivation&paymentId={Uri.EscapeDataString(paymentId)}&deviceId={Uri.EscapeDataString(GetDeviceId())}&telegram={Uri.EscapeDataString(telegram)}&duration={durationMonths}&amount={amount}";
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    client.Timeout = TimeSpan.FromSeconds(10);
+                    var response = await client.GetAsync(url);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string content = await response.Content.ReadAsStringAsync();
+                        var result = JsonConvert.DeserializeObject<Dictionary<string, string>>(content);
+                        return result != null && result.ContainsKey("Status") && result["Status"] == "Success";
+                    }
+                }
+            }
+            catch { }
+            return false;
+        }
+
         public async Task<bool> SendTelemetryAsync(int projectsCount)
         {
             if (projectsCount <= 0) return true;
@@ -350,6 +420,38 @@ namespace FTTHBasemap.Licensing
                 return false;
             }
         }
+
+        public async Task<bool> SendExportTelemetryAsync(string fileName, string filePath, double routeLength, int hompassCount, int poleCount)
+        {
+            string url = ApiUrl;
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    client.Timeout = TimeSpan.FromSeconds(10);
+                    var payload = new Dictionary<string, object>
+                    {
+                        { "deviceId", GetDeviceId() },
+                        { "exportTelemetry", true },
+                        { "fileName", fileName },
+                        { "filePath", filePath },
+                        { "totalRouteLength", routeLength },
+                        { "totalHompass", hompassCount },
+                        { "totalPoles", poleCount },
+                        { "version", "4.0" }
+                    };
+                    string json = JsonConvert.SerializeObject(payload);
+                    var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                    var response = await client.PostAsync(url, content);
+                    return response.IsSuccessStatusCode;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 
     public class LicenseCheckResult
@@ -357,6 +459,7 @@ namespace FTTHBasemap.Licensing
         public string Status { get; set; }
         public string Message { get; set; }
         public string ExpirationDate { get; set; }
+        public string ActivationKey { get; set; }
     }
 
     public class PaymentCheckResult

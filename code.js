@@ -52,7 +52,13 @@ function setup() {
   var paymentsSheet = ss.getSheetByName("Payments");
   if (!paymentsSheet) {
     paymentsSheet = ss.insertSheet("Payments");
-    paymentsSheet.appendRow(["paymentId", "deviceId", "telegram", "amount", "status", "requestTime", "key"]);
+    paymentsSheet.appendRow(["paymentId", "deviceId", "telegram", "amount", "status", "requestTime", "key", "durationMonths"]);
+  } else {
+    // If sheet exists, ensure durationMonths column header is there
+    var headers = paymentsSheet.getRange(1, 1, 1, paymentsSheet.getLastColumn()).getValues()[0];
+    if (headers.indexOf("durationMonths") === -1) {
+      paymentsSheet.getRange(1, 8).setValue("durationMonths");
+    }
   }
   
   // Telemetry sheet
@@ -62,12 +68,40 @@ function setup() {
     telemetrySheet.appendRow(["deviceId", "projectsCreated", "lastActive", "version"]);
   }
 
+  // ExportTelemetry sheet
+  var exportSheet = ss.getSheetByName("ExportTelemetry");
+  if (!exportSheet) {
+    exportSheet = ss.insertSheet("ExportTelemetry");
+    exportSheet.appendRow(["deviceId", "fileName", "totalRouteLength", "totalHompass", "totalPoles", "timestamp", "version", "filePath"]);
+  }
+
   // Config sheet
   var configSheet = ss.getSheetByName("Config");
   if (!configSheet) {
     configSheet = ss.insertSheet("Config");
     configSheet.appendRow(["Key", "Value"]);
     configSheet.appendRow(["BasePrice", 100000]);
+    configSheet.appendRow(["BasePrice_1M_Trial", 30000]);
+    configSheet.appendRow(["BasePrice_1M", 100000]);
+    configSheet.appendRow(["BasePrice_3M", 270000]);
+    configSheet.appendRow(["BasePrice_6M", 500000]);
+    configSheet.appendRow(["BasePrice_12M", 900000]);
+  } else {
+    // Ensure all pricing tiers exist
+    var data = configSheet.getDataRange().getValues();
+    var keys = data.map(function(row) { return row[0]; });
+    var defaults = [
+      ["BasePrice_1M_Trial", 30000],
+      ["BasePrice_1M", 100000],
+      ["BasePrice_3M", 270000],
+      ["BasePrice_6M", 500000],
+      ["BasePrice_12M", 900000]
+    ];
+    for (var i = 0; i < defaults.length; i++) {
+      if (keys.indexOf(defaults[i][0]) === -1) {
+        configSheet.appendRow(defaults[i]);
+      }
+    }
   }
   
   Logger.log("Sheets initialized successfully!");
@@ -91,17 +125,114 @@ function doGet(e) {
   if (action === "getPrice") {
     var ss = SpreadsheetApp.getActiveSpreadsheet();
     var configSheet = ss.getSheetByName("Config");
-    var basePrice = 100000;
+    var prices = {
+      "BasePrice_1M": 100000,
+      "BasePrice_3M": 270000,
+      "BasePrice_6M": 500000,
+      "BasePrice_12M": 900000
+    };
     if (configSheet) {
       var data = configSheet.getDataRange().getValues();
+      var foundAny = false;
       for (var i = 1; i < data.length; i++) {
-        if (data[i][0] === "BasePrice") {
-          basePrice = parseInt(data[i][1]);
-          break;
+        var key = data[i][0];
+        if (key && key.indexOf("BasePrice") === 0) {
+          var val = parseInt(data[i][1]);
+          if (!isNaN(val)) {
+            prices[key] = val;
+            foundAny = true;
+          }
+        }
+      }
+      if (foundAny && !prices["BasePrice_1M"] && prices["BasePrice"]) {
+        prices["BasePrice_1M"] = prices["BasePrice"];
+        prices["BasePrice_3M"] = Math.round(prices["BasePrice"] * 3 * 0.9);
+        prices["BasePrice_6M"] = Math.round(prices["BasePrice"] * 6 * 0.85);
+        prices["BasePrice_12M"] = Math.round(prices["BasePrice"] * 12 * 0.75);
+      }
+    }
+
+    // Check if this device has already used or requested the Trial package
+    var deviceId = e.parameter.deviceId;
+    if (deviceId) {
+      var paymentsSheet = ss.getSheetByName("Payments");
+      if (paymentsSheet) {
+        var payData = paymentsSheet.getDataRange().getValues();
+        var trialPrice = prices["BasePrice_1M_Trial"] || 30000;
+        for (var j = 1; j < payData.length; j++) {
+          var payDeviceId = payData[j][1];
+          var payAmount = parseFloat(payData[j][3]);
+          var payStatus = payData[j][4];
+          if (payDeviceId === deviceId && payAmount >= trialPrice && payAmount < (trialPrice + 1000) && (payStatus === "Approved" || payStatus === "Pending")) {
+            delete prices["BasePrice_1M_Trial"];
+            break;
+          }
         }
       }
     }
-    return ContentService.createTextOutput(JSON.stringify({ BasePrice: basePrice }))
+
+    return ContentService.createTextOutput(JSON.stringify(prices))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+  
+  if (action === "requestActivation") {
+    var ss = SpreadsheetApp.getActiveSpreadsheet();
+    var paymentId = e.parameter.paymentId;
+    var deviceId = e.parameter.deviceId;
+    var telegram = e.parameter.telegram || "AutoCAD User";
+    var duration = parseInt(e.parameter.duration || "1");
+    var amount = parseInt(e.parameter.amount);
+    
+    var paymentsSheet = ss.getSheetByName("Payments");
+    if (paymentsSheet) {
+      var headers = paymentsSheet.getRange(1, 1, 1, paymentsSheet.getLastColumn()).getValues()[0];
+      if (headers.indexOf("durationMonths") === -1) {
+        paymentsSheet.getRange(1, 8).setValue("durationMonths");
+      }
+      
+      var payData = paymentsSheet.getDataRange().getValues();
+      var rowIdx = -1;
+      for (var k = 1; k < payData.length; k++) {
+        if (payData[k][0] === paymentId) {
+          rowIdx = k + 1;
+          break;
+        }
+      }
+      
+      if (rowIdx === -1) {
+        paymentsSheet.appendRow([paymentId, deviceId, telegram, amount, "Pending", new Date(), "", duration]);
+      } else {
+        paymentsSheet.getRange(rowIdx, 2).setValue(deviceId);
+        paymentsSheet.getRange(rowIdx, 3).setValue(telegram);
+        paymentsSheet.getRange(rowIdx, 4).setValue(amount);
+        paymentsSheet.getRange(rowIdx, 5).setValue("Pending");
+        paymentsSheet.getRange(rowIdx, 6).setValue(new Date());
+        paymentsSheet.getRange(rowIdx, 8).setValue(duration);
+      }
+    }
+    
+    // Notify Admin via Telegram with application label
+    var adminMsg = "🔔 **📱 Aplikasi: FTTH Basemap**\n" +
+                   "**Permintaan Aktivasi Baru!**\n\n" +
+                   "• User: " + telegram + "\n" +
+                   "• Device ID: `" + deviceId + "`\n" +
+                   "• Paket: **" + duration + " Bulan**\n" +
+                   "• Payment ID: `" + paymentId + "`\n" +
+                   "• Nominal: **Rp " + amount.toLocaleString("id-ID") + "**\n" +
+                   "• Waktu: " + new Date().toLocaleString("id-ID") + "\n\n" +
+                   "Admin, silakan verifikasi mutasi rekening. Jika dana masuk, klik Approve:";
+    
+    var inlineKeyboard = {
+      inline_keyboard: [
+        [
+          { text: "✅ Approve", callback_data: "approve:" + paymentId + ":0" },
+          { text: "❌ Reject", callback_data: "reject:" + paymentId + ":0" }
+        ]
+      ]
+    };
+    sendTelegramMessage(ADMIN_TELEGRAM_ID, adminMsg, inlineKeyboard);
+    
+    return ContentService.createTextOutput(JSON.stringify({ Status: "Success", Message: "Request sent to Admin." }))
       .setMimeType(ContentService.MimeType.JSON);
   }
   
@@ -131,10 +262,15 @@ function doGet(e) {
           })).setMimeType(ContentService.MimeType.JSON);
         }
         
+        var expiresStr = new Date(data[i][3]).toISOString();
+        var txSalt = data[i][4];
+        var activationKey = generateActivationKey(deviceId, txSalt, expiresStr);
+
         return ContentService.createTextOutput(JSON.stringify({
           Status: "Active",
           Message: "Lisensi Aktif.",
-          ExpirationDate: data[i][3]
+          ExpirationDate: data[i][3],
+          ActivationKey: activationKey
         })).setMimeType(ContentService.MimeType.JSON);
       }
     }
@@ -181,10 +317,32 @@ function doGet(e) {
 }
 
 function doPost(e) {
-  // Detect if POST is from Telegram Webhook or Telemetry API
   try {
     var jsonString = e.postData.contents;
     var json = JSON.parse(jsonString);
+    
+    // Check if it is Export Telemetry
+    if (json.deviceId && json.exportTelemetry === true) {
+      var ss = SpreadsheetApp.getActiveSpreadsheet();
+      var exportSheet = ss.getSheetByName("ExportTelemetry");
+      if (!exportSheet) {
+        exportSheet = ss.insertSheet("ExportTelemetry");
+        exportSheet.appendRow(["deviceId", "fileName", "totalRouteLength", "totalHompass", "totalPoles", "timestamp", "version", "filePath"]);
+      }
+      
+      var deviceId = json.deviceId;
+      var fileName = json.fileName;
+      var filePath = json.filePath;
+      var totalRouteLength = json.totalRouteLength || 0;
+      var totalHompass = json.totalHompass || 0;
+      var totalPoles = json.totalPoles || 0;
+      var version = json.version || "4.0";
+      
+      exportSheet.appendRow([deviceId, fileName, totalRouteLength, totalHompass, totalPoles, new Date(), version, filePath]);
+      
+      return ContentService.createTextOutput(JSON.stringify({ Status: "Success" }))
+        .setMimeType(ContentService.MimeType.JSON);
+    }
     
     // Check if it is Telemetry API
     if (json.deviceId && json.projectsCreated !== undefined) {
@@ -265,14 +423,14 @@ function handleTelegramUpdate(update) {
     if (text.indexOf("/pay") === 0) {
       var parts = text.split(" ");
       if (parts.length < 2) {
-        sendTelegramMessage(chatId, "⚠️ Gunakan format: `/pay <PaymentID>`\nContoh: `/pay FTTH-248-ABC123`");
+        // Abaikan command jika format kosong agar tidak mengganggu bot bersama
         return;
       }
       
       var paymentId = parts[1].trim();
       var idParts = paymentId.split("-");
       if (idParts.length !== 3 || idParts[0] !== "FTTH") {
-        sendTelegramMessage(chatId, "⚠️ Format Payment ID salah. Periksa kembali!");
+        // Bukan untuk program FTTH Basemap, abaikan agar tidak mengganggu program lain
         return;
       }
       
@@ -295,14 +453,11 @@ function handleTelegramUpdate(update) {
       }
       var amount = basePrice + suffix;
       
-      // Save Pending payment in Google Sheet
+      // Save Pending payment in Google Sheet (default 1 month for Telegram /pay command)
       var paymentsSheet = ss.getSheetByName("Payments");
-      
-      // Prevent duplicates
       var payData = paymentsSheet.getDataRange().getValues();
       var deviceId = "Unknown";
       
-      // Check if this paymentId was already logged
       var alreadyLogged = false;
       for (var k = 1; k < payData.length; k++) {
         if (payData[k][0] === paymentId) {
@@ -312,7 +467,12 @@ function handleTelegramUpdate(update) {
       }
       
       if (!alreadyLogged) {
-        paymentsSheet.appendRow([paymentId, deviceId, user, amount, "Pending", new Date(), ""]);
+        // Ensure durationMonths column
+        var headers = paymentsSheet.getRange(1, 1, 1, paymentsSheet.getLastColumn()).getValues()[0];
+        if (headers.indexOf("durationMonths") === -1) {
+          paymentsSheet.getRange(1, 8).setValue("durationMonths");
+        }
+        paymentsSheet.appendRow([paymentId, deviceId, user, amount, "Pending", new Date(), "", 1]);
       }
       
       // Respond to user
@@ -323,8 +483,9 @@ function handleTelegramUpdate(update) {
                   "Begitu pembayaran masuk ke rekening/e-wallet, Admin akan segera memverifikasi.";
       sendTelegramMessage(chatId, reply);
       
-      // Notify Admin
-      var adminMsg = "🔔 **Tagihan Baru Diminta!**\n\n" +
+      // Notify Admin with App Tagging
+      var adminMsg = "🔔 **📱 Aplikasi: FTTH Basemap**\n" +
+                     "**Tagihan Baru Diminta!**\n\n" +
                      "• User: " + user + " (ID: " + chatId + ")\n" +
                      "• Payment ID: `" + paymentId + "`\n" +
                      "• Nominal: **Rp " + amount.toLocaleString("id-ID") + "**\n" +
@@ -355,6 +516,66 @@ function handleTelegramUpdate(update) {
         sendUsersListMenu(chatId);
         return;
       }
+      
+      if (text.indexOf("/keygen_ftth") === 0) {
+        var keyParts = text.split(" ");
+        if (keyParts.length < 3) {
+          sendTelegramMessage(chatId, "⚠️ Format salah! Gunakan: `/keygen_ftth <deviceId> <durationMonths>`\nContoh: `/keygen_ftth ABCDE12345 3`");
+          return;
+        }
+        
+        var devId = keyParts[1].trim();
+        var durationVal = parseInt(keyParts[2].trim());
+        if (isNaN(durationVal) || durationVal <= 0) {
+          sendTelegramMessage(chatId, "⚠️ Durasi bulan harus berupa angka positif!");
+          return;
+        }
+        
+        var ss = SpreadsheetApp.getActiveSpreadsheet();
+        var usersSheet = ss.getSheetByName("Users");
+        var userData = usersSheet.getDataRange().getValues();
+        var userRowIdx = -1;
+        for (var j = 1; j < userData.length; j++) {
+          if (userData[j][0] === devId) {
+            userRowIdx = j + 1;
+            break;
+          }
+        }
+        
+        var expiresAt = new Date();
+        if (userRowIdx !== -1) {
+          var currentExpiry = new Date(userData[userRowIdx - 1][3]);
+          if (userData[userRowIdx - 1][2] === "Active" && currentExpiry > expiresAt) {
+            expiresAt = currentExpiry;
+          }
+        }
+        
+        expiresAt.setMonth(expiresAt.getMonth() + durationVal);
+        var expiresStr = expiresAt.toISOString();
+        
+        var txSalt = "MANUAL";
+        var activationKey = generateActivationKey(devId, txSalt, expiresStr);
+        
+        // Save to Users sheet
+        if (userRowIdx !== -1) {
+          usersSheet.getRange(userRowIdx, 2).setValue("Generated Manually");
+          usersSheet.getRange(userRowIdx, 3).setValue("Active");
+          usersSheet.getRange(userRowIdx, 4).setValue(expiresStr);
+          usersSheet.getRange(userRowIdx, 5).setValue(txSalt);
+        } else {
+          usersSheet.appendRow([devId, "Generated Manually", "Active", expiresStr, txSalt, new Date()]);
+        }
+        
+        var responseMsg = "🔑 **📱 Aplikasi: FTTH Basemap**\n" +
+                          "**Serial Key Berhasil Dibuat!**\n\n" +
+                          "• Device ID: `" + devId + "`\n" +
+                          "• Durasi: **" + durationVal + " Bulan**\n" +
+                          "• Aktif s/d: **" + expiresAt.toLocaleString("id-ID") + "**\n\n" +
+                          "Copy Serial Key di bawah ini untuk pengguna:\n" +
+                          "`" + activationKey + "`";
+        sendTelegramMessage(chatId, responseMsg);
+        return;
+      }
     }
   } 
   
@@ -379,7 +600,7 @@ function handleTelegramUpdate(update) {
       var success = approvePayment(payId, userChatId);
       if (success) {
         answerCallbackQuery(cb.id, "Pembayaran disetujui!");
-        editTelegramMessage(cbChatId, msgId, "✅ **Pembayaran " + payId + " DISETUJUI**");
+        editTelegramMessage(cbChatId, msgId, "✅ **📱 Aplikasi: FTTH Basemap**\n**Pembayaran " + payId + " DISETUJUI**");
       } else {
         answerCallbackQuery(cb.id, "Gagal memproses persetujuan!");
       }
@@ -392,7 +613,7 @@ function handleTelegramUpdate(update) {
       
       rejectPayment(payId, userChatId);
       answerCallbackQuery(cb.id, "Pembayaran ditolak!");
-      editTelegramMessage(cbChatId, msgId, "❌ **Pembayaran " + payId + " DITOLAK**");
+      editTelegramMessage(cbChatId, msgId, "❌ **📱 Aplikasi: FTTH Basemap**\n**Pembayaran " + payId + " DITOLAK**");
     }
     
     // User detail menu from admin panel list
@@ -454,23 +675,20 @@ function approvePayment(paymentId, userChatId) {
   var idParts = paymentId.split("-");
   var txSalt = idParts[2];
   
-  // Compute activation validity: 30 days
-  var expiresAt = new Date();
-  expiresAt.setDate(expiresAt.getDate() + 30);
-  var expiresStr = expiresAt.toISOString();
+  // Read durationMonths from column 8 (index 7)
+  var durationMonths = 1;
+  if (payData[rowIdx - 1].length >= 8 && payData[rowIdx - 1][7] !== undefined && payData[rowIdx - 1][7] !== "") {
+    durationMonths = parseInt(payData[rowIdx - 1][7]);
+  }
+  if (isNaN(durationMonths) || durationMonths <= 0) {
+    durationMonths = 1;
+  }
   
   // Jika Device ID masih Unknown, batalkan persetujuan karena kunci tidak akan cocok dengan perangkat user asli
   if (deviceId === "Unknown" || !deviceId) {
     sendTelegramMessage(ADMIN_TELEGRAM_ID, "⚠️ **Persetujuan Gagal!**\nDevice ID masih *Unknown*. Pastikan pengguna telah membuka jendela Aktivasi di AutoCAD agar Device ID terkirim ke server sebelum Anda menyetujui pembayaran.");
     return false;
   }
-  
-  // Generate Cryptographic Key
-  var activationKey = generateActivationKey(deviceId, txSalt, expiresStr);
-  
-  // Update Payments Sheet
-  paymentsSheet.getRange(rowIdx, 5).setValue("Approved");
-  paymentsSheet.getRange(rowIdx, 7).setValue(activationKey);
   
   // Save or Update Users Sheet
   var usersSheet = ss.getSheetByName("Users");
@@ -484,6 +702,25 @@ function approvePayment(paymentId, userChatId) {
     }
   }
   
+  var expiresAt = new Date();
+  if (userRowIdx !== -1) {
+    // If user is Active and expiry is in the future, extend it
+    var currentExpiry = new Date(userData[userRowIdx - 1][3]);
+    if (userData[userRowIdx - 1][2] === "Active" && currentExpiry > expiresAt) {
+      expiresAt = currentExpiry;
+    }
+  }
+  
+  expiresAt.setMonth(expiresAt.getMonth() + durationMonths);
+  var expiresStr = expiresAt.toISOString();
+  
+  // Generate Cryptographic Key
+  var activationKey = generateActivationKey(deviceId, txSalt, expiresStr);
+  
+  // Update Payments Sheet
+  paymentsSheet.getRange(rowIdx, 5).setValue("Approved");
+  paymentsSheet.getRange(rowIdx, 7).setValue(activationKey);
+  
   if (userRowIdx !== -1) {
     usersSheet.getRange(userRowIdx, 2).setValue(telegram);
     usersSheet.getRange(userRowIdx, 3).setValue("Active");
@@ -493,7 +730,7 @@ function approvePayment(paymentId, userChatId) {
     usersSheet.appendRow([deviceId, telegram, "Active", expiresStr, txSalt, new Date()]);
   }
   
-  // Notify user via Telegram
+  // Notify user via Telegram (safeguarded inside sendTelegramMessage if chatId is "0")
   var userMsg = "✅ **Pembayaran Anda Telah Disetujui!**\n\n" +
                 "• Lisensi aktif s/d: **" + expiresAt.toLocaleString("id-ID") + "**\n" +
                 "• Perangkat Anda otomatis teraktifasi.\n\n" +
@@ -682,6 +919,9 @@ function generateActivationKey(deviceId, txSalt, expiresAt) {
 // HTTP TELEGRAM REQUEST HELPERS
 // ==========================================
 function sendTelegramMessage(chatId, text, replyMarkup) {
+  if (!chatId || chatId.toString() === "0" || chatId.toString() === "") {
+    return;
+  }
   var payload = {
     chat_id: chatId,
     text: text,
@@ -700,6 +940,9 @@ function sendTelegramMessage(chatId, text, replyMarkup) {
 
 // Edit Message Text
 function editTelegramMessage(chatId, messageId, text, replyMarkup) {
+  if (!chatId || chatId.toString() === "0" || chatId.toString() === "") {
+    return;
+  }
   var payload = {
     chat_id: chatId,
     message_id: messageId,

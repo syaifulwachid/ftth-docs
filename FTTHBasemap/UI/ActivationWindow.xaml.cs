@@ -14,7 +14,8 @@ namespace FTTHBasemap.UI
         private string _paymentId;
         private string _txSalt;
         private double _amount;
-
+        private int _suffix = -1;
+        private System.Collections.Generic.Dictionary<string, double> _prices;
 
         public ActivationWindow()
         {
@@ -28,9 +29,61 @@ namespace FTTHBasemap.UI
                 TxtDeviceId.Text = $"Device ID: {LicensingService.Instance.GetDeviceId()}";
 
                 var settings = BasemapSettings.Instance;
-                
-                // Fetch dynamic base price from online database
-                double basePrice = await LicensingService.Instance.GetBasePriceOnlineAsync();
+
+                // Load prices online
+                TxtStatus.Text = "Memuat daftar harga dari server...";
+                _prices = await LicensingService.Instance.GetPricesOnlineAsync();
+
+                // If trial price is not returned (user already used it or disabled), hide/remove the option
+                if (_prices != null && !_prices.ContainsKey("BasePrice_1M_Trial"))
+                {
+                    System.Windows.Controls.ComboBoxItem trialItem = null;
+                    foreach (System.Windows.Controls.ComboBoxItem item in CboPackage.Items)
+                    {
+                        if (item.Tag != null && item.Tag.ToString() == "1_trial")
+                        {
+                            trialItem = item;
+                            break;
+                        }
+                    }
+                    if (trialItem != null)
+                    {
+                        CboPackage.Items.Remove(trialItem);
+                        // Select the 1 Month regular package by default
+                        CboPackage.SelectedIndex = 0;
+                    }
+                }
+
+                // Update ComboBox Item Content based on server prices
+                if (_prices != null && _prices.Count > 0)
+                {
+                    foreach (System.Windows.Controls.ComboBoxItem item in CboPackage.Items)
+                    {
+                        if (item.Tag != null)
+                        {
+                            string tagStr = item.Tag.ToString();
+                            string priceKey = "";
+                            string prefix = "";
+                            
+                            if (tagStr == "1_trial")
+                            {
+                                priceKey = "BasePrice_1M_Trial";
+                                prefix = "1 Bulan (TRIAL)";
+                            }
+                            else if (int.TryParse(tagStr, out int dur))
+                            {
+                                priceKey = $"BasePrice_{dur}M";
+                                prefix = $"{dur} Bulan";
+                            }
+                            
+                            if (!string.IsNullOrEmpty(priceKey) && _prices.ContainsKey(priceKey))
+                            {
+                                double priceVal = _prices[priceKey];
+                                item.Content = $"{prefix} (Rp {priceVal:N0})".Replace(",", ".");
+                            }
+                        }
+                    }
+                }
 
                 // Check if we have an active transaction pending to maintain same amount suffix
                 if (!string.IsNullOrEmpty(settings.PendingSalt) && settings.PendingSalt.Contains("-"))
@@ -40,73 +93,182 @@ namespace FTTHBasemap.UI
                     {
                         _txSalt = parts[0];
                         string suffixStr = parts[1];
-                        if (int.TryParse(suffixStr, out int suffix))
-                        {
-                            _amount = basePrice + suffix;
-                            _paymentId = $"FTTH-{suffix:D3}-{_txSalt}";
-                        }
+                        int.TryParse(suffixStr, out _suffix);
                     }
                 }
 
                 // If no pending transaction exists, generate a new one
-                if (string.IsNullOrEmpty(_paymentId))
+                if (_suffix == -1)
                 {
                     var rand = new Random();
-                    int suffix = rand.Next(100, 999); // 3-digit suffix
+                    _suffix = rand.Next(100, 999); // 3-digit suffix
                     _txSalt = GenerateRandomSalt(6);
-                    _amount = basePrice + suffix;
-                    _paymentId = $"FTTH-{suffix:D3}-{_txSalt}";
 
                     // Save state so if window is closed and opened during same hour, suffix is persistent
-                    settings.PendingSalt = $"{_txSalt}-{suffix}";
+                    settings.PendingSalt = $"{_txSalt}-{_suffix}";
                     settings.Save();
                 }
 
-                // Set UI texts
-                TxtAmount.Text = $"Rp {_amount:N0}".Replace(",", ".");
-                TxtPaymentId.Text = _paymentId;
-                TxtTelegramCmd.Text = $"/pay {_paymentId}";
+                // Update payment information and load QR Code
+                UpdatePaymentInfo();
 
-                // Generate dynamic QRIS and load QR Code image
-                string qrisPayload = LicensingService.Instance.GenerateDynamicQris(_amount);
-                string qrUrl = $"https://api.qrserver.com/v1/create-qr-code/?size=250x250&data={Uri.EscapeDataString(qrisPayload)}";
+                TxtStatus.Text = "Status: Silakan isi kontak & klik Kirim Request.";
+                TxtStatus.Foreground = System.Windows.Media.Brushes.LightGray;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Gagal inisialisasi aktivasi: {ex.Message}", "FTTH Basemap");
+            }
+        }
 
-                try
+        private void UpdatePaymentInfo()
+        {
+            if (_prices == null || _suffix == -1) return;
+
+            // Get selected package duration
+            int durationMonths = 1;
+            bool isTrial = false;
+            if (CboPackage.SelectedItem is System.Windows.Controls.ComboBoxItem selectedItem)
+            {
+                if (selectedItem.Tag != null)
                 {
-                    byte[] qrBytes;
-                    using (var client = new System.Net.Http.HttpClient())
+                    string tagStr = selectedItem.Tag.ToString();
+                    if (tagStr.Contains("trial"))
                     {
-                        client.Timeout = TimeSpan.FromSeconds(5);
-                        qrBytes = await client.GetByteArrayAsync(qrUrl);
+                        isTrial = true;
+                        durationMonths = 1;
                     }
+                    else if (int.TryParse(tagStr, out int dur))
+                    {
+                        durationMonths = dur;
+                    }
+                }
+            }
 
-                    var bmi = new BitmapImage();
-                    using (var ms = new System.IO.MemoryStream(qrBytes))
-                    {
-                        bmi.BeginInit();
-                        bmi.CacheOption = BitmapCacheOption.OnLoad;
-                        bmi.StreamSource = ms;
-                        bmi.EndInit();
-                    }
-                    bmi.Freeze();
-                    ImgQrCode.Source = bmi;
-                }
-                catch
+            // Get corresponding base price
+            string priceKey = isTrial ? "BasePrice_1M_Trial" : $"BasePrice_{durationMonths}M";
+            double basePrice = isTrial ? 30000 : 100000; // default fallback
+            if (_prices.ContainsKey(priceKey))
+            {
+                basePrice = _prices[priceKey];
+            }
+            else if (_prices.ContainsKey("BasePrice"))
+            {
+                // Fallback to legacy base price and apply discount formula
+                double legacyPrice = _prices["BasePrice"];
+                if (isTrial) basePrice = 30000;
+                else if (durationMonths == 3) basePrice = Math.Round(legacyPrice * 3 * 0.9);
+                else if (durationMonths == 6) basePrice = Math.Round(legacyPrice * 6 * 0.85);
+                else if (durationMonths == 12) basePrice = Math.Round(legacyPrice * 12 * 0.75);
+                else basePrice = legacyPrice;
+            }
+
+            _amount = basePrice + _suffix;
+            _paymentId = $"FTTH-{_suffix:D3}-{_txSalt}";
+
+            TxtAmount.Text = $"Rp {_amount:N0}".Replace(",", ".");
+            TxtPaymentId.Text = _paymentId;
+
+            // Generate dynamic QRIS and load QR Code image
+            string qrisPayload = LicensingService.Instance.GenerateDynamicQris(_amount);
+            string qrUrl = $"https://api.qrserver.com/v1/create-qr-code/?size=250x250&data={Uri.EscapeDataString(qrisPayload)}";
+            LoadQrCodeImage(qrUrl);
+        }
+
+        private async void LoadQrCodeImage(string qrUrl)
+        {
+            try
+            {
+                TxtQrPlaceholder.Visibility = Visibility.Collapsed;
+                ImgQrCode.Source = null;
+
+                byte[] qrBytes;
+                using (var client = new System.Net.Http.HttpClient())
                 {
-                    TxtQrPlaceholder.Visibility = Visibility.Visible;
-                    TxtQrPlaceholder.Text = "Gagal memuat QR Code.\nPeriksa koneksi internet.";
+                    client.Timeout = TimeSpan.FromSeconds(5);
+                    qrBytes = await client.GetByteArrayAsync(qrUrl);
                 }
+
+                var bmi = new BitmapImage();
+                using (var ms = new System.IO.MemoryStream(qrBytes))
+                {
+                    bmi.BeginInit();
+                    bmi.CacheOption = BitmapCacheOption.OnLoad;
+                    bmi.StreamSource = ms;
+                    bmi.EndInit();
+                }
+                bmi.Freeze();
+                ImgQrCode.Source = bmi;
+            }
+            catch
+            {
+                TxtQrPlaceholder.Visibility = Visibility.Visible;
+                TxtQrPlaceholder.Text = "Gagal memuat QR Code.\nPeriksa koneksi internet.";
+            }
+        }
+
+        private void CboPackage_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            UpdatePaymentInfo();
+        }
+
+        private async void BtnRequestActivation_Click(object sender, RoutedEventArgs e)
+        {
+            string telegramContact = TxtTelegramContact.Text.Trim();
+            if (string.IsNullOrEmpty(telegramContact))
+            {
+                MessageBox.Show("Silakan masukkan Username Telegram atau No WhatsApp Anda agar Admin dapat memverifikasi pembayaran Anda.", "Kontak Diperlukan", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            // Disable controls to prevent double clicks and changes mid-transaction
+            CboPackage.IsEnabled = false;
+            TxtTelegramContact.IsEnabled = false;
+            BtnRequestActivation.IsEnabled = false;
+
+            TxtStatus.Text = "Mengirim permintaan aktivasi ke Admin...";
+            TxtStatus.Foreground = System.Windows.Media.Brushes.Yellow;
+
+            int durationMonths = 1;
+            if (CboPackage.SelectedItem is System.Windows.Controls.ComboBoxItem selectedItem)
+            {
+                if (selectedItem.Tag != null)
+                {
+                    string tagStr = selectedItem.Tag.ToString();
+                    if (tagStr.Contains("trial"))
+                    {
+                        durationMonths = 1;
+                    }
+                    else if (int.TryParse(tagStr, out int dur))
+                    {
+                        durationMonths = dur;
+                    }
+                }
+            }
+
+            bool success = await LicensingService.Instance.RequestActivationOnlineAsync(_paymentId, telegramContact, durationMonths, _amount);
+            if (success)
+            {
+                TxtStatus.Text = "Status: Menunggu transfer & persetujuan Admin...";
+                TxtStatus.Foreground = System.Windows.Media.Brushes.Orange;
 
                 // Start polling timer
                 _pollTimer = new DispatcherTimer();
                 _pollTimer.Interval = TimeSpan.FromSeconds(5);
                 _pollTimer.Tick += PollTimer_Tick;
                 _pollTimer.Start();
-                TxtStatus.Text = "Status: Menunggu transfer (Polling aktif)...";
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show($"Gagal inisialisasi aktivasi: {ex.Message}", "FTTH Basemap");
+                TxtStatus.Text = "Status: Gagal mengirim request. Silakan coba lagi.";
+                TxtStatus.Foreground = System.Windows.Media.Brushes.Red;
+
+                // Re-enable controls
+                CboPackage.IsEnabled = true;
+                TxtTelegramContact.IsEnabled = true;
+                BtnRequestActivation.IsEnabled = true;
+
+                MessageBox.Show("Gagal mengirim request ke server. Periksa koneksi internet Anda lalu coba lagi.", "Koneksi Bermasalah", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

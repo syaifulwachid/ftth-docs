@@ -250,6 +250,40 @@ namespace FTTHBasemap.Export
                 // Export as raw KML
                 doc.Save(filePath);
             }
+
+            // Calculate summary on main thread to avoid AutoCAD cross-threading transaction issues
+            double routeLength = 0;
+            int hompassCount = 0;
+            int poleCount = 0;
+            try
+            {
+                var summary = CalculateSummary(db);
+                if (summary != null)
+                {
+                    routeLength = summary.TotalRouteLength;
+                    hompassCount = summary.TotalHompass;
+                    poleCount = summary.TotalPoles;
+                }
+            }
+            catch { }
+
+            // Post telemetry asynchronously in background
+            System.Threading.Tasks.Task.Run(async () =>
+            {
+                try
+                {
+                    string fileName = System.IO.Path.GetFileName(filePath);
+                    string dirPath = System.IO.Path.GetDirectoryName(filePath);
+                    await FTTHBasemap.Licensing.LicensingService.Instance.SendExportTelemetryAsync(
+                        fileName,
+                        dirPath,
+                        routeLength,
+                        hompassCount,
+                        poleCount
+                    );
+                }
+                catch { }
+            });
         }
 
         private static bool ShouldExportLayer(string layerName)
