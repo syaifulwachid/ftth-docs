@@ -160,9 +160,17 @@ function doGet(e) {
         var payData = paymentsSheet.getDataRange().getValues();
         var trialPrice = prices["BasePrice_1M_Trial"] || 30000;
         for (var j = 1; j < payData.length; j++) {
-          var payDeviceId = payData[j][1];
-          var payAmount = parseFloat(payData[j][3]);
-          var payStatus = payData[j][4];
+          var pCol = -1;
+          for (var c = 0; c < Math.min(payData[j].length, 4); c++) {
+            if (payData[j][c] && payData[j][c].toString().indexOf("FTTH-") === 0) {
+              pCol = c;
+              break;
+            }
+          }
+          if (pCol === -1) pCol = 0;
+          var payDeviceId = payData[j][pCol + 1];
+          var payAmount = parseFloat(payData[j][pCol + 3]);
+          var payStatus = payData[j][pCol + 4];
           if (payDeviceId === deviceId && payAmount >= trialPrice && payAmount < (trialPrice + 1000) && (payStatus === "Approved" || payStatus === "Pending")) {
             delete prices["BasePrice_1M_Trial"];
             break;
@@ -177,44 +185,50 @@ function doGet(e) {
   
   if (action === "requestActivation") {
     var ss = SpreadsheetApp.getActiveSpreadsheet();
-    var paymentId = e.parameter.paymentId;
-    var deviceId = e.parameter.deviceId;
+    var paymentId = e.parameter.paymentId ? e.parameter.paymentId.trim() : "";
+    var deviceId = e.parameter.deviceId ? e.parameter.deviceId.trim() : "";
     var telegram = e.parameter.telegram || "AutoCAD User";
     var duration = parseInt(e.parameter.duration || "1");
     var amount = parseInt(e.parameter.amount);
     
     var paymentsSheet = ss.getSheetByName("Payments");
     if (paymentsSheet) {
-      var headers = paymentsSheet.getRange(1, 1, 1, paymentsSheet.getLastColumn()).getValues()[0];
-      if (headers.indexOf("durationMonths") === -1) {
-        paymentsSheet.getRange(1, 8).setValue("durationMonths");
-      }
-      
       var payData = paymentsSheet.getDataRange().getValues();
       var rowIdx = -1;
+      var pCol = 0;
       for (var k = 1; k < payData.length; k++) {
-        if (payData[k][0] === paymentId) {
-          rowIdx = k + 1;
-          break;
+        for (var c = 0; c < Math.min(payData[k].length, 4); c++) {
+          if (payData[k][c] && payData[k][c].toString().trim() === paymentId) {
+            rowIdx = k + 1;
+            pCol = c;
+            break;
+          }
         }
+        if (rowIdx !== -1) break;
       }
       
       if (rowIdx === -1) {
-        paymentsSheet.appendRow([paymentId, deviceId, telegram, amount, "Pending", new Date(), "", duration]);
+        // Detect if sheet has an extra column on the left (e.g. Column A has '-')
+        if (payData.length > 0 && payData[0].length > 1 && payData[0][1].toString().trim().toLowerCase() === "paymentid") {
+          paymentsSheet.appendRow(["-", paymentId, deviceId, telegram, amount, "Pending", new Date(), "", duration]);
+        } else {
+          paymentsSheet.appendRow([paymentId, deviceId, telegram, amount, "Pending", new Date(), "", duration]);
+        }
       } else {
-        paymentsSheet.getRange(rowIdx, 2).setValue(deviceId);
-        paymentsSheet.getRange(rowIdx, 3).setValue(telegram);
-        paymentsSheet.getRange(rowIdx, 4).setValue(amount);
-        paymentsSheet.getRange(rowIdx, 5).setValue("Pending");
-        paymentsSheet.getRange(rowIdx, 6).setValue(new Date());
-        paymentsSheet.getRange(rowIdx, 8).setValue(duration);
+        paymentsSheet.getRange(rowIdx, pCol + 2).setValue(deviceId);
+        paymentsSheet.getRange(rowIdx, pCol + 3).setValue(telegram);
+        paymentsSheet.getRange(rowIdx, pCol + 4).setValue(amount);
+        paymentsSheet.getRange(rowIdx, pCol + 5).setValue("Pending");
+        paymentsSheet.getRange(rowIdx, pCol + 6).setValue(new Date());
+        paymentsSheet.getRange(rowIdx, pCol + 8).setValue(duration);
       }
     }
     
     // Notify Admin via Telegram with application label
+    var safeUser = (telegram || "AutoCAD User").replace(/[_*[\]()~`>#+-=|{}.!]/g, '\\$&');
     var adminMsg = "🔔 **📱 Aplikasi: FTTH Basemap**\n" +
                    "**Permintaan Aktivasi Baru!**\n\n" +
-                   "• User: " + telegram + "\n" +
+                   "• User: " + safeUser + "\n" +
                    "• Device ID: `" + deviceId + "`\n" +
                    "• Paket: **" + duration + " Bulan**\n" +
                    "• Payment ID: `" + paymentId + "`\n" +
@@ -283,18 +297,25 @@ function doGet(e) {
   
   if (action === "checkPayment") {
     var ss = SpreadsheetApp.getActiveSpreadsheet();
-    var paymentId = e.parameter.paymentId;
-    var clientDeviceId = e.parameter.deviceId;
+    var paymentId = e.parameter.paymentId ? e.parameter.paymentId.trim() : "";
+    var clientDeviceId = e.parameter.deviceId ? e.parameter.deviceId.trim() : "";
     var paymentsSheet = ss.getSheetByName("Payments");
     var data = paymentsSheet.getDataRange().getValues();
     
     for (var i = 1; i < data.length; i++) {
-      if (data[i][0] === paymentId) {
-        if (clientDeviceId && (data[i][1] === "Unknown" || !data[i][1])) {
-          paymentsSheet.getRange(i + 1, 2).setValue(clientDeviceId);
+      var pCol = -1;
+      for (var c = 0; c < Math.min(data[i].length, 4); c++) {
+        if (data[i][c] && data[i][c].toString().trim() === paymentId) {
+          pCol = c;
+          break;
         }
-        var status = data[i][4]; // "Pending", "Approved", "Rejected"
-        var key = data[i][6];
+      }
+      if (pCol !== -1) {
+        if (clientDeviceId && (data[i][pCol + 1] === "Unknown" || !data[i][pCol + 1])) {
+          paymentsSheet.getRange(i + 1, pCol + 2).setValue(clientDeviceId);
+        }
+        var status = data[i][pCol + 4]; // "Pending", "Approved", "Rejected"
+        var key = data[i][pCol + 6];
         
         if (status === "Approved") {
           return ContentService.createTextOutput(JSON.stringify({
@@ -597,12 +618,17 @@ function handleTelegramUpdate(update) {
       var payId = cbParts[1];
       var userChatId = cbParts[2];
       
-      var success = approvePayment(payId, userChatId);
-      if (success) {
-        answerCallbackQuery(cb.id, "Pembayaran disetujui!");
-        editTelegramMessage(cbChatId, msgId, "✅ **📱 Aplikasi: FTTH Basemap**\n**Pembayaran " + payId + " DISETUJUI**");
-      } else {
-        answerCallbackQuery(cb.id, "Gagal memproses persetujuan!");
+      try {
+        var success = approvePayment(payId, userChatId);
+        if (success) {
+          answerCallbackQuery(cb.id, "Pembayaran disetujui!");
+          editTelegramMessage(cbChatId, msgId, "✅ <b>📱 Aplikasi: FTTH Basemap</b>\n<b>Pembayaran " + payId + " DISETUJUI</b>");
+        } else {
+          answerCallbackQuery(cb.id, "Gagal: Transaksi tidak ditemukan atau Device ID Unknown!");
+        }
+      } catch (err) {
+        answerCallbackQuery(cb.id, "Error: " + err.message);
+        sendTelegramMessage(ADMIN_TELEGRAM_ID, "⚠️ Error saat Approve " + payId + ": " + err.message);
       }
     } 
     
@@ -611,9 +637,13 @@ function handleTelegramUpdate(update) {
       var payId = cbParts[1];
       var userChatId = cbParts[2];
       
-      rejectPayment(payId, userChatId);
-      answerCallbackQuery(cb.id, "Pembayaran ditolak!");
-      editTelegramMessage(cbChatId, msgId, "❌ **📱 Aplikasi: FTTH Basemap**\n**Pembayaran " + payId + " DITOLAK**");
+      try {
+        rejectPayment(payId, userChatId);
+        answerCallbackQuery(cb.id, "Pembayaran ditolak!");
+        editTelegramMessage(cbChatId, msgId, "❌ <b>📱 Aplikasi: FTTH Basemap</b>\n<b>Pembayaran " + payId + " DITOLAK</b>");
+      } catch (err) {
+        answerCallbackQuery(cb.id, "Error: " + err.message);
+      }
     }
     
     // User detail menu from admin panel list
@@ -656,16 +686,21 @@ function approvePayment(paymentId, userChatId) {
   var payData = paymentsSheet.getDataRange().getValues();
   
   var rowIdx = -1;
+  var payCol = 0;
   var deviceId = "";
   var telegram = "";
   
   for (var i = 1; i < payData.length; i++) {
-    if (payData[i][0] === paymentId) {
-      rowIdx = i + 1;
-      deviceId = payData[i][1];
-      telegram = payData[i][2];
-      break;
+    for (var c = 0; c < Math.min(payData[i].length, 4); c++) {
+      if (payData[i][c] && payData[i][c].toString().trim() === paymentId.trim()) {
+        rowIdx = i + 1;
+        payCol = c;
+        deviceId = payData[i][c + 1] ? payData[i][c + 1].toString().trim() : "";
+        telegram = payData[i][c + 2] ? payData[i][c + 2].toString().trim() : "";
+        break;
+      }
     }
+    if (rowIdx !== -1) break;
   }
   
   if (rowIdx === -1) return false;
@@ -675,10 +710,11 @@ function approvePayment(paymentId, userChatId) {
   var idParts = paymentId.split("-");
   var txSalt = idParts[2];
   
-  // Read durationMonths from column 8 (index 7)
+  // Read durationMonths from column (payCol + 7)
   var durationMonths = 1;
-  if (payData[rowIdx - 1].length >= 8 && payData[rowIdx - 1][7] !== undefined && payData[rowIdx - 1][7] !== "") {
-    durationMonths = parseInt(payData[rowIdx - 1][7]);
+  var durColIdx = payCol + 7;
+  if (payData[rowIdx - 1].length > durColIdx && payData[rowIdx - 1][durColIdx] !== undefined && payData[rowIdx - 1][durColIdx] !== "") {
+    durationMonths = parseInt(payData[rowIdx - 1][durColIdx]);
   }
   if (isNaN(durationMonths) || durationMonths <= 0) {
     durationMonths = 1;
@@ -694,19 +730,26 @@ function approvePayment(paymentId, userChatId) {
   var usersSheet = ss.getSheetByName("Users");
   var userData = usersSheet.getDataRange().getValues();
   var userRowIdx = -1;
+  var userDevCol = 0;
   
   for (var j = 1; j < userData.length; j++) {
-    if (userData[j][0] === deviceId) {
-      userRowIdx = j + 1;
-      break;
+    for (var uc = 0; uc < Math.min(userData[j].length, 3); uc++) {
+      if (userData[j][uc] && userData[j][uc].toString().trim() === deviceId.trim()) {
+        userRowIdx = j + 1;
+        userDevCol = uc;
+        break;
+      }
     }
+    if (userRowIdx !== -1) break;
   }
   
   var expiresAt = new Date();
   if (userRowIdx !== -1) {
     // If user is Active and expiry is in the future, extend it
-    var currentExpiry = new Date(userData[userRowIdx - 1][3]);
-    if (userData[userRowIdx - 1][2] === "Active" && currentExpiry > expiresAt) {
+    var expiryColIdx = userDevCol + 3;
+    var currentExpiry = new Date(userData[userRowIdx - 1][expiryColIdx]);
+    var statusColIdx = userDevCol + 2;
+    if (userData[userRowIdx - 1][statusColIdx] === "Active" && currentExpiry > expiresAt) {
       expiresAt = currentExpiry;
     }
   }
@@ -717,17 +760,22 @@ function approvePayment(paymentId, userChatId) {
   // Generate Cryptographic Key
   var activationKey = generateActivationKey(deviceId, txSalt, expiresStr);
   
-  // Update Payments Sheet
-  paymentsSheet.getRange(rowIdx, 5).setValue("Approved");
-  paymentsSheet.getRange(rowIdx, 7).setValue(activationKey);
+  // Update Payments Sheet (Status at payCol + 5, Key at payCol + 7)
+  paymentsSheet.getRange(rowIdx, payCol + 5).setValue("Approved");
+  paymentsSheet.getRange(rowIdx, payCol + 7).setValue(activationKey);
   
   if (userRowIdx !== -1) {
-    usersSheet.getRange(userRowIdx, 2).setValue(telegram);
-    usersSheet.getRange(userRowIdx, 3).setValue("Active");
-    usersSheet.getRange(userRowIdx, 4).setValue(expiresStr);
-    usersSheet.getRange(userRowIdx, 5).setValue(txSalt);
+    usersSheet.getRange(userRowIdx, userDevCol + 2).setValue(telegram);
+    usersSheet.getRange(userRowIdx, userDevCol + 3).setValue("Active");
+    usersSheet.getRange(userRowIdx, userDevCol + 4).setValue(expiresStr);
+    usersSheet.getRange(userRowIdx, userDevCol + 5).setValue(txSalt);
   } else {
-    usersSheet.appendRow([deviceId, telegram, "Active", expiresStr, txSalt, new Date()]);
+    // Check if Users sheet has leading column
+    if (userData.length > 0 && userData[0].length > 1 && userData[0][1].toString().trim().toLowerCase() === "deviceid") {
+      usersSheet.appendRow(["-", deviceId, telegram, "Active", expiresStr, txSalt, new Date()]);
+    } else {
+      usersSheet.appendRow([deviceId, telegram, "Active", expiresStr, txSalt, new Date()]);
+    }
   }
   
   // Notify user via Telegram (safeguarded inside sendTelegramMessage if chatId is "0")
@@ -746,8 +794,15 @@ function rejectPayment(paymentId, userChatId) {
   var payData = paymentsSheet.getDataRange().getValues();
   
   for (var i = 1; i < payData.length; i++) {
-    if (payData[i][0] === paymentId) {
-      paymentsSheet.getRange(i + 1, 5).setValue("Rejected");
+    var pCol = -1;
+    for (var c = 0; c < Math.min(payData[i].length, 4); c++) {
+      if (payData[i][c] && payData[i][c].toString().trim() === paymentId.trim()) {
+        pCol = c;
+        break;
+      }
+    }
+    if (pCol !== -1) {
+      paymentsSheet.getRange(i + 1, pCol + 5).setValue("Rejected");
       break;
     }
   }
@@ -933,7 +988,8 @@ function sendTelegramMessage(chatId, text, replyMarkup) {
   var options = {
     method: "post",
     contentType: "application/json",
-    payload: JSON.stringify(payload)
+    payload: JSON.stringify(payload),
+    muteHttpExceptions: true
   };
   UrlFetchApp.fetch("https://api.telegram.org/bot" + BOT_TOKEN + "/sendMessage", options);
 }
@@ -947,17 +1003,31 @@ function editTelegramMessage(chatId, messageId, text, replyMarkup) {
     chat_id: chatId,
     message_id: messageId,
     text: text,
-    parse_mode: "Markdown"
+    parse_mode: "HTML"
   };
   if (replyMarkup) {
     payload.reply_markup = JSON.stringify(replyMarkup);
+  } else {
+    // Explicitly remove the inline buttons once approved/rejected
+    payload.reply_markup = JSON.stringify({ inline_keyboard: [] });
   }
   var options = {
     method: "post",
     contentType: "application/json",
-    payload: JSON.stringify(payload)
+    payload: JSON.stringify(payload),
+    muteHttpExceptions: true
   };
-  UrlFetchApp.fetch("https://api.telegram.org/bot" + BOT_TOKEN + "/editMessageText", options);
+  var resp = UrlFetchApp.fetch("https://api.telegram.org/bot" + BOT_TOKEN + "/editMessageText", options);
+  // Fallback: if HTML parsing fails, send plain text without parse_mode
+  if (resp.getResponseCode() !== 200) {
+    delete payload.parse_mode;
+    UrlFetchApp.fetch("https://api.telegram.org/bot" + BOT_TOKEN + "/editMessageText", {
+      method: "post",
+      contentType: "application/json",
+      payload: JSON.stringify(payload),
+      muteHttpExceptions: true
+    });
+  }
 }
 
 // Answer Callback Query
