@@ -1,0 +1,106 @@
+site_name: FTTH Design Planner - Dokumentasi & Pusat Bantuan
+site_description: Panduan Lengkap dan Dokumentasi Resmi Penggunaan Plugin AutoCAD FTTH Design Planner v3.6.9
+site_author: Syaiful Wachid
+docs_dir: help_docs
+site_dir: site
+
+theme:
+  name: material
+  language: id
+  palette:
+    # Mode Gelap (Slate-Indigo Default)
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Ganti ke Mode Terang
+    # Mode Terang
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Ganti ke Mode Gelap
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - attr_list
+  - md_in_html
+  - tables
+
+extra:
+  social:
+    - icon: fontawesome/brands/whatsapp
+      link: https://chat.whatsapp.com/DFjsdcWkD6b8WkG9XRYCsr
+      name: Komunitas WhatsApp FTTH Design
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/syaiful-wachid-5373n/
+      name: LinkedIn Syaiful Wachid
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/playlist?list=PLLr975-jxOLU
+      name: Video Tutorial YouTube
+
+nav:
+  - 🏠 Beranda: index.md
+  - 🚀 Panduan Memulai:
+      - Persyaratan Sistem: 01-getting-started/system-requirements.md
+      - Panduan Instalasi: 01-getting-started/installation.md
+      - Aktivasi Lisensi: 01-getting-started/licensing-and-activation.md
+      - Pengenalan Tampilan UI: 01-getting-started/ui-overview.md
+  - 🗺️ Basemap & Wilayah:
+      - Import Boundary (Eps 1): 02-basemap-and-isolation/import-boundary.md
+      - Download Peta Satelit (Eps 2): 02-basemap-and-isolation/download-satellite-map.md
+      - Otomatisasi Basemap Jalan (Eps 3): 02-basemap-and-isolation/create-basemap-road.md
+      - Kalibrasi Koordinat (Eps 7): 02-basemap-and-isolation/coordinate-calibration.md
+      - Batas Area Isolasi: 02-basemap-and-isolation/isolation-area.md
+  - 🏘️ Survey & Pelanggan:
+      - Penomoran Hompass (Eps 4): 03-survey-and-hompass/generate-hompass.md
+      - Remark Fasilitas (Eps 5): 03-survey-and-hompass/remark-facilities.md
+      - Persil Bidang Bangunan: 03-survey-and-hompass/parcel-and-buildings.md
+  - 📍 Penempatan Aset:
+      - Standar Blok Tiang: 04-asset-placement/pole-standards-and-placement.md
+      - Tagging & Nomor Tiang (Eps 6): 04-asset-placement/tagging-poles.md
+      - Clustering & FAT Otomatis (Eps 9): 04-asset-placement/subscriber-clustering-and-fat.md
+      - FDT & Skematik FAT-CORE: 04-asset-placement/fdt-and-core-schematic.md
+      - Pole Replacement Tool (Eps 10): 04-asset-placement/pole-replacement-tool.md
+  - ⚡ Kabel & Routing:
+      - Smart Routing Dijkstra (Eps 8): 05-cabling-and-routing/smart-routing-dijkstra.md
+      - Logika Kapasitas Core: 05-cabling-and-routing/core-capacity-rules.md
+      - Aturan Tektok Putar Balik: 05-cabling-and-routing/tektok-turnaround-rules.md
+      - Ortho Connect: 05-cabling-and-routing/ortho-connect.md
+      - Smart Smooth Polyline: 05-cabling-and-routing/smart-smooth-polyline.md
+  - 📤 Ekspor & Laporan:
+      - Ekspor Google Earth KMZ: 06-export-and-deliverables/export-google-earth-kmz.md
+      - Ekspor Bill of Materials (BOM): 06-export-and-deliverables/export-bom-boq-excel.md
+      - Ekspor HPDB & GeoJSON: 06-export-and-deliverables/export-hpdb-and-geojson.md
+      - Validasi Desain & Budget Optik: 06-export-and-deliverables/design-validation-and-budget.md
+  - 🛠️ Solusi Masalah:
+      - Kendala Lisensi: 07-troubleshooting/license-issues.md
+      - Palette AutoCAD Tidak Muncul: 07-troubleshooting/autocad-palette-issues.md
+      - Peta Satelit Blank: 07-troubleshooting/map-tiles-issues.md
+      - Tanya Jawab (FAQ): 07-troubleshooting/faq.md
+  - 💼 Layanan & Lisensi:
+      - Paket Harga & Langganan: 08-pricing-and-support/pricing-and-plans.md
+      - Komunitas & Dukungan Teknis: 08-pricing-and-support/community-and-support.md
