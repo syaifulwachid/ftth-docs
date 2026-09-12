@@ -10,7 +10,7 @@ Menginstal **FTTH Design Planner** sangat mudah dan tidak memerlukan pengaturan 
 Pastikan seluruh jendela Autodesk AutoCAD yang sedang terbuka telah ditutup sebelum menjalankan installer. Hal ini penting agar file DLL plugin tidak terkunci oleh sistem Windows.
 
 ### 2. Jalankan File Installer
-1. Unduh file installer resmi terbaru (misal: `FTTH_Design_Planner_v3.6.9_Setup.exe`).
+1. Unduh file installer resmi terbaru (saat ini: `FTTH_Design_Planner_v3.6.9_r22_Setup.exe`).
 2. Klik kanan pada file installer lalu pilih **Run as administrator**.
 3. Ikuti wizard instalasi di layar (klik **Next**).
 
@@ -33,7 +33,9 @@ Setelah instalasi selesai:
 
 ---
 
-## 🔄 Pembaruan Versi (Auto-Update Checker)
-Setiap kali Anda membuka AutoCAD atau palette, plugin akan secara otomatis memeriksa ketersediaan rilis versi baru melalui server manifest resmi:
-- Jika ada update baru, notifikasi pop-up akan muncul menginfokan changelog pembaruan.
-- Cukup klik **Yes** untuk membuka link download installer versi terbaru.
+## 🔄 Pembaruan Versi Otomatis (Auto-Update Checker)
+Plugin dilengkapi sistem pengecekan pembaruan otomatis yang terhubung ke server manifest GitHub Pages:
+- Tombol **`🔄` Cek Update** di header panel dilengkapi **Badge Merah** yang otomatis menyala ketika versi baru dirilis.
+- Jika ada update baru, banner notifikasi hijau akan muncul di atas palette.
+- Cukup klik banner atau tombol **Yes** pada dialog pop-up untuk langsung mengunduh installer versi terbaru tanpa kehilangan data pengaturan Anda.
+

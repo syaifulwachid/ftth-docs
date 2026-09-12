@@ -1,5 +1,5 @@
 site_name: FTTH Design Planner - Dokumentasi & Pusat Bantuan
-site_description: Panduan Lengkap dan Dokumentasi Resmi Penggunaan Plugin AutoCAD FTTH Design Planner v3.6.9
+site_description: Panduan Lengkap dan Dokumentasi Resmi Penggunaan Plugin AutoCAD FTTH Design Planner v3.6.9 (r22)
 site_author: Syaiful Wachid
 docs_dir: help_docs
 site_dir: site
@@ -69,8 +69,10 @@ nav:
       - Panduan Instalasi: 01-getting-started/installation.md
       - Aktivasi Lisensi: 01-getting-started/licensing-and-activation.md
       - Pengenalan Tampilan UI: 01-getting-started/ui-overview.md
+      - Mode Panduan Alur (Design Wizard): 01-getting-started/design-wizard.md
   - 🗺️ Basemap & Wilayah:
       - Import Boundary (Eps 1): 02-basemap-and-isolation/import-boundary.md
+      - Smart Import KMZ & Mapper: 02-basemap-and-isolation/smart-import-kmz.md
       - Download Peta Satelit (Eps 2): 02-basemap-and-isolation/download-satellite-map.md
       - Otomatisasi Basemap Jalan (Eps 3): 02-basemap-and-isolation/create-basemap-road.md
       - Kalibrasi Koordinat (Eps 7): 02-basemap-and-isolation/coordinate-calibration.md
@@ -84,9 +86,11 @@ nav:
       - Tagging & Nomor Tiang (Eps 6): 04-asset-placement/tagging-poles.md
       - Clustering & FAT Otomatis (Eps 9): 04-asset-placement/subscriber-clustering-and-fat.md
       - FDT & Skematik FAT-CORE: 04-asset-placement/fdt-and-core-schematic.md
+      - Selection Inspector (Inspeksi Objek): 04-asset-placement/selection-inspector.md
       - Pole Replacement Tool (Eps 10): 04-asset-placement/pole-replacement-tool.md
   - ⚡ Kabel & Routing:
       - Smart Routing Dijkstra (Eps 8): 05-cabling-and-routing/smart-routing-dijkstra.md
+      - FDT Line Manager & Multi-FDT: 05-cabling-and-routing/fdt-line-manager.md
       - Logika Kapasitas Core: 05-cabling-and-routing/core-capacity-rules.md
       - Aturan Tektok Putar Balik: 05-cabling-and-routing/tektok-turnaround-rules.md
       - Ortho Connect: 05-cabling-and-routing/ortho-connect.md
