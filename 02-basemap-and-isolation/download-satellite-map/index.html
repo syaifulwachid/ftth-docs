@@ -6,14 +6,14 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Panduan Lengkap dan Dokumentasi Resmi Penggunaan Plugin AutoCAD FTTH Design Planner v3.6.9">
+        <meta name="description" content="Panduan Lengkap dan Dokumentasi Resmi Penggunaan Plugin AutoCAD FTTH Design Planner v3.6.9 (r22)">
       
       
         <meta name="author" content="Syaiful Wachid">
       
       
       
-        <link rel="prev" href="../import-boundary/">
+        <link rel="prev" href="../smart-import-kmz/">
       
       
         <link rel="next" href="../create-basemap-road/">
@@ -614,6 +614,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-getting-started/design-wizard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mode Panduan Alur (Design Wizard)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -710,6 +738,34 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../smart-import-kmz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Smart Import KMZ & Mapper
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -784,10 +840,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-langkah-penggunaan-step-by-step" class="md-nav__link">
+  <a href="#2-metode-1-download-tile-satelit-hd-per-polygon-ftth_download_by_polygon" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Langkah Penggunaan (Step-by-Step)
+        2. Metode 1: Download Tile Satelit HD per Polygon (FTTH_DOWNLOAD_BY_POLYGON)
       
     </span>
   </a>
@@ -795,10 +851,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-visual-tangkapan-layar" class="md-nav__link">
+  <a href="#3-metode-2-autocad-native-geomap-bing-built-in" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Visual &amp; Tangkapan Layar
+        3. Metode 2: AutoCAD Native GEOMAP (Bing Built-in)
       
     </span>
   </a>
@@ -1245,6 +1301,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../04-asset-placement/selection-inspector/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Selection Inspector (Inspeksi Objek)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../04-asset-placement/pole-replacement-tool/" class="md-nav__link">
         
   
@@ -1342,6 +1426,34 @@
     
   
     Smart Routing Dijkstra (Eps 8)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-cabling-and-routing/fdt-line-manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FDT Line Manager & Multi-FDT
   
 
     
@@ -1975,10 +2087,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-langkah-penggunaan-step-by-step" class="md-nav__link">
+  <a href="#2-metode-1-download-tile-satelit-hd-per-polygon-ftth_download_by_polygon" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Langkah Penggunaan (Step-by-Step)
+        2. Metode 1: Download Tile Satelit HD per Polygon (FTTH_DOWNLOAD_BY_POLYGON)
       
     </span>
   </a>
@@ -1986,10 +2098,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-visual-tangkapan-layar" class="md-nav__link">
+  <a href="#3-metode-2-autocad-native-geomap-bing-built-in" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Visual &amp; Tangkapan Layar
+        3. Metode 2: AutoCAD Native GEOMAP (Bing Built-in)
       
     </span>
   </a>
@@ -2042,26 +2154,40 @@
 <hr />
 <h3 id="1-cara-akses-di-autocad">1. Cara Akses di AutoCAD</h3>
 <ul>
-<li><strong>Command CAD</strong>: <code>FTTH_DOWNLOAD_BY_POLYGON</code></li>
-<li><strong>Lokasi di Panel</strong>: Buka Palette <code>FTTH Basemap</code> ➔ Kartu <strong>Basemap &amp; Boundary</strong> ➔ Klik tombol <strong>Download Satellite Map</strong>.</li>
+<li><strong>Command CAD</strong>:</li>
+<li><code>FTTH_DOWNLOAD_BY_POLYGON</code> (Download Google/Esri/Bing Tiles per polygon)</li>
+<li><code>FTTH_GEOMAP_AERIAL</code> (Aktifkan satelit Bing bawaan AutoCAD)</li>
+<li><code>FTTH_GEOMAP_ROAD</code> (Aktifkan peta jalan Bing bawaan AutoCAD)</li>
+<li><code>FTTH_GEOMAP_OFF</code> (Matikan tampilan peta online AutoCAD)</li>
+<li><code>FTTH_GEOMAP_CAPTURE</code> (Sematkan/potong area peta Bing ke file DWG)</li>
+<li><strong>Lokasi di Panel</strong>: Buka Palette <code>FTTH Basemap</code> ➔ Tab <strong>MAP &amp; BASEMAP</strong> ➔ Kartu <strong>Boundary &amp; Map Downloader</strong>.</li>
 </ul>
 <hr />
-<h3 id="2-langkah-penggunaan-step-by-step">2. Langkah Penggunaan (Step-by-Step)</h3>
+<h3 id="2-metode-1-download-tile-satelit-hd-per-polygon-ftth_download_by_polygon">2. Metode 1: Download Tile Satelit HD per Polygon (<code>FTTH_DOWNLOAD_BY_POLYGON</code>)</h3>
 <ol>
-<li>Pastikan Anda telah memiliki polyline batas wilayah di layar kerja (atau hasil import dari Langkah 1).</li>
+<li>Pastikan Anda telah memiliki polyline batas wilayah di layar kerja.</li>
 <li>Jalankan perintah <code>FTTH_DOWNLOAD_BY_POLYGON</code> atau klik tombol di panel.</li>
 <li>Klik pada garis polyline boundary target Anda di AutoCAD.</li>
-<li>Pilih <strong>Zoom Level</strong> citra satelit (Level 17–19 disarankan untuk kejelasan visual atap rumah, tiang, dan lebar aspal jalan).</li>
-<li>Pilih penyedia tile (Google Satellite / Esri World Imagery / Bing Maps).</li>
-<li>Tekan tombol <strong>Download &amp; Place</strong>. Plugin akan mengunduh tile citra, menggabungkannya, dan menempatkan gambar raster di posisi koordinat yang presisi pada AutoCAD Model Space.</li>
+<li>Pilih <strong>Provider</strong>:</li>
+<li>Google Satellite</li>
+<li>Bing Maps</li>
+<li>ESRI World Imagery</li>
+<li>Pilih <strong>Resolution &amp; Zoom Level</strong>:</li>
+<li><em>Draft (16 tiles)</em></li>
+<li><em>Standard (64 tiles)</em></li>
+<li><em>High (256 tiles - Rekomendasi)</em></li>
+<li><em>Ultra High (1024 tiles)</em></li>
+<li><em>Manual Zoom Level</em> (Zoom 17 ~1.2m/px hingga Zoom 20 ~0.15m/px)</li>
+<li>Pilih <strong>Color Mode</strong>: Full Color atau Grayscale.</li>
+<li>Tekan tombol <strong>DOWNLOAD BY POLYGON</strong>. Plugin akan mengunduh tile citra, menggabungkannya (<em>stitching</em>), dan menempatkan gambar raster di posisi koordinat UTM yang presisi pada layer <code>FTTH-SATELLITE-MAP</code>.</li>
 </ol>
 <hr />
-<h3 id="3-visual-tangkapan-layar">3. Visual &amp; Tangkapan Layar</h3>
-<blockquote>
-<p>📸 <em>(Area Screenshot / Animasi GIF)</em></p>
-</blockquote>
-<!-- Placeholder: Gambar proses seleksi polygon dan tampilan citra satelit HD di AutoCAD -->
-
+<h3 id="3-metode-2-autocad-native-geomap-bing-built-in">3. Metode 2: AutoCAD Native GEOMAP (Bing Built-in)</h3>
+<p>Bagi pengguna AutoCAD dengan akun Autodesk aktif, plugin menyediakan tombol integrasi instan di dalam panel:
+- <strong>Bing Aerial</strong> (<code>FTTH_GEOMAP_AERIAL</code>): Menampilkan citra satelit Bing secara streaming langsung di viewport CAD.
+- <strong>Bing Road</strong> (<code>FTTH_GEOMAP_ROAD</code>): Menampilkan peta vektor jalan lengkap dengan nama jalan resmi.
+- <strong>Capture Area</strong> (<code>FTTH_GEOMAP_CAPTURE</code>): Mengubah area peta Bing yang sedang tampil di layar menjadi gambar raster statis yang tersimpan permanen di file DWG tanpa perlu koneksi internet lagi.
+- <strong>Turn Off Map</strong> (<code>FTTH_GEOMAP_OFF</code>): Menonaktifkan tampilan peta streaming.</p>
 <hr />
 <h3 id="4-video-tutorial-youtube">4. Video Tutorial YouTube</h3>
 <p>Tonton video panduan lengkap langkah demi langkah pada tautan di bawah ini:</p>
@@ -2071,7 +2197,7 @@
 <h3 id="5-tips-hal-yang-perlu-diperhatikan">5. Tips &amp; Hal yang Perlu Diperhatikan</h3>
 <ul>
 <li>⚠️ <strong>Koneksi Internet</strong>: Diperlukan koneksi internet yang stabil saat proses download berlangsung.</li>
-<li>💡 <strong>Manajemen Performa CAD</strong>: Gunakan perintah <code>DRAWORDER</code> ➔ <code>Back</code> agar gambar satelit berada di lapisan paling belakang dan tidak menutupi garis jalur kabel atau blok tiang.</li>
+<li>💡 <strong>Manajemen Performa CAD</strong>: Gunakan tombol <strong>Show/Hide Map</strong> di panel untuk menyembunyikan sementara layer peta satelit jika gambar mulai terasa berat.</li>
 <li>💡 <strong>Cache Lokal</strong>: Tile peta otomatis disimpan di disk lokal sehingga saat gambar CAD dibuka kembali, peta tidak perlu diunduh ulang.</li>
 </ul>
 
