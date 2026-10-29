@@ -2629,6 +2629,10 @@
 <li><strong>📁 Auto-Deployment Template Standar AutoCAD Multi-Versi (<code>0.EMR Drawing Template 2026.dwt</code>)</strong>:</li>
 <li>Installer Inno Setup kini dilengkapi skrip pendeteksi direktori template aktif via Windows Registry profil AutoCAD (<code>HKCU\Software\Autodesk\AutoCAD\...</code>) serta pemindaian menyeluruh di <code>%LOCALAPPDATA%\Autodesk</code> dan <code>%APPDATA%\Autodesk</code> lintas versi (AutoCAD 2021 hingga AutoCAD 2027+ dan seluruh language pack).</li>
 <li>Berkas template <code>0.EMR Drawing Template 2026.dwt</code> otomatis disalin langsung ke folder template resmi AutoCAD pengguna saat instalasi selesai.</li>
+<li><strong>🎚️ Flawless Scale Tools Workflow (Dual-Scenario Precision Scaling)</strong>:</li>
+<li><strong>Skenario 1 (Pre-Selection / Implied / Select Similar)</strong>: Pengguna dapat memilih objek terlebih dahulu (single, crossing/window, maupun klik kanan AutoCAD "Select Similar"), lalu menekan tombol <em>Scale In Place</em> — objek langsung terkunci seketika dan siap di-adjust ukurannya secara realtime melalui slider.</li>
+<li><strong>Skenario 2 (Post-Selection / Interactive Selection Mode)</strong>: Jika tombol ditekan sebelum objek dipilih, sistem otomatis masuk ke mode seleksi interaktif AutoCAD (mendukung single click, window/crossing, serta opsi keyword <code>[Similar]</code> untuk memilih seluruh objek sejenis secara otomatis), kemudian slider langsung aktif untuk penyesuaian ukuran.</li>
+<li>Optimasi rendering grafis CAD berbasis <code>UpdateScreen()</code> (tanpa beban full database regen) untuk responsivitas slider yang ultra-smooth.</li>
 <li><strong>🛡️ Peningkatan Keamanan &amp; Integritas Runtime</strong>:</li>
 <li>Peningkatan arsitektur proteksi modul internal, penguatan mekanisme verifikasi runtime watchdog, serta optimasi eksekusi memori pada lingkungan multi-target framework (.NET 4.8 &amp; .NET 8.0) untuk menjaga stabilitas dan integritas sistem software.</li>
 <li><strong>File Installer</strong>: <code>FTTH_Design_Planner_v3.6.9_r34_Setup.exe</code></li>
