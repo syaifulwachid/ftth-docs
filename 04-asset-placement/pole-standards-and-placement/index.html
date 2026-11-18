@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Panduan Lengkap dan Dokumentasi Resmi Penggunaan Plugin AutoCAD FTTH Design Planner v3.6.9 (r34)">
+        <meta name="description" content="Panduan Lengkap dan Dokumentasi Resmi Penggunaan Plugin AutoCAD FTTH Design Planner v3.6.9 (r37)">
       
       
         <meta name="author" content="Syaiful Wachid">
@@ -2219,7 +2219,7 @@
 <table>
 <thead>
 <tr>
-<th>Nama Blok</th>
+<th>Nama Blok / Simbol</th>
 <th>Layer CAD</th>
 <th>Keterangan &amp; Spesifikasi</th>
 </tr>
@@ -2246,12 +2246,36 @@
 <td>New Pole 9 Meter, diameter pipa 4.0 inch (Tiang crossing jalan raya / rel KA)</td>
 </tr>
 <tr>
-<td><strong>EP74</strong></td>
+<td><strong>eP7 LN</strong></td>
+<td><code>FTTH-POLE-EXISTING-LN-7</code></td>
+<td>Existing Pole 7 Meter LinkNet (Simbol resmi tiang tumpangan LinkNet 7m)</td>
+</tr>
+<tr>
+<td><strong>eP9 LN</strong></td>
+<td><code>FTTH-POLE-EXISTING-LN-9</code></td>
+<td>Existing Pole 9 Meter LinkNet (Simbol resmi tiang tumpangan LinkNet 9m)</td>
+</tr>
+<tr>
+<td><strong>eP7 TEL</strong></td>
+<td><code>FTTH-POLE-EXISTING-TEL-7</code></td>
+<td>Existing Pole 7 Meter Telkom (Simbol resmi tiang tumpangan Telkom 7m)</td>
+</tr>
+<tr>
+<td><strong>eP9 TEL</strong></td>
+<td><code>FTTH-POLE-EXISTING-TEL-9</code></td>
+<td>Existing Pole 9 Meter Telkom (Simbol resmi tiang tumpangan Telkom 9m)</td>
+</tr>
+<tr>
+<td><strong>EXT 3rd Partner (EP74 / EP94)</strong></td>
 <td><code>FTTH-POLE-EXISTING</code></td>
-<td>Existing Pole 7 Meter (Tiang sewa milik pihak ketiga / PLN / Telkom)</td>
+<td>Existing Pole Mitra Pihak Ketiga di luar LinkNet &amp; Telkom</td>
 </tr>
 </tbody>
 </table>
+<div class="admonition tip">
+<p class="admonition-title">🖨️ Mode Cetak Teks Putih (Plot-Clean Annotation)</p>
+<p>Pada rilis <strong>v3.6.9 (r37)</strong>, Anda dapat mengaktifkan parameter <strong>Teks Putih untuk Tiang Existing</strong> agar teks penanda pada simbol tiang existing berwarna putih (<code>Color 7</code>) sehingga menyatu bersih dengan kertas saat dicetak/plotting (menghasilkan simbol murni sesuai standar), namun tetap terbaca jelas di layar gelap AutoCAD saat proses desain.</p>
+</div>
 <hr />
 <h2 id="cara-penempatan-tiang-di-autocad">🎯 Cara Penempatan Tiang di AutoCAD</h2>
 <ul>
